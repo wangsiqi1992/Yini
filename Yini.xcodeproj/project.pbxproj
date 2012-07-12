@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1A815AF054800450199 /* UIKit.framework */; };
+		17FBC1AB15AF054800450199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AA15AF054800450199 /* Foundation.framework */; };
+		17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AC15AF054800450199 /* CoreGraphics.framework */; };
+		17FBC1AF15AF054800450199 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AE15AF054800450199 /* CoreData.framework */; };
+		17FBC1B515AF054800450199 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FBC1B315AF054800450199 /* InfoPlist.strings */; };
+		17FBC1B715AF054800450199 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FBC1B615AF054800450199 /* main.m */; };
+		17FBC1BB15AF054800450199 /* BWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FBC1BA15AF054800450199 /* BWAppDelegate.m */; };
+		17FBC1BE15AF054800450199 /* Yini.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17FBC1BC15AF054800450199 /* Yini.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17FBC1A415AF054800450199 /* Yini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FBC1A815AF054800450199 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		17FBC1AA15AF054800450199 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17FBC1AC15AF054800450199 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		17FBC1AE15AF054800450199 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		17FBC1B215AF054800450199 /* Yini-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Yini-Info.plist"; sourceTree = "<group>"; };
+		17FBC1B415AF054800450199 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17FBC1B615AF054800450199 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17FBC1B815AF054800450199 /* Yini-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yini-Prefix.pch"; sourceTree = "<group>"; };
+		17FBC1B915AF054800450199 /* BWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWAppDelegate.h; sourceTree = "<group>"; };
+		17FBC1BA15AF054800450199 /* BWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWAppDelegate.m; sourceTree = "<group>"; };
+		17FBC1BD15AF054800450199 /* Yini.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Yini.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17FBC1A115AF054800450199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */,
+				17FBC1AB15AF054800450199 /* Foundation.framework in Frameworks */,
+				17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */,
+				17FBC1AF15AF054800450199 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17FBC19915AF054800450199 = {
+			isa = PBXGroup;
+			children = (
+				17FBC1B015AF054800450199 /* Yini */,
+				17FBC1A715AF054800450199 /* Frameworks */,
+				17FBC1A515AF054800450199 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17FBC1A515AF054800450199 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17FBC1A415AF054800450199 /* Yini.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17FBC1A715AF054800450199 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17FBC1A815AF054800450199 /* UIKit.framework */,
+				17FBC1AA15AF054800450199 /* Foundation.framework */,
+				17FBC1AC15AF054800450199 /* CoreGraphics.framework */,
+				17FBC1AE15AF054800450199 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17FBC1B015AF054800450199 /* Yini */ = {
+			isa = PBXGroup;
+			children = (
+				17FBC1B915AF054800450199 /* BWAppDelegate.h */,
+				17FBC1BA15AF054800450199 /* BWAppDelegate.m */,
+				17FBC1BC15AF054800450199 /* Yini.xcdatamodeld */,
+				17FBC1B115AF054800450199 /* Supporting Files */,
+			);
+			path = Yini;
+			sourceTree = "<group>";
+		};
+		17FBC1B115AF054800450199 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17FBC1B215AF054800450199 /* Yini-Info.plist */,
+				17FBC1B315AF054800450199 /* InfoPlist.strings */,
+				17FBC1B615AF054800450199 /* main.m */,
+				17FBC1B815AF054800450199 /* Yini-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17FBC1A315AF054800450199 /* Yini */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17FBC1C115AF054800450199 /* Build configuration list for PBXNativeTarget "Yini" */;
+			buildPhases = (
+				17FBC1A015AF054800450199 /* Sources */,
+				17FBC1A115AF054800450199 /* Frameworks */,
+				17FBC1A215AF054800450199 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yini;
+			productName = Yini;
+			productReference = 17FBC1A415AF054800450199 /* Yini.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17FBC19B15AF054800450199 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BW;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "siqi wang";
+			};
+			buildConfigurationList = 17FBC19E15AF054800450199 /* Build configuration list for PBXProject "Yini" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17FBC19915AF054800450199;
+			productRefGroup = 17FBC1A515AF054800450199 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17FBC1A315AF054800450199 /* Yini */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17FBC1A215AF054800450199 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FBC1B515AF054800450199 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17FBC1A015AF054800450199 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FBC1B715AF054800450199 /* main.m in Sources */,
+				17FBC1BB15AF054800450199 /* BWAppDelegate.m in Sources */,
+				17FBC1BE15AF054800450199 /* Yini.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17FBC1B315AF054800450199 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17FBC1B415AF054800450199 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17FBC1BF15AF054800450199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17FBC1C015AF054800450199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17FBC1C215AF054800450199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Yini/Yini-Prefix.pch";
+				INFOPLIST_FILE = "Yini/Yini-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		17FBC1C315AF054800450199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Yini/Yini-Prefix.pch";
+				INFOPLIST_FILE = "Yini/Yini-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17FBC19E15AF054800450199 /* Build configuration list for PBXProject "Yini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17FBC1BF15AF054800450199 /* Debug */,
+				17FBC1C015AF054800450199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17FBC1C115AF054800450199 /* Build configuration list for PBXNativeTarget "Yini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17FBC1C215AF054800450199 /* Debug */,
+				17FBC1C315AF054800450199 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17FBC1BC15AF054800450199 /* Yini.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17FBC1BD15AF054800450199 /* Yini.xcdatamodel */,
+			);
+			currentVersion = 17FBC1BD15AF054800450199 /* Yini.xcdatamodel */;
+			path = Yini.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 17FBC19B15AF054800450199 /* Project object */;
+}
