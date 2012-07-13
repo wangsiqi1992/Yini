@@ -10,34 +10,21 @@
 //static NSString *newsFileDirec = @"News/systemFile/individual";
 
 @implementation WSQNews
-@synthesize newsType, lastModifiedDate, filename;
--(id)initWithDBobject:(DBMetadata *)metadata
+@synthesize newsType, lastModifiedDate, filename, createdDate;
+
+
+-(id)initWithMetadataPath:(NSString *)path
 {
-
-    //check the trype!
-    //return the correct news...
-    
-    //implement comments here and all the things related to plist
-
-    self.filename = metadata.filename;
-    self.lastModifiedDate = metadata.lastModifiedDate;
-   // NewsObjectPhoto *photo;
-    
-    
-    return self;
-    
-}
-
--(id)initWithName:(NSString *)name
-{
-//    NSFileManager *fm = [NSFileManager defaultManager];
-//    if (![fm fileExistsAtPath:[newsFileDirec stringByAppendingPathComponent:name]]) {
-//        //news system file not exist, do nothing....!
-//    }
-//ASK WSQ FILE MANAGER HERE?!
+    DBMetadata *d = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    self.filename = d.filename;
+    self.lastModifiedDate = d.lastModifiedDate;
+    self.newsType = [self newsTypeForExtension:[d.path pathExtension]];
+    self.createdDate = d.clientMtime;
     
     return self;
 }
+
+
 
 -(id)initWithSysFilePath:(NSString *)path
 {
@@ -51,19 +38,128 @@
     [aCoder encodeInteger:self.newsType forKey:@"newsType"];
     [aCoder encodeObject:self.lastModifiedDate forKey:@"lastModifiedDate"];
     [aCoder encodeObject:self.filename forKey:@"filename"];
+    [aCoder encodeObject:self.createdDate forKey:@"createdDate"];
+
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     if (self) {
-        self.newsType = [aDecoder decodeObjectForKey:@"newsType"];
+        self.newsType = [aDecoder decodeIntegerForKey:@"newsType"];
         self.lastModifiedDate = [aDecoder decodeObjectForKey:@"lastModifiedDate"];
         self.filename = [aDecoder decodeObjectForKey:@"filename"];
+        self.createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
     }
 
     
     return self;
 }
+
++(NSArray*)photoExtensions
+{
+    
+    return [[NSArray alloc]initWithObjects:@"jpg", @"png", @"gif", nil];
+}
+
+
++(NSArray*)videoExtensions
+{
+    return [[NSArray alloc]initWithObjects:@"mov", @"mp4", @"avi", nil];
+
+}
+
+
++(NSArray*)articleExtensions
+{
+    return [[NSArray alloc]initWithObjects:@"rtf", @"txt", @"plist", nil];
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark - private helper
+
+-(int)newsTypeForExtension:(NSString*)extension
+{
+    extension = [extension lowercaseString];
+    for (NSString *s in [WSQNews photoExtensions]) {
+        if ([extension isEqualToString:s]) {
+            return WSQPhoto;
+        }
+    }
+    for (NSString *s in [WSQNews videoExtensions]) {
+        if ([extension isEqualToString:s]) {
+            return WSQVideo;
+        }
+    }
+    for (NSString *s in [WSQNews articleExtensions]) {
+        if ([extension isEqualToString:s]) {
+            return WSQArticle;
+        }
+    }
+    
+    return nil;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

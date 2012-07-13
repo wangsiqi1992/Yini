@@ -16,8 +16,7 @@
 }
 
 
-@property (nonatomic, strong) NSDate *createdDate;
-@property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong) NSString *dbpath;
 @property (nonatomic, strong) NSString *thumbnailPath;
 
 

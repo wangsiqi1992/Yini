@@ -10,59 +10,30 @@
 
 
 @implementation NewsObjectPhoto
-@synthesize createdDate, path, thumbnailPath;
+@synthesize dbpath, thumbnailPath;
 
 -(NewsObjectPhoto*)loadPhoto
 {
     return self;
 }
 
-//-(id)initPhotoNewsWith:(WSQNews *)news
-//{
-//    self = (NewsObjectPhoto*) news;
-//    
-//    return self;
-//}
 
--(id)initWithDBobject:(DBMetadata *)metadata
+
+-(id)initWithMetadataPath:(NSString *)path
 {
-    self = [super initWithDBobject:metadata];
-    
-    self.createdDate = metadata.clientMtime;
-
-    self.newsType = WSQPhoto;
-    
-    self.path = metadata.path;
-    
-    //implement thumbnail path here!!!!
-
-    NSArray *pa = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dPath = [pa objectAtIndex:0];
-    
-    NSArray *parts = [path componentsSeparatedByString:@"/"];
-    NSString *name = [parts objectAtIndex:[parts count]-1];
-    NSString *localPath = [dPath stringByAppendingPathComponent:@"News/thumbnail"];
-    
-    
-    NSString *localDic = [localPath stringByAppendingPathComponent:name];
-    thumbnailPath = localDic;
-    
-    
-    //write to file plist.....~!!!
-    
-    
-    return self;    
-}
-
--(id)initWithName:(NSString *)name
-{
-    
-    
+    self = [super initWithMetadataPath:path];
+    DBMetadata *d = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    self.dbpath = d.path;
+    WSQFileHelper* helper = [WSQFileHelper sharedHelper];
+    self.thumbnailPath = [helper thumbnailPathForNewsNamePath:[helper pathNameFromDBPath:self.dbpath]];
     return self;
+    
 }
+
 
 -(id)initWithSysFilePath:(NSString *)path
 {
+    //no super init here, file contain everything...
     self = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     
     return self;
@@ -72,8 +43,7 @@
 {
     [super encodeWithCoder:aCoder];
     
-    [aCoder encodeObject:self.createdDate forKey:@"createdDate"];
-    [aCoder encodeObject:self.path forKey:@"path"];
+    [aCoder encodeObject:self.dbpath forKey:@"dbpath"];
     [aCoder encodeObject:self.thumbnailPath forKey:@"thumbnailPath"];
     
     
@@ -83,8 +53,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
-        self.path = [aDecoder decodeObjectForKey:@"path"];
+        self.dbpath = [aDecoder decodeObjectForKey:@"dbpath"];
         self.thumbnailPath = [aDecoder decodeObjectForKey:@"thumbnailPath"];
 
     }
