@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorSwitcher.h"
+#import <DropboxSDK/DropboxSDK.h>
 
-@interface BWAppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface BWAppDelegate : UIResponder <UIApplicationDelegate, DBSessionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -18,5 +21,17 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+
+@property (strong, nonatomic) ColorSwitcher* colorSwitcher;
+
+
++(BWAppDelegate *)instance;
+
+- (void)customizeGlobalTheme;
+
+- (void)customizeiPadTheme;
+
+
 
 @end

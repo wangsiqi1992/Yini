@@ -13,14 +13,130 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize window = _window, colorSwitcher;
+
++(BWAppDelegate*)instance
+{
+    return [[UIApplication sharedApplication] delegate];
+
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    self.colorSwitcher = [[ColorSwitcher alloc] init];
+    
+    [self customizeGlobalTheme];
+    
+    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
+    
+    if (idiom == UIUserInterfaceIdiomPad)
+    {
+        [self customizeiPadTheme];
+    }
+    
+    //trying to set dropbox link here~!
+    NSString *root = kDBRootDropbox;
+    DBSession* dbSession =
+    [[DBSession alloc]
+     initWithAppKey:@"eqj47xmvmlzujdl"
+     appSecret:@"2d1rddxovsscdgl"
+     root:root]; // either kDBRootAppFolder or kDBRootDropbox
+    
+    dbSession.delegate = self;
+    [DBSession setSharedSession:dbSession];
+    
+    DBRestClient *restClient;
+    if (!restClient) {
+        restClient =
+        [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+    }
+    
+    
+    
     return YES;
+}
+
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    
+    // Add whatever other url handling code your app requires here
+    return NO;
+}
+
+- (void)customizeGlobalTheme {
+    UIImage *navBarImage = [colorSwitcher getImageWithName:@"menubar.png"];
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    
+    UIImage *barButton = [[colorSwitcher getImageWithName:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    UIImage *backButton = [[colorSwitcher getImageWithName:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,15,0,8)];
+    
+    
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+    
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tabbar.png"]];
+    
+    UIImage *minImage = [colorSwitcher getImageWithName:@"slider-fill"];
+    UIImage *maxImage = [UIImage imageNamed:@"slider-track.png"];
+    UIImage *thumbImage = [UIImage imageNamed:@"slider-handle.png"];
+    
+    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
+    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
+    
+    
+    [[UISearchBar appearance] setBackgroundImage:[colorSwitcher getImageWithName:@"menu-search.png"]];
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[colorSwitcher getImageWithName:@"menu-search-field.png"] forState:UIControlStateNormal];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor],
+      UITextAttributeTextColor,
+      [UIColor lightGrayColor],
+      UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
+      UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Lobster 1.4" size:22],
+      UITextAttributeFont,
+      nil]];
+}
+
+- (void)customizeiPadTheme {
+    UIImage *navBarImage = [colorSwitcher getImageWithName:@"menu-bar-right.png"];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[navBarImage stretchableImageWithLeftCapWidth:10 topCapHeight:10]
+                                       forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
+      UITextAttributeTextColor,
+      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
+      UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
+      UITextAttributeTextShadowOffset,
+      nil]];
+}
+
+
+
+-(void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId
+{
+    NSLog(@"db session failure");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
