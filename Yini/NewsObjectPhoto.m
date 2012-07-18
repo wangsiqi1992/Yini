@@ -10,7 +10,7 @@
 
 
 @implementation NewsObjectPhoto
-@synthesize dbpath, thumbnailPath;
+@synthesize dbpath, thumbnailPath, mediaPath;
 
 -(NewsObjectPhoto*)loadPhoto
 {
@@ -26,6 +26,7 @@
     self.dbpath = d.path;
     WSQFileHelper* helper = [WSQFileHelper sharedHelper];
     self.thumbnailPath = [helper thumbnailPathForNewsNamePath:[helper pathNameFromDBPath:self.dbpath]];
+    self.mediaPath = [helper directoryForNewsMediaFile:[helper pathNameFromDBPath:self.dbpath]];
     return self;
     
 }
@@ -45,7 +46,8 @@
     
     [aCoder encodeObject:self.dbpath forKey:@"dbpath"];
     [aCoder encodeObject:self.thumbnailPath forKey:@"thumbnailPath"];
-    
+    [aCoder encodeObject:self.mediaPath forKey:@"mediaPath"];
+
     
 }
 
@@ -55,6 +57,8 @@
     if (self) {
         self.dbpath = [aDecoder decodeObjectForKey:@"dbpath"];
         self.thumbnailPath = [aDecoder decodeObjectForKey:@"thumbnailPath"];
+        self.mediaPath = [aDecoder decodeObjectForKey:@"mediaPath"];
+
 
     }
     return self;

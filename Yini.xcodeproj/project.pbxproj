@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */; };
 		17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1A815AF054800450199 /* UIKit.framework */; };
 		17FBC1AB15AF054800450199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AA15AF054800450199 /* Foundation.framework */; };
 		17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AC15AF054800450199 /* CoreGraphics.framework */; };
@@ -242,6 +243,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17890B6D15B45B3300F7E997 /* BWPhotoVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPhotoVideoViewController.h; sourceTree = SOURCE_ROOT; };
+		17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPhotoVideoViewController.m; sourceTree = SOURCE_ROOT; };
 		17FBC1A415AF054800450199 /* Yini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FBC1A815AF054800450199 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17FBC1AA15AF054800450199 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -586,6 +589,8 @@
 		17FBC1B015AF054800450199 /* Yini */ = {
 			isa = PBXGroup;
 			children = (
+				17890B6D15B45B3300F7E997 /* BWPhotoVideoViewController.h */,
+				17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */,
 				17FBC40415B0209E00450199 /* NewsObjects */,
 				17FBC1D715AF057C00450199 /* NewsLoader.h */,
 				17FBC1D815AF057C00450199 /* NewsLoader.m */,
@@ -1419,6 +1424,7 @@
 				17FBC3E915AF07DA00450199 /* LoadDataCell.m in Sources */,
 				17FBC3EA15AF07DA00450199 /* NewsObjectPhoto.m in Sources */,
 				17FBC3EB15AF07DA00450199 /* WSQNews.m in Sources */,
+				17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

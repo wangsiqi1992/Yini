@@ -32,5 +32,6 @@ enum WSQNewsTypes {
 @property (nonatomic) int newsType;
 @property (nonatomic, strong) NSDate *lastModifiedDate;
 @property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *newsName;
 
 @end

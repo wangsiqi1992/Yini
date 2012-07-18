@@ -10,7 +10,7 @@
 //static NSString *newsFileDirec = @"News/systemFile/individual";
 
 @implementation WSQNews
-@synthesize newsType, lastModifiedDate, filename, createdDate;
+@synthesize newsType, lastModifiedDate, filename, createdDate, newsName;
 
 
 -(id)initWithMetadataPath:(NSString *)path
@@ -39,6 +39,7 @@
     [aCoder encodeObject:self.lastModifiedDate forKey:@"lastModifiedDate"];
     [aCoder encodeObject:self.filename forKey:@"filename"];
     [aCoder encodeObject:self.createdDate forKey:@"createdDate"];
+    [aCoder encodeObject:self.newsName forKey:@"newsName"];
 
 }
 
@@ -50,6 +51,7 @@
         self.lastModifiedDate = [aDecoder decodeObjectForKey:@"lastModifiedDate"];
         self.filename = [aDecoder decodeObjectForKey:@"filename"];
         self.createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
+        self.newsName = [aDecoder decodeObjectForKey:@"newsName"];
     }
 
     
