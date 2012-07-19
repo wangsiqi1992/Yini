@@ -10,14 +10,17 @@
 #import "NewsObjectPhoto.h"
 #import "NewsLoader.h"
 
-@interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate>
+@interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, UITextFieldDelegate>
 {
-    id detailedObject;
+    NewsLoader *loader;
+    WSQNews *detailedObject;
+    UITextField *activeTextField;
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheelForNewsNameTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (strong, nonatomic) IBOutlet UITextField *newsNameTextField;
-
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 -(void)initWithDetailedObject:(id)dOb;

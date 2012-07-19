@@ -10,7 +10,7 @@
 //static NSString *newsFileDirec = @"News/systemFile/individual";
 
 @implementation WSQNews
-@synthesize newsType, lastModifiedDate, filename, createdDate, newsName;
+@synthesize newsType, lastModifiedDate, filename, createdDate, newsName, mainMediaSysFileFullPath;
 
 
 -(id)initWithMetadataPath:(NSString *)path
@@ -20,6 +20,7 @@
     self.lastModifiedDate = d.lastModifiedDate;
     self.newsType = [self newsTypeForExtension:[d.path pathExtension]];
     self.createdDate = d.clientMtime;
+    self.mainMediaSysFileFullPath = [[WSQFileHelper sharedHelper] directoryForNewsSysFile:[[WSQFileHelper sharedHelper] sysPathNameFromDBPath:d.path]];
     
     return self;
 }
@@ -40,6 +41,7 @@
     [aCoder encodeObject:self.filename forKey:@"filename"];
     [aCoder encodeObject:self.createdDate forKey:@"createdDate"];
     [aCoder encodeObject:self.newsName forKey:@"newsName"];
+    [aCoder encodeObject:self.mainMediaSysFileFullPath forKey:@"mainMediaSysFileFullPath"];
 
 }
 
@@ -52,6 +54,7 @@
         self.filename = [aDecoder decodeObjectForKey:@"filename"];
         self.createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
         self.newsName = [aDecoder decodeObjectForKey:@"newsName"];
+        self.mainMediaSysFileFullPath = [aDecoder decodeObjectForKey:@"mainMediaSysFileFullPath"];
     }
 
     

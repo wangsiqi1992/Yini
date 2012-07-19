@@ -33,5 +33,6 @@ enum WSQNewsTypes {
 @property (nonatomic, strong) NSDate *lastModifiedDate;
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *newsName;
+@property (nonatomic, strong) NSString *mainMediaSysFileFullPath;
 
 @end
