@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1715696915B9579B00B2B969 /* BWMyLordInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */; };
+		1715696C15B986E700B2B969 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1715696B15B986E700B2B969 /* DropboxSDK.framework */; };
 		17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */; };
+		17DB4E4D15B8922D0016651B /* BWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E4C15B8922D0016651B /* BWUser.m */; };
+		17DB4E5115B941290016651B /* BWLord.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E5015B941280016651B /* BWLord.m */; };
 		17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1A815AF054800450199 /* UIKit.framework */; };
 		17FBC1AB15AF054800450199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AA15AF054800450199 /* Foundation.framework */; };
 		17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AC15AF054800450199 /* CoreGraphics.framework */; };
@@ -231,7 +235,6 @@
 		17FBC3D815AF057C00450199 /* punkduck.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17FBC2EC15AF057C00450199 /* punkduck.mp4 */; };
 		17FBC3DA15AF057C00450199 /* WSQFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FBC2F015AF057C00450199 /* WSQFileHelper.m */; };
 		17FBC3DC15AF057C00450199 /* WSQFileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FBC2F415AF057C00450199 /* WSQFileUploader.m */; };
-		17FBC3DE15AF074800450199 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC3DD15AF074800450199 /* DropboxSDK.framework */; };
 		17FBC3E015AF075F00450199 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC3DF15AF075F00450199 /* QuartzCore.framework */; };
 		17FBC3E215AF076700450199 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC3E115AF076700450199 /* Security.framework */; };
 		17FBC3E915AF07DA00450199 /* LoadDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FBC3E415AF07DA00450199 /* LoadDataCell.m */; };
@@ -243,8 +246,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1715696715B9579B00B2B969 /* BWMyLordInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMyLordInfoViewController.h; sourceTree = "<group>"; };
+		1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMyLordInfoViewController.m; sourceTree = "<group>"; };
+		1715696B15B986E700B2B969 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		17890B6D15B45B3300F7E997 /* BWPhotoVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPhotoVideoViewController.h; sourceTree = SOURCE_ROOT; };
 		17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPhotoVideoViewController.m; sourceTree = SOURCE_ROOT; };
+		17DB4E4B15B8922D0016651B /* BWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWUser.h; sourceTree = "<group>"; };
+		17DB4E4C15B8922D0016651B /* BWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWUser.m; sourceTree = "<group>"; };
+		17DB4E4F15B941280016651B /* BWLord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLord.h; sourceTree = "<group>"; };
+		17DB4E5015B941280016651B /* BWLord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLord.m; sourceTree = "<group>"; };
 		17FBC1A415AF054800450199 /* Yini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FBC1A815AF054800450199 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17FBC1AA15AF054800450199 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -516,7 +526,6 @@
 		17FBC2F015AF057C00450199 /* WSQFileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSQFileHelper.m; path = ../socioville/WSQFileHelper.m; sourceTree = "<group>"; };
 		17FBC2F315AF057C00450199 /* WSQFileUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSQFileUploader.h; path = ../socioville/WSQFileUploader.h; sourceTree = "<group>"; };
 		17FBC2F415AF057C00450199 /* WSQFileUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSQFileUploader.m; path = ../socioville/WSQFileUploader.m; sourceTree = "<group>"; };
-		17FBC3DD15AF074800450199 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		17FBC3DF15AF075F00450199 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		17FBC3E115AF076700450199 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		17FBC3E315AF07DA00450199 /* LoadDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadDataCell.h; sourceTree = "<group>"; };
@@ -544,13 +553,24 @@
 				17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */,
 				17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */,
 				17FBC1AF15AF054800450199 /* CoreData.framework in Frameworks */,
-				17FBC3DE15AF074800450199 /* DropboxSDK.framework in Frameworks */,
+				1715696C15B986E700B2B969 /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1715696A15B9587000B2B969 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				17DB4E4B15B8922D0016651B /* BWUser.h */,
+				17DB4E4C15B8922D0016651B /* BWUser.m */,
+				17DB4E4F15B941280016651B /* BWLord.h */,
+				17DB4E5015B941280016651B /* BWLord.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
 		17FBC19915AF054800450199 = {
 			isa = PBXGroup;
 			children = (
@@ -572,12 +592,12 @@
 		17FBC1A715AF054800450199 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1715696B15B986E700B2B969 /* DropboxSDK.framework */,
 				17FBC40115B0037100450199 /* CoreFoundation.framework */,
 				17FBC3FF15B0035D00450199 /* CoreImage.framework */,
 				17FBC3FC15B0034000450199 /* MediaPlayer.framework */,
 				17FBC3E115AF076700450199 /* Security.framework */,
 				17FBC3DF15AF075F00450199 /* QuartzCore.framework */,
-				17FBC3DD15AF074800450199 /* DropboxSDK.framework */,
 				17FBC1A815AF054800450199 /* UIKit.framework */,
 				17FBC1AA15AF054800450199 /* Foundation.framework */,
 				17FBC1AC15AF054800450199 /* CoreGraphics.framework */,
@@ -599,6 +619,9 @@
 				17FBC1BA15AF054800450199 /* BWAppDelegate.m */,
 				17FBC1BC15AF054800450199 /* Yini.xcdatamodeld */,
 				17FBC1B115AF054800450199 /* Supporting Files */,
+				1715696A15B9587000B2B969 /* Users */,
+				1715696715B9579B00B2B969 /* BWMyLordInfoViewController.h */,
+				1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */,
 			);
 			path = Yini;
 			sourceTree = "<group>";
@@ -1425,6 +1448,9 @@
 				17FBC3EA15AF07DA00450199 /* NewsObjectPhoto.m in Sources */,
 				17FBC3EB15AF07DA00450199 /* WSQNews.m in Sources */,
 				17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */,
+				17DB4E4D15B8922D0016651B /* BWUser.m in Sources */,
+				17DB4E5115B941290016651B /* BWLord.m in Sources */,
+				1715696915B9579B00B2B969 /* BWMyLordInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1523,6 +1549,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yini/Yini-Prefix.pch";
 				INFOPLIST_FILE = "Yini/Yini-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1539,6 +1566,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yini/Yini-Prefix.pch";
 				INFOPLIST_FILE = "Yini/Yini-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
