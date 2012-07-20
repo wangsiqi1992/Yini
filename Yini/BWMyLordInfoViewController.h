@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BWLord.h"
+#import "WSQFileUploader.h"
 
-@interface BWMyLordInfoViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, BWLordInfoDelegate>
+@interface BWMyLordInfoViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, BWLordInfoDelegate, WSQFileUploaderDelegate>
 {
     UIImage *pickedImage;
 }

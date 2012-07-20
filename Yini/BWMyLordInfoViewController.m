@@ -89,10 +89,20 @@
 -(IBAction)save:(id)sender
 {
     if (pickedImage) {
-        [[NSFileManager defaultManager] createFileAtPath:lord.profilePicLocalPath contents:UIImageJPEGRepresentation(pickedImage, 1.0) attributes:nil];
+        
+        [self.littleWheel startAnimating];
+        
+        //save file here!!!! to db
+        NSRange r = [self.lord.profilePicLocalPath rangeOfString:@"yini system file/"];
+        NSString *namePath = [self.lord.profilePicLocalPath substringFromIndex:r.location + r.length];
+        [[NSFileManager defaultManager] createFileAtPath:[[WSQFileUploader sharedLoader] sysFileUploadingTempPathForNews:namePath] contents:UIImageJPEGRepresentation(pickedImage, 1.0) attributes:nil];
+        [[WSQFileUploader sharedLoader] saveSysFileOfNews:namePath withOldName:namePath];
+        [WSQFileUploader sharedLoader].delegate = self;
     }
-    [self dismissModalViewControllerAnimated:YES];
-    //save file here!!!! to db
+    else
+    {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 
 }
 
@@ -126,7 +136,14 @@
     [self configureView];
 }
 
-
+-(void)fileUploadFinished:(BOOL)isSucceed
+{
+    if (isSucceed) {
+        [self.littleWheel stopAnimating];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    
+}
 
 
 
