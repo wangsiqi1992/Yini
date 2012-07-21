@@ -19,6 +19,7 @@
 
 +(BWLord*)myLord;
 @property (nonatomic, strong) id delegate;
+-(BWUser*)myLordAsAUser;
 
 
 
@@ -31,5 +32,4 @@
 
 -(void)myLordInfoLoaded;
 -(void)myLordProfilePicLoaded;
-
 @end

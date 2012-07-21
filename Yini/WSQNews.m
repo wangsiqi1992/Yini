@@ -10,7 +10,7 @@
 //static NSString *newsFileDirec = @"News/systemFile/individual";
 
 @implementation WSQNews
-@synthesize newsType, lastModifiedDate, filename, createdDate, newsName, mainMediaSysFileFullPath;
+@synthesize newsType, lastModifiedDate, filename, createdDate, newsName, commentsArray, namePath;
 
 
 -(id)initWithMetadataPath:(NSString *)path
@@ -20,7 +20,7 @@
     self.lastModifiedDate = d.lastModifiedDate;
     self.newsType = [self newsTypeForExtension:[d.path pathExtension]];
     self.createdDate = d.clientMtime;
-    self.mainMediaSysFileFullPath = [[WSQFileHelper sharedHelper] directoryForNewsSysFile:[[WSQFileHelper sharedHelper] sysPathNameFromDBPath:d.path]];
+    self.namePath = [[WSQFileHelper sharedHelper] sysPathNameFromDBPath:d.path];
     
     return self;
 }
@@ -41,7 +41,8 @@
     [aCoder encodeObject:self.filename forKey:@"filename"];
     [aCoder encodeObject:self.createdDate forKey:@"createdDate"];
     [aCoder encodeObject:self.newsName forKey:@"newsName"];
-    [aCoder encodeObject:self.mainMediaSysFileFullPath forKey:@"mainMediaSysFileFullPath"];
+    [aCoder encodeObject:self.commentsArray forKey:@"commentsArray"];
+    [aCoder encodeObject:self.namePath forKey:@"namePath"];
 
 }
 
@@ -54,12 +55,21 @@
         self.filename = [aDecoder decodeObjectForKey:@"filename"];
         self.createdDate = [aDecoder decodeObjectForKey:@"createdDate"];
         self.newsName = [aDecoder decodeObjectForKey:@"newsName"];
-        self.mainMediaSysFileFullPath = [aDecoder decodeObjectForKey:@"mainMediaSysFileFullPath"];
+        self.commentsArray = [aDecoder decodeObjectForKey:@"commentsArray"];
+        self.namePath = [aDecoder decodeObjectForKey:@"namePath"];
     }
 
     
     return self;
 }
+
+-(NSString*)sysFileFullPath
+{
+   return [[WSQFileHelper sharedHelper] directoryForNewsSysFile:self.namePath];
+    
+}
+
+
 
 +(NSArray*)photoExtensions
 {

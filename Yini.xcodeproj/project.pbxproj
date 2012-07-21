@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1715696915B9579B00B2B969 /* BWMyLordInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */; };
 		1715696C15B986E700B2B969 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1715696B15B986E700B2B969 /* DropboxSDK.framework */; };
+		1715696F15BA148800B2B969 /* BWComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1715696E15BA148800B2B969 /* BWComment.m */; };
 		17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */; };
 		17DB4E4D15B8922D0016651B /* BWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E4C15B8922D0016651B /* BWUser.m */; };
 		17DB4E5115B941290016651B /* BWLord.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E5015B941280016651B /* BWLord.m */; };
@@ -249,6 +250,8 @@
 		1715696715B9579B00B2B969 /* BWMyLordInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMyLordInfoViewController.h; sourceTree = "<group>"; };
 		1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMyLordInfoViewController.m; sourceTree = "<group>"; };
 		1715696B15B986E700B2B969 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		1715696D15BA148800B2B969 /* BWComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWComment.h; sourceTree = "<group>"; };
+		1715696E15BA148800B2B969 /* BWComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWComment.m; sourceTree = "<group>"; };
 		17890B6D15B45B3300F7E997 /* BWPhotoVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWPhotoVideoViewController.h; sourceTree = SOURCE_ROOT; };
 		17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWPhotoVideoViewController.m; sourceTree = SOURCE_ROOT; };
 		17DB4E4B15B8922D0016651B /* BWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWUser.h; sourceTree = "<group>"; };
@@ -571,6 +574,17 @@
 			name = Users;
 			sourceTree = "<group>";
 		};
+		1715697015BA149800B2B969 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				17890B6D15B45B3300F7E997 /* BWPhotoVideoViewController.h */,
+				17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */,
+				1715696715B9579B00B2B969 /* BWMyLordInfoViewController.h */,
+				1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */,
+			);
+			name = VCs;
+			sourceTree = "<group>";
+		};
 		17FBC19915AF054800450199 = {
 			isa = PBXGroup;
 			children = (
@@ -609,8 +623,7 @@
 		17FBC1B015AF054800450199 /* Yini */ = {
 			isa = PBXGroup;
 			children = (
-				17890B6D15B45B3300F7E997 /* BWPhotoVideoViewController.h */,
-				17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */,
+				1715697015BA149800B2B969 /* VCs */,
 				17FBC40415B0209E00450199 /* NewsObjects */,
 				17FBC1D715AF057C00450199 /* NewsLoader.h */,
 				17FBC1D815AF057C00450199 /* NewsLoader.m */,
@@ -620,8 +633,8 @@
 				17FBC1BC15AF054800450199 /* Yini.xcdatamodeld */,
 				17FBC1B115AF054800450199 /* Supporting Files */,
 				1715696A15B9587000B2B969 /* Users */,
-				1715696715B9579B00B2B969 /* BWMyLordInfoViewController.h */,
-				1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */,
+				1715696D15BA148800B2B969 /* BWComment.h */,
+				1715696E15BA148800B2B969 /* BWComment.m */,
 			);
 			path = Yini;
 			sourceTree = "<group>";
@@ -1451,6 +1464,7 @@
 				17DB4E4D15B8922D0016651B /* BWUser.m in Sources */,
 				17DB4E5115B941290016651B /* BWLord.m in Sources */,
 				1715696915B9579B00B2B969 /* BWMyLordInfoViewController.m in Sources */,
+				1715696F15BA148800B2B969 /* BWComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

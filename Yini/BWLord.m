@@ -79,7 +79,10 @@ static BWLord *myLord;
 
 
 
-
+-(BWUser*)myLordAsAUser
+{
+    return [super initWithName:self.displayName];
+}
 
 
 

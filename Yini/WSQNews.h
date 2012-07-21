@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "WSQFileHelper.h"
+#import "BWComment.h"
+
 //#import "NewsObjectPhoto.h"
 
 enum WSQNewsTypes {
@@ -28,11 +30,17 @@ enum WSQNewsTypes {
 -(id)initWithMetadataPath:(NSString*)path;
 -(id)initWithSysFilePath:(NSString *)path;
 
+
+-(NSString*)sysFileFullPath;
 @property (nonatomic, strong) NSDate *createdDate;
 @property (nonatomic) int newsType;
 @property (nonatomic, strong) NSDate *lastModifiedDate;
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *newsName;
-@property (nonatomic, strong) NSString *mainMediaSysFileFullPath;
+@property (nonatomic, strong) NSArray *commentsArray;
+@property (nonatomic, strong) NSString *namePath;
+
+
+
 
 @end

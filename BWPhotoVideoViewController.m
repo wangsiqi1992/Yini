@@ -15,9 +15,13 @@
 @implementation BWPhotoVideoViewController
 @synthesize littleWheel;
 @synthesize littleWheelForNewsNameTextField;
+@synthesize commentUploadingLittleWheel;
 @synthesize mainImageView;
 @synthesize newsNameTextField;
 @synthesize scrollView;
+@synthesize commentsTableView;
+@synthesize commentTextField;
+@synthesize myLordProfilePic;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,14 +52,17 @@
     
     //sub views
     scrollView.contentInset=UIEdgeInsetsMake(100.0,0.0,44.0,0.0);
+    scrollView.contentSize = CGSizeMake(100, 800);
     [self registerForKeyboardNotifications];
     newsNameTextField.delegate = self;
+    commentTextField.delegate = self;
     UITapGestureRecognizer *taoCon = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:taoCon];
     loader = [NewsLoader sharedLoader];
     
     [self configureViewForDetailObject];
-    
+    self.commentsTableView.delegate = self;
+    self.commentsTableView.dataSource = self;
     
 
 }
@@ -64,13 +71,17 @@
 
 -(void)configureViewForDetailObject
 {
-    
+    [self.commentUploadingLittleWheel stopAnimating];
     WSQNews *n = (WSQNews *)detailedObject;
-    NSString *dobSnp = n.mainMediaSysFileFullPath;
+    NSString *dobSnp = [n namePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:dobSnp]) {
         detailedObject = [NSKeyedUnarchiver unarchiveObjectWithFile:dobSnp];
         
     }
+    
+    [self.commentsTableView reloadData];
+    self.commentTextField.text = @"";
+    self.myLordProfilePic.image = [UIImage imageWithContentsOfFile:[[BWLord myLord] profilePicLocalPath]];
 
     WSQNews* dOb = (WSQNews*)detailedObject;
 
@@ -97,12 +108,12 @@
             //            [self.playButton setHidden:YES];
             [self.mainImageView setImage:nil];
             
-            if ([[NSFileManager defaultManager] fileExistsAtPath:p.mediaPath])
+            if ([[NSFileManager defaultManager] fileExistsAtPath:[p mediaPath]])
             {
                 [self.littleWheel stopAnimating];
                 [self.littleWheel setHidden:YES];
                 
-                [self.mainImageView  setImage:[UIImage imageWithContentsOfFile:p.mediaPath]];
+                [self.mainImageView  setImage:[UIImage imageWithContentsOfFile:[p mediaPath]]];
             }
             else
             {
@@ -166,21 +177,29 @@
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    scrollView.contentInset = contentInsets;
-    scrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, activeTextField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, activeTextField.frame.origin.y-kbSize.height);
-        [scrollView setContentOffset:scrollPoint animated:YES];
+    if (activeTextField == newsNameTextField) {
+        
     }
+    else if (activeTextField == commentTextField)
+    {
+        NSDictionary* info = [aNotification userInfo];
+        CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+        
+        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+        scrollView.contentInset = contentInsets;
+        scrollView.scrollIndicatorInsets = contentInsets;
+        
+        // If active text field is hidden by keyboard, scroll it so it's visible
+        // Your application might not need or want this behavior.
+        CGRect aRect = self.view.frame;
+        aRect.size.height -= kbSize.height;
+        if (!CGRectContainsPoint(aRect, activeTextField.frame.origin) ) {
+            CGPoint scrollPoint = CGPointMake(0.0, activeTextField.frame.origin.y-kbSize.height+160);
+            [scrollView setContentOffset:scrollPoint animated:YES];
+        }
+        
+    }
+
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -201,8 +220,7 @@
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    
+    [self dismissKeyboard];
     //place holder text...check
     if (textField == newsNameTextField) {
         if (textField.text != detailedObject.newsName) {
@@ -213,9 +231,93 @@
         }
 
     }
+    else if(textField == commentTextField)
+    {
+        if (textField.text) {
+            //made the comment...
+            [self.commentUploadingLittleWheel startAnimating];
+            NSMutableArray *comments = [[NSMutableArray alloc] initWithArray:detailedObject.commentsArray];
+            BWComment *theComement = [[BWComment alloc] initWithAuthor:[[BWLord myLord] myLordAsAUser] commentString:textField.text];
+            [comments addObject:theComement];
+            detailedObject.commentsArray = comments;
+            [loader saveNewsObject:detailedObject];
+            loader.delegate = self;
+            
+            
+        }
+    }
     //get the text and save it here...
     
     return YES;
+}
+
+
+
+
+
+
+#pragma mark - comments table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [detailedObject.commentsArray count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return 77;
+    } else {
+        return 60;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    
+    UILabel* titleLabel = (UILabel*)[cell viewWithTag:1];
+    
+    [titleLabel setTextColor:[[BWAppDelegate instance].colorSwitcher textColor]];
+    if ([detailedObject.commentsArray objectAtIndex:indexPath.row]) {
+        NSArray *reversedComments = [[detailedObject.commentsArray reverseObjectEnumerator] allObjects];
+        BWComment *c = (BWComment*)[reversedComments objectAtIndex:indexPath.row];
+        titleLabel.text = c.author.displayName;
+        UILabel *commentLable = (UILabel*)[cell viewWithTag:2];
+        commentLable.text = c.commentString;
+        UIImageView *authorPicView = (UIImageView*)[cell viewWithTag:3];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:c.author.profilePicLocalPath]) {
+            authorPicView.image = [UIImage imageWithContentsOfFile:c.author.profilePicLocalPath];
+        }
+        
+        UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
+        ageLable.text = [NSString stringWithFormat:@"%@ ago", [c ageDescription]];
+        
+        return cell;
+    }
+    else
+    {
+        return nil;
+    }
+
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 
@@ -236,7 +338,17 @@
 -(void)saveNewsObjectSucceed
 {
     [littleWheelForNewsNameTextField stopAnimating];
+    [loader refresh];
+    loader.delegate = self;
     [self configureViewForDetailObject];
+    
 }
 
+- (void)viewDidUnload {
+    [self setCommentsTableView:nil];
+    [self setCommentTextField:nil];
+    [self setCommentUploadingLittleWheel:nil];
+    [self setMyLordProfilePic:nil];
+    [super viewDidUnload];
+}
 @end
