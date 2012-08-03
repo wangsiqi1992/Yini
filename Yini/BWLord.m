@@ -84,6 +84,15 @@ static BWLord *myLord;
     return [super initWithName:self.displayName];
 }
 
+-(NSString*)myLordInfoSavePath
+{
+    return myLordInfoSavePath;
+}
+
+-(void)selfDestory
+{
+    myLord = nil;
+}
 
 
 
@@ -118,7 +127,7 @@ static BWLord *myLord;
 -(void)restClient:(DBRestClient *)client loadedAccountInfo:(DBAccountInfo *)info
 {
     self.displayName = info.displayName;
-    self.profilePicLocalPath = [self profilePicPathForName:self.displayName];
+//    self.profilePicLocalPath = [self profilePicPathForName:self.displayName];
 
     [[NSFileManager defaultManager] createFileAtPath:myLordInfoSavePath contents:nil attributes:nil];
     [NSKeyedArchiver archiveRootObject:self toFile:myLordInfoSavePath];
@@ -150,6 +159,10 @@ static BWLord *myLord;
 }
 
 
+-(NSString*)profilePicLocalPath
+{
+    return [super profilePicPathForName:self.displayName];
+}
 
 
 

@@ -10,7 +10,7 @@
 
 
 @implementation NewsObjectPhoto
-@synthesize dbpath, thumbnailPath;
+@synthesize dbpath;
 
 -(NewsObjectPhoto*)loadPhoto
 {
@@ -24,8 +24,6 @@
     self = [super initWithMetadataPath:path];
     DBMetadata *d = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     self.dbpath = d.path;
-    WSQFileHelper* helper = [WSQFileHelper sharedHelper];
-    self.thumbnailPath = [helper thumbnailPathForNewsNamePath:[helper pathNameFromDBPath:self.dbpath]];
 //    self.mediaPath = [helper directoryForNewsMediaFile:[helper pathNameFromDBPath:self.dbpath]];
     return self;
     
@@ -45,7 +43,6 @@
     [super encodeWithCoder:aCoder];
     
     [aCoder encodeObject:self.dbpath forKey:@"dbpath"];
-    [aCoder encodeObject:self.thumbnailPath forKey:@"thumbnailPath"];
 //    [aCoder encodeObject:self.mediaPath forKey:@"mediaPath"];
 
     
@@ -56,8 +53,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.dbpath = [aDecoder decodeObjectForKey:@"dbpath"];
-        self.thumbnailPath = [aDecoder decodeObjectForKey:@"thumbnailPath"];
-//        self.mediaPath = [aDecoder decodeObjectForKey:@"mediaPath"];
 
 
     }
@@ -70,7 +65,11 @@
     return [helper directoryForNewsMediaFile:[helper pathNameFromDBPath:self.dbpath]];
 }
 
-
+-(NSString*)thumbnailPath
+{
+    WSQFileHelper* helper = [WSQFileHelper sharedHelper];
+    return [helper thumbnailPathForNewsNamePath:[helper pathNameFromDBPath:self.dbpath]];
+}
 
 
 

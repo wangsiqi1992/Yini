@@ -7,18 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "DropboxSDK/DropboxSDK.h"
 
 @interface BWUser : NSObject<NSCoding>
 
 
 @property (nonatomic, strong) NSString *displayName;
-@property (nonatomic, strong) NSString *profilePicLocalPath;
 
 -(id)initWithName:(NSString*)name;
 -(NSString*)profilePicPathForName:(NSString*)displayUserName;
 
-
+-(NSString*)profilePicLocalPath;
 
 
 

@@ -21,10 +21,32 @@
 @property (nonatomic, strong) id delegate;
 -(BWUser*)myLordAsAUser;
 
+-(NSString*)profilePicLocalPath;
 
+-(NSString*)myLordInfoSavePath;
 
-
+-(void)selfDestory;
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,4 +54,5 @@
 
 -(void)myLordInfoLoaded;
 -(void)myLordProfilePicLoaded;
+
 @end

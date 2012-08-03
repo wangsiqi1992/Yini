@@ -43,6 +43,10 @@
     [aCoder encodeObject:self.newsName forKey:@"newsName"];
     [aCoder encodeObject:self.commentsArray forKey:@"commentsArray"];
     [aCoder encodeObject:self.namePath forKey:@"namePath"];
+//    if (!self.namePath) {
+//        self.namePath = [[WSQFileHelper sharedHelper] sysPathNameFromDBPath:d.path];
+//
+//    }
 
 }
 

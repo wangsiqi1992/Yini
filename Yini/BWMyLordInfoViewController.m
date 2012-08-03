@@ -50,8 +50,8 @@
         [self.littleWheel stopAnimating];
         NSString *greeting = [NSString stringWithFormat:@"Hi, %@", self.lord.displayName];
         self.statusTextLable.text = greeting;
-        if ([[NSFileManager defaultManager] fileExistsAtPath:self.lord.profilePicLocalPath]) {
-            self.profilPic.image = [UIImage imageWithContentsOfFile:self.lord.profilePicLocalPath];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[self.lord profilePicLocalPath]]) {
+            self.profilPic.image = [UIImage imageWithContentsOfFile:[self.lord profilePicLocalPath]];
         }
         else
         {
@@ -93,8 +93,8 @@
         [self.littleWheel startAnimating];
         
         //save file here!!!! to db
-        NSRange r = [self.lord.profilePicLocalPath rangeOfString:@"yini system file/"];
-        NSString *namePath = [self.lord.profilePicLocalPath substringFromIndex:r.location + r.length];
+        NSRange r = [[self.lord profilePicLocalPath] rangeOfString:@"yini system file/"];
+        NSString *namePath = [[self.lord profilePicLocalPath] substringFromIndex:r.location + r.length];
         [[NSFileManager defaultManager] createFileAtPath:[[WSQFileUploader sharedLoader] sysFileUploadingTempPathForNews:namePath] contents:UIImageJPEGRepresentation(pickedImage, 1.0) attributes:nil];
         [[WSQFileUploader sharedLoader] saveSysFileOfNews:namePath withOldName:namePath];
         [WSQFileUploader sharedLoader].delegate = self;

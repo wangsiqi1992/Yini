@@ -12,12 +12,17 @@
 #import "BWAppDelegate.h"
 #import "BWComment.h"
 #import "BWLord.h"
+#import "UIPullToReloadHeaderView.h"
 
 @interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     NewsLoader *loader;
     WSQNews *detailedObject;
     UITextField *activeTextField;
+    BWComment *appendingComment;
+    BOOL commentReady;
+    BOOL refreshReady;
+    BOOL checkForRefresh;
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheelForNewsNameTextField;
@@ -29,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *commentTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *myLordProfilePic;
 
+@property(nonatomic, readonly) UIPullToReloadHeaderView *pullToReloadHeaderView;
 
 -(void)initWithDetailedObject:(id)dOb;
 @end

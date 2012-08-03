@@ -23,7 +23,6 @@
 
 
 @property (nonatomic, strong) NSString *dbpath;
-@property (nonatomic, strong) NSString *thumbnailPath;
 
 
 -(NewsObjectPhoto*)loadPhoto;
@@ -32,5 +31,6 @@
 //-(id)initWithName:(NSString *)name;
 -(id)initWithSysFilePath:(NSString *)path;
 -(NSString*)mediaPath;
+-(NSString*)thumbnailPath;
 
 @end

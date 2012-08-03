@@ -22,6 +22,7 @@
 @synthesize commentsTableView;
 @synthesize commentTextField;
 @synthesize myLordProfilePic;
+@synthesize pullToReloadHeaderView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +52,7 @@
 	// Do any additional setup after loading the view.
     
     //sub views
-    scrollView.contentInset=UIEdgeInsetsMake(100.0,0.0,44.0,0.0);
+    scrollView.contentInset=UIEdgeInsetsMake(50,0.0,44.0,0.0);
     scrollView.contentSize = CGSizeMake(100, 800);
     [self registerForKeyboardNotifications];
     newsNameTextField.delegate = self;
@@ -64,7 +65,17 @@
     self.commentsTableView.delegate = self;
     self.commentsTableView.dataSource = self;
     
+    
+    //try to implement the pull to refresh...
+    pullToReloadHeaderView = [[UIPullToReloadHeaderView alloc] initWithFrame: CGRectMake(0.0f, 0.0f - self.commentsTableView.bounds.size.height,
+																						 320.0f, self.commentsTableView.bounds.size.height)];
+	[self.commentsTableView addSubview:pullToReloadHeaderView];
+    
 
+    //try to hack to get a better experience on the scroll to reload
+//    UIPanGestureRecognizer *swiCon = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(disableMainScrollView)];
+//    [self.commentsTableView addGestureRecognizer:swiCon];
+    
 }
 
 
@@ -73,7 +84,7 @@
 {
     [self.commentUploadingLittleWheel stopAnimating];
     WSQNews *n = (WSQNews *)detailedObject;
-    NSString *dobSnp = [n namePath];
+    NSString *dobSnp = [n sysFileFullPath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:dobSnp]) {
         detailedObject = [NSKeyedUnarchiver unarchiveObjectWithFile:dobSnp];
         
@@ -167,6 +178,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     activeTextField = textField;
+
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -236,14 +248,13 @@
         if (textField.text) {
             //made the comment...
             [self.commentUploadingLittleWheel startAnimating];
-            NSMutableArray *comments = [[NSMutableArray alloc] initWithArray:detailedObject.commentsArray];
-            BWComment *theComement = [[BWComment alloc] initWithAuthor:[[BWLord myLord] myLordAsAUser] commentString:textField.text];
-            [comments addObject:theComement];
-            detailedObject.commentsArray = comments;
-            [loader saveNewsObject:detailedObject];
-            loader.delegate = self;
+            appendingComment = [[BWComment alloc] initWithAuthor:[[BWLord myLord] myLordAsAUser] commentString:textField.text];
             
-            
+            [self pullDownToReloadAction];
+            refreshReady = FALSE;
+            commentReady = TRUE;
+
+
         }
     }
     //get the text and save it here...
@@ -251,9 +262,77 @@
     return YES;
 }
 
+-(void)disableMainScrollView
+{
+    [self.scrollView setScrollEnabled:false];
+    [self.commentsTableView setScrollEnabled:TRUE];
+}
 
 
 
+#pragma mark - pull to reload thing
+- (void)scrollViewWillBeginDragging:(UIScrollView *)theScrollView {
+    if (theScrollView == self.commentsTableView) {
+        if ([pullToReloadHeaderView status] == kPullStatusLoading) return;
+        checkForRefresh = YES;  //  only check offset when dragging
+    }
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)theScrollView
+{
+
+    if (theScrollView == self.commentsTableView)
+    {
+        if ([pullToReloadHeaderView status] == kPullStatusLoading) return;
+        
+        if (checkForRefresh) {
+            if (theScrollView.contentOffset.y > -kPullDownToReloadToggleHeight && commentsTableView.contentOffset.y < 0.0f) {
+                [pullToReloadHeaderView setStatus:kPullStatusPullDownToReload animated:YES];
+                
+            } else if (theScrollView.contentOffset.y < -kPullDownToReloadToggleHeight) {
+                [pullToReloadHeaderView setStatus:kPullStatusReleaseToReload animated:YES];
+            }
+        }
+    }
+
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)theScrollView willDecelerate:(BOOL)decelerate {
+    if (theScrollView == self.commentsTableView) {
+        if ([pullToReloadHeaderView status] == kPullStatusLoading) return;
+        
+        if ([pullToReloadHeaderView status]==kPullStatusReleaseToReload) {
+            [pullToReloadHeaderView startReloading:self.commentsTableView animated:YES];
+            [self pullDownToReloadAction];
+        }
+        checkForRefresh = NO;
+    }
+}
+
+
+
+
+#pragma mark - comments table view actions
+
+-(void) pullDownToReloadAction
+{
+	NSLog(@"TODO: Overload this");
+    [loader refresh];
+    loader.delegate = self;
+    
+    
+    
+}
+
+-(void)saveComment
+{
+    refreshReady = FALSE;
+    commentReady = FALSE;
+    NSMutableArray *comments = [[NSMutableArray alloc] initWithArray:detailedObject.commentsArray];
+    [comments addObject:appendingComment];
+    detailedObject.commentsArray = comments;
+    [loader saveNewsObject:detailedObject];
+    loader.delegate = self;
+}
 
 
 #pragma mark - comments table view data source
@@ -290,8 +369,8 @@
         UILabel *commentLable = (UILabel*)[cell viewWithTag:2];
         commentLable.text = c.commentString;
         UIImageView *authorPicView = (UIImageView*)[cell viewWithTag:3];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:c.author.profilePicLocalPath]) {
-            authorPicView.image = [UIImage imageWithContentsOfFile:c.author.profilePicLocalPath];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[c.author profilePicLocalPath]]) {
+            authorPicView.image = [UIImage imageWithContentsOfFile:[c.author profilePicLocalPath]];
         }
         
         UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
@@ -327,12 +406,32 @@
 #pragma mark - delegate
 -(void)newsLoaderDidLoadFile
 {
+    [pullToReloadHeaderView finishReloading:self.commentsTableView animated:YES];
     [self configureViewForDetailObject];
+    
+    if (commentReady) {
+        [self saveComment];
+    }
+    else
+    {
+        refreshReady = TRUE;
+    }
+
 }
 
 -(void)noChange
 {
     NSLog(@"detail vc got a notice that the data modle has no change...");
+    [pullToReloadHeaderView finishReloading:self.commentsTableView animated:YES];
+
+    if (commentReady) {
+        [self saveComment];
+    }
+    else
+    {
+        refreshReady = TRUE;
+    }
+
 }
 
 -(void)saveNewsObjectSucceed
@@ -344,11 +443,14 @@
     
 }
 
+
+
 - (void)viewDidUnload {
     [self setCommentsTableView:nil];
     [self setCommentTextField:nil];
     [self setCommentUploadingLittleWheel:nil];
     [self setMyLordProfilePic:nil];
+    pullToReloadHeaderView = nil;
     [super viewDidUnload];
 }
 @end

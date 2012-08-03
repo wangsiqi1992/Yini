@@ -15,13 +15,12 @@ static NSString* userInfoDirectory;
 
 
 
-@synthesize displayName, profilePicLocalPath;
+@synthesize displayName;
 
 -(id)initWithName:(NSString *)name
 {
     self = [super init];
     self.displayName = name;
-    self.profilePicLocalPath = [self profilePicPathForName:name];
     return self;
 }
 
@@ -29,14 +28,12 @@ static NSString* userInfoDirectory;
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.displayName forKey:@"displayName"];
-    [aCoder encodeObject:self.profilePicLocalPath forKey:@"profilePicLocalPath"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     if (self) {
-        self.profilePicLocalPath = [aDecoder decodeObjectForKey:@"profilePicLocalPath"];
         self.displayName = [aDecoder decodeObjectForKey:@"displayName"];
     }
     return self;
@@ -56,7 +53,10 @@ static NSString* userInfoDirectory;
 
 
 
-
+-(NSString*)profilePicLocalPath
+{
+    return [self profilePicPathForName:self.displayName];
+}
 
 
 
@@ -65,7 +65,18 @@ static NSString* userInfoDirectory;
     NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *dp = [a objectAtIndex:0];
     userInfoDirectory = [dp stringByAppendingPathComponent:@"News/systemFile/yini system file/user info"];
-    return [[userInfoDirectory stringByAppendingPathComponent:displayUserName] stringByAppendingPathExtension:@"jpg"];
+    NSString* np = [[userInfoDirectory stringByAppendingPathComponent:displayUserName] stringByAppendingPathExtension:@"jpg"];
+    NSString* requestPath = [NSString stringWithFormat:@"王小旎/yini system file/user info/%@.jpg", self.displayName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:np]) {
+        return np;
+
+    }
+    else
+    {
+        [[[DBRestClient alloc] initWithSession:[DBSession sharedSession]] loadFile:requestPath intoPath:np];
+        return np;
+    }
+    
 
 }
 
