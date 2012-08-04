@@ -174,14 +174,36 @@ static NSString *dbRootPath = nil;
 {
     NSRange rootRange = [path rangeOfString:dbRootPath];
     
-    NSString *pathName = [path substringFromIndex:rootRange.location + rootRange.length + 1];
-    return pathName;
+    if (rootRange.location == NSNotFound) {
+        rootRange = [path rangeOfString:[dbRootPath lowercaseString]];
+    }
+    
+    if (rootRange.location != NSNotFound) {
+        NSString *pathName = [path substringFromIndex:rootRange.location + rootRange.length + 1];
+        return pathName;
+    }
+    else
+    {
+        return nil;
+    }
+
 }
 
 -(NSString*)sysPathNameFromDBPath:(NSString *)path
 {
     return [[[self pathNameFromDBPath:path] stringByDeletingPathExtension] stringByAppendingPathExtension:@"plist"];
 }
+
+//-(NSString*)trimDBRoot:(NSString *)dbFullPath
+//{
+//    
+//}
+
+
+
+
+
+
 
 
 
@@ -246,7 +268,6 @@ static NSString *dbRootPath = nil;
 {
     localCursor = nil;
     newsNames = nil;
-    dbRootPath = nil;
     
 }
 
@@ -312,9 +333,11 @@ static NSString *dbRootPath = nil;
                 else
                 {
                     [[self restClient] loadFile:data.path intoPath:[self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName]];
+                    [manager createDirectoryAtPath:[[self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                    
                     [manager createDirectoryAtPath:[[[self sysMetadataPathForNews:pathName] stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
                 [manager createFileAtPath:[self sysMetadataPathForNews:pathName] contents:nil attributes:nil];
-                    [NSKeyedArchiver archiveRootObject:data toFile:[self sysMetadataPathForNews:data.filename]];
+                    [NSKeyedArchiver archiveRootObject:data toFile:[self sysMetadataPathForNews:[self pathNameFromDBPath:data.path]]];
 
                 }
             }
@@ -363,7 +386,7 @@ static NSString *dbRootPath = nil;
             BOOL changeMade = NO;
             for (DBDeltaEntry *d in entries)
             {
-                NSRange r = [d.lowercasePath rangeOfString:dbRootPath];
+                NSRange r = [d.lowercasePath rangeOfString:[dbRootPath lowercaseString]];
                 NSArray *pathCompounent = [d.lowercasePath componentsSeparatedByString:@"/"];
                 
                 
@@ -438,7 +461,7 @@ static NSString *dbRootPath = nil;
                                      else
                                      {
                                          NSString *pathName = [[NSString alloc]init];
-                                         pathName = [self pathNameFromDBPath:d.lowercasePath];
+                                         pathName = [self pathNameFromDBPath:[self realNameFromLowerCase:d.lowercasePath]];
                                          NSString *name = [self realNameFromLowerCase:pathName];
                                          [self deleteNewsSysFileWithName:name];
                                      }

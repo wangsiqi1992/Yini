@@ -72,7 +72,7 @@ static BWLord *myLord;
         [NSKeyedArchiver archiveRootObject:self toFile:[self myLordInfoSavePath]];
 
     }
-    [BWAppDelegate instance].dbPlayingGround = self.dbPlayingGround;
+    [BWAppDelegate instance].dbPlayingGround = dbPlayingGround;
     
     
 }

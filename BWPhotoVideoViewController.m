@@ -91,7 +91,7 @@
     }
     
     [self.commentsTableView reloadData];
-    self.commentTextField.text = @"";
+//    self.commentTextField.text = @"";
     self.myLordProfilePic.image = [UIImage imageWithContentsOfFile:[[BWLord myLord] profilePicLocalPath]];
 
     WSQNews* dOb = (WSQNews*)detailedObject;
@@ -440,6 +440,8 @@
     [loader refresh];
     loader.delegate = self;
     [self configureViewForDetailObject];
+    self.commentTextField.text = @"";
+
     
 }
 

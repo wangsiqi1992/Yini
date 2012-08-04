@@ -54,9 +54,11 @@
 -(NSString*)directoryForNewsMediaFile:(NSString *)name;
 -(NSString*)sysMetadataPathForNews:(NSString*)name;
 -(NSString*)mediaMetadataPathForNews:(NSString*)name;
--(NSString*)pathNameFromDBPath:(NSString *)path;
+-(NSString*)pathNameFromDBPath:(NSString *)path;//returned mixed cases... passed in with both case for root... can be used with db metadata lowercase string, or domestic uses...
 -(NSString*)sysPathNameFromDBPath:(NSString *)path;
 -(NSString*)sysFolderAnyFileDirectoryWithOriginalNamePath:(NSString*)oNamePath;//any name, but returned with original path extension...
+
+-(NSString*)trimDBRoot:(NSString*)dbFullPath;
 
 -(BOOL)sysFileExistForNamePath:(NSString *)np;//passed in with both media and sys namePath... and check if the file with plist extension exist
 -(BOOL)fileExistInSysFolderWithNamePath:(NSString*)np;
