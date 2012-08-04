@@ -86,7 +86,7 @@ static BWLord *myLord;
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    [aDecoder decodeObjectForKey:@"dbPlayingGround"];
+    self.dbPlayingGround = [aDecoder decodeObjectForKey:@"dbPlayingGround"];
     return self;
 }
 
