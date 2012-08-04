@@ -133,6 +133,9 @@
 
 
 
+
+
+
 -(void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId
 {
     NSLog(@"db session failure");

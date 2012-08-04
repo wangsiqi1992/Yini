@@ -27,6 +27,9 @@
 -(NSString*)mediaFileUploadingTempPathForNews:(NSString*)name;
 @property (nonatomic, strong) id delegate;
 
+-(void)selfDestory;
+
+-(void)setDBRootPath;
 
 @end
 

@@ -58,5 +58,6 @@
 
 -(void)refreshForNews:(id)wsqNews;
 
+-(void)selfDestory;
 
 @end

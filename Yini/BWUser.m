@@ -10,9 +10,7 @@
 
 static NSString* userInfoDirectory;
 
-
 @implementation BWUser
-
 
 
 @synthesize displayName;
@@ -62,11 +60,13 @@ static NSString* userInfoDirectory;
 
 -(NSString*)profilePicPathForName:(NSString*)displayUserName
 {
+    NSString* pg = [BWAppDelegate instance].dbPlayingGround;
     NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *dp = [a objectAtIndex:0];
     userInfoDirectory = [dp stringByAppendingPathComponent:@"News/systemFile/yini system file/user info"];
     NSString* np = [[userInfoDirectory stringByAppendingPathComponent:displayUserName] stringByAppendingPathExtension:@"jpg"];
-    NSString* requestPath = [NSString stringWithFormat:@"王小旎/yini system file/user info/%@.jpg", self.displayName];
+    NSString* requestPath = [NSString stringWithFormat:@"yini system file/user info/%@.jpg", self.displayName];
+    requestPath = [pg stringByAppendingPathComponent:requestPath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:np]) {
         return np;
 

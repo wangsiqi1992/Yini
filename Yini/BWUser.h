@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DropboxSDK/DropboxSDK.h"
+#import "BWAppDelegate.h"
 
 @interface BWUser : NSObject<NSCoding>
 

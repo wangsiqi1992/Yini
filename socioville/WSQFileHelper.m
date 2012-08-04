@@ -62,6 +62,8 @@ static NSString *dbRootPath = nil;
         //init here
         localCursor = nil;
         newsNames = nil;
+        
+        
         NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *dp = [a objectAtIndex:0];
         newsSysFilePath = [dp stringByAppendingPathComponent:@"News/systemFile"];//changed here...
@@ -79,13 +81,10 @@ static NSString *dbRootPath = nil;
         
         yiniSystemFileDirec = [dp stringByAppendingPathComponent:@"News/systemFile/yini system file"];
         
-        dbRootPath =@"王小旎";
+        [self setDBRootPath:[BWLord myLord].dbPlayingGround];
         
         manager = [NSFileManager defaultManager];
-        //localCursor = [[NSString alloc] init];
-//        if (manager ) {
-//            <#statements#>
-//        }
+
         [self makeDirectories];
         if (photoExtensions == nil) {
             //
@@ -134,6 +133,7 @@ static NSString *dbRootPath = nil;
 
 
 
+
 -(NSString*)directoryForNewsSysFile:(NSString*)name
 {
     if ([[[name componentsSeparatedByString:@"/"] objectAtIndex:0] isEqualToString:@"yini system file"])
@@ -172,7 +172,7 @@ static NSString *dbRootPath = nil;
 
 -(NSString*)pathNameFromDBPath:(NSString *)path
 {
-    NSRange rootRange = [path rangeOfString:@"王小旎"];
+    NSRange rootRange = [path rangeOfString:dbRootPath];
     
     NSString *pathName = [path substringFromIndex:rootRange.location + rootRange.length + 1];
     return pathName;
@@ -244,15 +244,21 @@ static NSString *dbRootPath = nil;
 
 -(void)selfDestory
 {
-    [self init];
+    localCursor = nil;
+    newsNames = nil;
+    dbRootPath = nil;
     
 }
 
+-(void)setDBRootPath:(NSString *)dbP
+{
+    dbRootPath = dbP;
+}
 
 
 -(void)loadThumbnailForDBPath:(NSString *)DBPath
 {
-    NSRange r = [DBPath rangeOfString:@"王小旎"];
+    NSRange r = [DBPath rangeOfString:dbRootPath];
     NSString *namePath = [DBPath substringFromIndex:r.location+r.length+1];
     NSString *tPath = [self thumbnailPathForNewsNamePath:namePath];
     [manager createDirectoryAtPath:tPath withIntermediateDirectories:YES attributes:nil error:nil];
@@ -264,6 +270,9 @@ static NSString *dbRootPath = nil;
 -(void)loadMediaFileForDBPath:(NSString *)dbPath
 {
     NSString *localPath = [self directoryForNewsMediaFile:[self pathNameFromDBPath:dbPath]];
+    if (![manager fileExistsAtPath:localCursor]) {
+        [manager createDirectoryAtPath:[localPath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     [[self restClient] loadFile:dbPath intoPath:localPath];
     
 }
@@ -354,7 +363,7 @@ static NSString *dbRootPath = nil;
             BOOL changeMade = NO;
             for (DBDeltaEntry *d in entries)
             {
-                NSRange r = [d.lowercasePath rangeOfString:@"王小旎"];
+                NSRange r = [d.lowercasePath rangeOfString:dbRootPath];
                 NSArray *pathCompounent = [d.lowercasePath componentsSeparatedByString:@"/"];
                 
                 
@@ -513,8 +522,7 @@ static NSString *dbRootPath = nil;
 -(void)implementFromScratch
 {
     [self makeDirectories];
-    [[self restClient] loadMetadata:@"/王小旎"];
-//    [[self restClient] loadMetadata:@"/王小旎/yini system file"];
+    [[self restClient] loadMetadata:[@"/" stringByAppendingString:dbRootPath]];
 
 }
 

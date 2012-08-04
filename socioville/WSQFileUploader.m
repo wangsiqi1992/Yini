@@ -14,7 +14,6 @@ static NSString *dbSysPath;
 
 
 
-
 @implementation WSQFileUploader
 @synthesize delegate;
 
@@ -46,8 +45,8 @@ static NSString *dbSysPath;
         localTempDirec = [dp stringByAppendingPathComponent:@"temp"];
         [manager createDirectoryAtPath:localTempDirec withIntermediateDirectories:YES attributes:nil error:nil];
         
-        dbMediaPath = @"/王小旎";
-        dbSysPath = @"/王小旎/yini system file";
+        dbMediaPath = [@"/" stringByAppendingString:[BWLord myLord].dbPlayingGround];
+        dbSysPath = [dbMediaPath stringByAppendingPathComponent:@"yini system file"];
         
         uploadingList = [[NSMutableDictionary alloc]init];
     }
@@ -64,7 +63,15 @@ static NSString *dbSysPath;
     return client;
 }
 
+-(void)selfDestory
+{
+    dbMediaPath = nil;
+}
 
+-(void)setDBRootPath
+{
+    [self init];
+}
 
 
 

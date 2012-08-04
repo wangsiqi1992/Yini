@@ -13,6 +13,7 @@ static NSString* myLordProfilePicDBRequestPath;
 static BWLord *myLord;
 @implementation BWLord
 @synthesize delegate;
+@synthesize dbPlayingGround = _dbPlayingGround;
 
 
 +(BWLord*)myLord
@@ -36,7 +37,6 @@ static BWLord *myLord;
         NSString *dp = [a objectAtIndex:0];
         myLordInfoSavePath = [dp stringByAppendingPathComponent:@"User/myLordInfo.plist"];
         myLordProfilePicSavePath = [dp stringByAppendingPathComponent:@"News/systemFile/yini system file/user info"];
-        myLordProfilePicDBRequestPath = @"王小旎/yini system file/user info";
         
         //related to self...
         if (![[NSFileManager defaultManager] fileExistsAtPath:myLordInfoSavePath]) {
@@ -49,6 +49,8 @@ static BWLord *myLord;
             
             
         }
+        [BWAppDelegate instance].dbPlayingGround = self.dbPlayingGround;
+
 
     }
     return self;
@@ -59,14 +61,32 @@ static BWLord *myLord;
     
 }
 
+-(void)setDbPlayingGround:(NSString *)dbPlayingGround
+{
+    _dbPlayingGround = dbPlayingGround;
+    if (dbPlayingGround)
+    {
+        //set it into a real string... not when destory it...
+        myLordProfilePicDBRequestPath = [dbPlayingGround stringByAppendingPathComponent:@"yini system file/user info"];
+        myLordProfilePicDBRequestPath = [@"/" stringByAppendingString:myLordProfilePicDBRequestPath];
+        [NSKeyedArchiver archiveRootObject:self toFile:[self myLordInfoSavePath]];
+
+    }
+    [BWAppDelegate instance].dbPlayingGround = self.dbPlayingGround;
+    
+    
+}
+
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.dbPlayingGround forKey:@"dbPlayingGround"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
+    [aDecoder decodeObjectForKey:@"dbPlayingGround"];
     return self;
 }
 
@@ -92,6 +112,7 @@ static BWLord *myLord;
 -(void)selfDestory
 {
     myLord = nil;
+    self.dbPlayingGround = nil;
 }
 
 
@@ -138,7 +159,11 @@ static BWLord *myLord;
     {
         //if my lord profile pic has not been down loaded...
         [[NSFileManager defaultManager] createDirectoryAtPath:[[myLordProfilePicSavePath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
-        [[self client] loadFile:myLordProfilePicDBRequestPath intoPath:myLordProfilePicSavePath];
+        if (myLordProfilePicDBRequestPath)
+        {
+            //if the root is set...
+            [[self client] loadFile:myLordProfilePicDBRequestPath intoPath:myLordProfilePicSavePath];
+        }
     }
     [[self delegate] myLordInfoLoaded];
 }

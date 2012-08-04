@@ -18,6 +18,7 @@ static NewsLoader* _sharedLoader = nil;
 
 +(NewsLoader*)sharedLoader
 {
+    
     @synchronized([NewsLoader class])
     {
         if (!_sharedLoader) {
@@ -50,10 +51,8 @@ static NewsLoader* _sharedLoader = nil;
     if (self != nil)
     {
         //init here
-        
         manager = [WSQFileHelper sharedHelper];
         uploader = [WSQFileUploader sharedLoader];
-
     }
     return self;
 
@@ -63,14 +62,15 @@ static NewsLoader* _sharedLoader = nil;
 
 -(NSArray*)list
 {
-
     if (!list) {
+
+        
         list = [[NSMutableArray alloc]init];
         NSDictionary* dic = [NSKeyedUnarchiver unarchiveObjectWithFile:[manager newsListPath]];
         NSArray *namePaths = [dic keysSortedByValueUsingSelector:@selector(compare:)];
         namePaths = [[namePaths reverseObjectEnumerator] allObjects];
         for (int i = 0; i<50; i++) {
-            if ([namePaths objectAtIndex:i]) {
+            if ([namePaths count] > i) {
                 [self addToNewsListFromNamePath:[namePaths objectAtIndex:i]];
                 
             }
@@ -131,7 +131,12 @@ static NewsLoader* _sharedLoader = nil;
     }
 }
 
-
+-(void)selfDestory
+{
+    list = nil;
+    
+    
+}
 
 
 

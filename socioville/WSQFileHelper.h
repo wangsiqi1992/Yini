@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <DropboxSDK/DropboxSDK.h>
+#import "BWLord.h"
 
 //#import "NewsObjectPhoto.h"
 @protocol WSQFileHelperDelegate <NSObject>
@@ -47,6 +48,7 @@
 
 -(void)refresh;
 -(void)selfDestory;
+-(void)setDBRootPath:(NSString*)dbP;
 
 -(NSString*)directoryForNewsSysFile:(NSString*)name; //pass in any name(media namepath or plist name path...
 -(NSString*)directoryForNewsMediaFile:(NSString *)name;

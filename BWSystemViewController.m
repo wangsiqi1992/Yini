@@ -55,7 +55,6 @@
         
         NSLog(@"getting all directory fail...");
     }
-
     [[WSQFileHelper sharedHelper] selfDestory];
 }
 
@@ -65,7 +64,7 @@
     [self clearCatchButton:nil];
     [[DBSession sharedSession] unlinkAll];
     
-    NSString *userD = [[BWLord myLord] myLordInfoSavePath];
+    NSString *userD = [[[BWLord myLord] myLordInfoSavePath] stringByDeletingLastPathComponent];
     NSFileManager *fileMgr = [[NSFileManager alloc] init];
     NSError *error = nil;
     NSArray *directoryContents = [fileMgr contentsOfDirectoryAtPath:userD error:&error];
@@ -83,7 +82,9 @@
         
         NSLog(@"getting user info directory fail...");
     }
-    
+    [[BWLord myLord] selfDestory];
+    [[WSQFileUploader sharedLoader] selfDestory];
+    [[NewsLoader sharedLoader] selfDestory];
 }
 
 

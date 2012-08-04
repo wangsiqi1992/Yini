@@ -88,6 +88,8 @@
 
 -(IBAction)save:(id)sender
 {
+
+    
     if (pickedImage) {
         
         [self.littleWheel startAnimating];
@@ -99,6 +101,7 @@
         [[WSQFileUploader sharedLoader] saveSysFileOfNews:namePath withOldName:namePath];
         [WSQFileUploader sharedLoader].delegate = self;
     }
+
     else
     {
         [self dismissModalViewControllerAnimated:YES];

@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BWUser.h"
 #import <DropboxSDK/DropboxSDK.h>
-
-
+#import "BWUser.h"
+#import "BWAppDelegate.h"
 
 @interface BWLord : BWUser<DBRestClientDelegate>
 {
@@ -19,6 +18,7 @@
 
 +(BWLord*)myLord;
 @property (nonatomic, strong) id delegate;
+@property (nonatomic, strong) NSString* dbPlayingGround;
 -(BWUser*)myLordAsAUser;
 
 -(NSString*)profilePicLocalPath;

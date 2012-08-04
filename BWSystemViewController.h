@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WSQFileHelper.h"
 #import "BWLord.h"
+#import "NewsLoader.h"
 #import <DropboxSDK/DropboxSDK.h>
 
 @interface BWSystemViewController : UIViewController
