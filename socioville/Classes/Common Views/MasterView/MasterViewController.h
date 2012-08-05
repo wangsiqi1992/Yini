@@ -14,9 +14,11 @@
 #import "BWLord.h"
 #import "BWMyLordInfoViewController.h"
 #import <DropboxSDK/DropboxSDK.h>
+#import "ZUUIRevealController.h"
+#import "MainViewController.h"
 
 
-@interface MasterViewController :PullRefreshTableViewController <NewsLoaderDelegate>
+@interface MasterViewController :PullRefreshTableViewController <NewsLoaderDelegate, ZUUIRevealControllerDelegate>
 
 
 {
@@ -25,6 +27,7 @@
     NewsLoader *loader;
     NSArray *datasource;
     NSInteger selected;
+    UITapGestureRecognizer *dismissMenuTap;
       
 }
 

@@ -90,7 +90,8 @@
             self.title = NSLocalizedString(@"Cards View", @"Cards View");
             
             UINavigationController *nav = self.navigationController;
-            UIViewController *controller = nav.parentViewController; // MainViewController : ZUUIRevealController
+            MainViewController *controller = (MainViewController*)nav.parentViewController; // MainViewController : ZUUIRevealController
+            
             if ([controller respondsToSelector:@selector(revealGesture:)] && [controller respondsToSelector:@selector(revealToggle:)])
             {
                 // Check if a UIPanGestureRecognizer already sits atop our NavigationBar.
@@ -101,6 +102,14 @@
                     self.navigationBarPanGestureRecognizer = panGestureRecognizer;
                     
                     [self.navigationController.navigationBar addGestureRecognizer:self.navigationBarPanGestureRecognizer];
+                    
+                    
+                    
+                    dismissMenuTap = [[UITapGestureRecognizer alloc] initWithTarget:controller action:@selector(revealToggle:)];
+                    [dismissMenuTap setEnabled:FALSE];
+                    [self.tableView addGestureRecognizer:dismissMenuTap];
+                    controller.delegate = self;
+                    
                 }
                 
                 // Check if we have a revealButton already.
@@ -258,6 +267,19 @@
     [self stopLoading];
 }
 
+
+
+
+- (void)revealController:(ZUUIRevealController *)revealController didRevealRearViewController:(UIViewController *)rearViewController
+{
+    [dismissMenuTap setEnabled:TRUE];
+
+}
+
+- (void)revealController:(ZUUIRevealController *)revealController didHideRearViewController:(UIViewController *)rearViewController
+{
+    [dismissMenuTap setEnabled:FALSE];
+}
 
 
 
