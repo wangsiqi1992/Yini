@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "189"
-         endingLineNumber = "189"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -203,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253"
+         startingLineNumber = "252"
+         endingLineNumber = "252"
          landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileUploader.m"
-         timestampString = "365731081.476018"
+         timestampString = "365857840.374484"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "117"
-         endingLineNumber = "117"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "-saveSysFileOfNews:withOldName:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "158"
-         endingLineNumber = "158"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,11 +242,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "147"
-         endingLineNumber = "147"
+         startingLineNumber = "146"
+         endingLineNumber = "146"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -255,11 +255,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "226"
-         endingLineNumber = "226"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
          landmarkName = "-loadedNewsList"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -320,11 +320,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "239"
-         endingLineNumber = "239"
+         startingLineNumber = "238"
+         endingLineNumber = "238"
          landmarkName = "-loadedFile"
          landmarkType = "5">
       </FileBreakpoint>
@@ -333,11 +333,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "150"
-         endingLineNumber = "150"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -359,11 +359,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365731364.825071"
+         timestampString = "365803937.053922"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -677,6 +677,58 @@
          startingLineNumber = "75"
          endingLineNumber = "75"
          landmarkName = "-setDbPlayingGround:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/BWCameraModalViewController.m"
+         timestampString = "365860682.658086"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
+         landmarkName = "-saveNewsObjectSucceed"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/BWCameraModalViewController.m"
+         timestampString = "365860682.658086"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
+         landmarkName = "-newsLoaderDidLoadFile"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/BWCameraModalViewController.m"
+         timestampString = "365860682.658086"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
+         landmarkName = "-fileUploadFinished:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/BWCameraModalViewController.m"
+         timestampString = "365859699.199597"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
+         landmarkName = "-doneButton:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

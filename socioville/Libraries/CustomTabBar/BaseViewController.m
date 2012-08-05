@@ -75,7 +75,7 @@
 }
 
 - (void)showModalController {
-    UIViewController *modal = [self.storyboard instantiateViewControllerWithIdentifier:@"modalController"];
+    UIViewController *modal = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraModalViewController"];
     [self presentModalViewController:modal animated:YES];
 }
 

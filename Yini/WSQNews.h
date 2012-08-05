@@ -39,6 +39,7 @@ enum WSQNewsTypes {
 @property (nonatomic, strong) NSString *newsName;
 @property (nonatomic, strong) NSArray *commentsArray;
 @property (nonatomic, strong) NSString *namePath;
+@property (nonatomic, strong) BWUser *author;
 
 
 

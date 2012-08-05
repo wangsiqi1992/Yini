@@ -89,7 +89,8 @@ static NSString *dbSysPath;
 
 -(NSString*)mediaFileUploadingTempPathForNews:(NSString *)name
 {
-    [manager createDirectoryAtPath:[localTempDirec stringByAppendingPathComponent:name] withIntermediateDirectories:YES attributes:nil error:nil];
+    [manager createDirectoryAtPath:[[localTempDirec stringByAppendingPathComponent:name] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+
     return [localTempDirec stringByAppendingPathComponent:name];
 }
 
@@ -105,8 +106,9 @@ static NSString *dbSysPath;
     if (![oldName isEqualToString:name])
     {
         [[self client] uploadFile:filename toPath:uploadPath withParentRev:nil fromPath:[self sysFileUploadingTempPathForNews:name]];
-        [uploadingList setObject:d.path forKey:filename];
-    }
+        if (oldName != nil) {
+            [uploadingList setObject:d.path forKey:filename];
+        }    }
     else
     {
         if (d) {
@@ -132,7 +134,9 @@ static NSString *dbSysPath;
     if (![oldName isEqualToString:name])
     {
         [[self client] uploadFile:filename toPath:uploadPath withParentRev:nil fromPath:[self mediaFileUploadingTempPathForNews:name]];
-        [uploadingList setObject:d.path forKey:filename];
+        if (oldName != nil) {
+            [uploadingList setObject:d.path forKey:filename];
+        }
     }
     else
     {

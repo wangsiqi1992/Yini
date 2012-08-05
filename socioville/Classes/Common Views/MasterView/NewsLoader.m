@@ -112,7 +112,6 @@ static NewsLoader* _sharedLoader = nil;
     if ([newsObject isKindOfClass:[NewsObjectPhoto class]]) {
         NewsObjectPhoto *n = (NewsObjectPhoto*)newsObject;
         NSString* localP = [uploader sysFileUploadingTempPathForNews:[manager sysPathNameFromDBPath:n.dbpath]];
-//        localP = [[localP stringByDeletingPathExtension] stringByAppendingPathExtension:@"plist"];
         [NSKeyedArchiver archiveRootObject:n toFile:localP];
         NSString *name = [manager sysPathNameFromDBPath:n.dbpath];
 

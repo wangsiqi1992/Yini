@@ -10,7 +10,7 @@
 //static NSString *newsFileDirec = @"News/systemFile/individual";
 
 @implementation WSQNews
-@synthesize newsType, lastModifiedDate, filename, createdDate, newsName, commentsArray, namePath;
+@synthesize newsType, lastModifiedDate, filename, createdDate, newsName, commentsArray, namePath, author;
 
 
 -(id)initWithMetadataPath:(NSString *)path
@@ -43,6 +43,7 @@
     [aCoder encodeObject:self.newsName forKey:@"newsName"];
     [aCoder encodeObject:self.commentsArray forKey:@"commentsArray"];
     [aCoder encodeObject:self.namePath forKey:@"namePath"];
+    [aCoder encodeObject:self.author forKey:@"author"];
 //    if (!self.namePath) {
 //        self.namePath = [[WSQFileHelper sharedHelper] sysPathNameFromDBPath:d.path];
 //
@@ -61,6 +62,7 @@
         self.newsName = [aDecoder decodeObjectForKey:@"newsName"];
         self.commentsArray = [aDecoder decodeObjectForKey:@"commentsArray"];
         self.namePath = [aDecoder decodeObjectForKey:@"namePath"];
+        self.author = [aDecoder decodeObjectForKey:@"author"];
     }
 
     

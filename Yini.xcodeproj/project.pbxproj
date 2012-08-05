@@ -19,6 +19,9 @@
 		17AA430B15BAFE38003FC918 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AA430A15BAFE38003FC918 /* AudioToolbox.framework */; };
 		17DB4E4D15B8922D0016651B /* BWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E4C15B8922D0016651B /* BWUser.m */; };
 		17DB4E5115B941290016651B /* BWLord.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E5015B941280016651B /* BWLord.m */; };
+		17EEEA0515CD870D0085A645 /* BWCameraModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EEEA0415CD870D0085A645 /* BWCameraModalViewController.m */; };
+		17EEEA0815CD90CE0085A645 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EEEA0715CD90CE0085A645 /* add.png */; };
+		17EEEA0C15CDA7FE0085A645 /* addNewPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EEEA0B15CDA7FE0085A645 /* addNewPhoto.png */; };
 		17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1A815AF054800450199 /* UIKit.framework */; };
 		17FBC1AB15AF054800450199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AA15AF054800450199 /* Foundation.framework */; };
 		17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AC15AF054800450199 /* CoreGraphics.framework */; };
@@ -273,6 +276,10 @@
 		17DB4E4C15B8922D0016651B /* BWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWUser.m; sourceTree = "<group>"; };
 		17DB4E4F15B941280016651B /* BWLord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLord.h; sourceTree = "<group>"; };
 		17DB4E5015B941280016651B /* BWLord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLord.m; sourceTree = "<group>"; };
+		17EEEA0315CD870D0085A645 /* BWCameraModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BWCameraModalViewController.h; path = ../socioville/BWCameraModalViewController.h; sourceTree = "<group>"; };
+		17EEEA0415CD870D0085A645 /* BWCameraModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWCameraModalViewController.m; path = ../socioville/BWCameraModalViewController.m; sourceTree = "<group>"; };
+		17EEEA0715CD90CE0085A645 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		17EEEA0B15CDA7FE0085A645 /* addNewPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addNewPhoto.png; sourceTree = "<group>"; };
 		17FBC1A415AF054800450199 /* Yini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FBC1A815AF054800450199 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17FBC1AA15AF054800450199 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -593,6 +600,8 @@
 		1715697015BA149800B2B969 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				17EEEA0315CD870D0085A645 /* BWCameraModalViewController.h */,
+				17EEEA0415CD870D0085A645 /* BWCameraModalViewController.m */,
 				1702C84C15CC6EFF007BADE8 /* BWPlayingGroundSettingViewController.h */,
 				1702C84D15CC6EFF007BADE8 /* BWPlayingGroundSettingViewController.m */,
 				1702C84815CBC01B007BADE8 /* BWSystemViewController.h */,
@@ -644,18 +653,14 @@
 		17FBC1B015AF054800450199 /* Yini */ = {
 			isa = PBXGroup;
 			children = (
+				1715696A15B9587000B2B969 /* Users */,
 				1715697015BA149800B2B969 /* VCs */,
 				17FBC40415B0209E00450199 /* NewsObjects */,
-				17FBC1D715AF057C00450199 /* NewsLoader.h */,
-				17FBC1D815AF057C00450199 /* NewsLoader.m */,
 				17FBC40515B020D400450199 /* FileRelated */,
 				17FBC1B915AF054800450199 /* BWAppDelegate.h */,
 				17FBC1BA15AF054800450199 /* BWAppDelegate.m */,
 				17FBC1BC15AF054800450199 /* Yini.xcdatamodeld */,
 				17FBC1B115AF054800450199 /* Supporting Files */,
-				1715696A15B9587000B2B969 /* Users */,
-				1715696D15BA148800B2B969 /* BWComment.h */,
-				1715696E15BA148800B2B969 /* BWComment.m */,
 			);
 			path = Yini;
 			sourceTree = "<group>";
@@ -953,6 +958,8 @@
 		17FBC22815AF057C00450199 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				17EEEA0B15CDA7FE0085A645 /* addNewPhoto.png */,
+				17EEEA0715CD90CE0085A645 /* add.png */,
 				1715697315BAEF9300B2B969 /* refresh-browser.jpeg */,
 				17FBC22915AF057C00450199 /* arrow.png */,
 				17FBC22A15AF057C00450199 /* back.png */,
@@ -1172,6 +1179,8 @@
 				17FBC3E615AF07DA00450199 /* NewsObjectPhoto.m */,
 				17FBC3E715AF07DA00450199 /* WSQNews.h */,
 				17FBC3E815AF07DA00450199 /* WSQNews.m */,
+				1715696D15BA148800B2B969 /* BWComment.h */,
+				1715696E15BA148800B2B969 /* BWComment.m */,
 			);
 			name = NewsObjects;
 			sourceTree = "<group>";
@@ -1179,6 +1188,8 @@
 		17FBC40515B020D400450199 /* FileRelated */ = {
 			isa = PBXGroup;
 			children = (
+				17FBC1D715AF057C00450199 /* NewsLoader.h */,
+				17FBC1D815AF057C00450199 /* NewsLoader.m */,
 				17FBC2EF15AF057C00450199 /* WSQFileHelper.h */,
 				17FBC2F015AF057C00450199 /* WSQFileHelper.m */,
 				17FBC2F315AF057C00450199 /* WSQFileUploader.h */,
@@ -1440,6 +1451,8 @@
 				17FBC3D815AF057C00450199 /* punkduck.mp4 in Resources */,
 				1715697215BAC6B600B2B969 /* random~ipad.png in Resources */,
 				1715697415BAEF9300B2B969 /* refresh-browser.jpeg in Resources */,
+				17EEEA0815CD90CE0085A645 /* add.png in Resources */,
+				17EEEA0C15CDA7FE0085A645 /* addNewPhoto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1495,6 +1508,7 @@
 				1715696F15BA148800B2B969 /* BWComment.m in Sources */,
 				1702C84A15CBC01B007BADE8 /* BWSystemViewController.m in Sources */,
 				1702C84E15CC6EFF007BADE8 /* BWPlayingGroundSettingViewController.m in Sources */,
+				17EEEA0515CD870D0085A645 /* BWCameraModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
