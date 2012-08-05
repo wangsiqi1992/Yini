@@ -37,7 +37,11 @@ static NSString *dbSysPath;
     self = [super init];
     
     if (self) {
+        
         // Work your initialising magic here as you normally would
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+
+        
         manager = [NSFileManager defaultManager];
         helper = [WSQFileHelper sharedHelper];
         NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

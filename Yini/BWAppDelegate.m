@@ -45,6 +45,7 @@
     dbSession.delegate = self;
     [DBSession setSharedSession:dbSession];
     
+    
     DBRestClient *restClient;
     if (!restClient) {
         restClient =

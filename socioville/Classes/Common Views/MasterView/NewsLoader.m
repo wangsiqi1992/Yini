@@ -51,6 +51,11 @@ static NewsLoader* _sharedLoader = nil;
     if (self != nil)
     {
         //init here
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"clear catch" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+
+
+        
         manager = [WSQFileHelper sharedHelper];
         uploader = [WSQFileUploader sharedLoader];
     }

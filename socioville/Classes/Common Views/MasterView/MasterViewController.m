@@ -53,6 +53,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"clear catch" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+
+    
     
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -175,6 +179,13 @@
 
 
 
+}
+
+-(void)selfDestory
+{
+    datasource = nil;
+    
+    
 }
 
 #pragma mark - Table View

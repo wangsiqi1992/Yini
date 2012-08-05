@@ -13,7 +13,6 @@
 
 @interface BWLord : BWUser<DBRestClientDelegate>
 {
-    DBRestClient *client;
 }
 
 +(BWLord*)myLord;

@@ -63,6 +63,8 @@ static NSString *dbRootPath = nil;
         localCursor = nil;
         newsNames = nil;
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"clear catch" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
         
         NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *dp = [a objectAtIndex:0];

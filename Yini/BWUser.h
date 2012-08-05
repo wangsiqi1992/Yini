@@ -11,6 +11,9 @@
 #import "BWAppDelegate.h"
 
 @interface BWUser : NSObject<NSCoding>
+{
+    DBRestClient *client;
+}
 
 
 @property (nonatomic, strong) NSString *displayName;

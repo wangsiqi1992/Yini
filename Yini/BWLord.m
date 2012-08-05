@@ -33,23 +33,27 @@ static BWLord *myLord;
     self = [super init];
     if (self)
     {
-        NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *dp = [a objectAtIndex:0];
-        myLordInfoSavePath = [dp stringByAppendingPathComponent:@"User/myLordInfo.plist"];
-        myLordProfilePicSavePath = [dp stringByAppendingPathComponent:@"News/systemFile/yini system file/user info"];
-        
-        //related to self...
-        if (![[NSFileManager defaultManager] fileExistsAtPath:myLordInfoSavePath]) {
-            [[NSFileManager defaultManager] createDirectoryAtPath:[[myLordInfoSavePath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
-            [[self client] loadAccountInfo];
-        }
-        else
-        {
-            self = [NSKeyedUnarchiver unarchiveObjectWithFile:myLordInfoSavePath];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+        if ([[DBSession sharedSession] isLinked]) {
+            NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *dp = [a objectAtIndex:0];
+            myLordInfoSavePath = [dp stringByAppendingPathComponent:@"User/myLordInfo.plist"];
+            myLordProfilePicSavePath = [dp stringByAppendingPathComponent:@"News/systemFile/yini system file/user info"];
             
-            
+            //related to self...
+            if (![[NSFileManager defaultManager] fileExistsAtPath:myLordInfoSavePath]) {
+                [[NSFileManager defaultManager] createDirectoryAtPath:[[myLordInfoSavePath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
+                [[self client] loadAccountInfo];
+            }
+            else
+            {
+                self = [NSKeyedUnarchiver unarchiveObjectWithFile:myLordInfoSavePath];
+                
+                
+            }
+            [BWAppDelegate instance].dbPlayingGround = self.dbPlayingGround;
+
         }
-        [BWAppDelegate instance].dbPlayingGround = self.dbPlayingGround;
 
 
     }
@@ -101,7 +105,8 @@ static BWLord *myLord;
 
 -(BWUser*)myLordAsAUser
 {
-    return [super initWithName:self.displayName];
+    BWUser *me = [[BWUser alloc]initWithName:self.displayName];
+    return me;
 }
 
 -(NSString*)myLordInfoSavePath
@@ -113,6 +118,8 @@ static BWLord *myLord;
 {
     myLord = nil;
     self.dbPlayingGround = nil;
+    self.displayName = nil;
+    
 }
 
 
@@ -186,7 +193,10 @@ static BWLord *myLord;
 
 -(NSString*)profilePicLocalPath
 {
-    return [super profilePicPathForName:self.displayName];
+    if (self.displayName) {
+        return [super profilePicPathForName:self.displayName];
+    }
+    else return nil;
 }
 
 

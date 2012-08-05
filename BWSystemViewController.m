@@ -55,7 +55,10 @@
         
         NSLog(@"getting all directory fail...");
     }
-    [[WSQFileHelper sharedHelper] selfDestory];
+    
+    NSNotification *note = [NSNotification notificationWithName:@"clear catch" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:note];
+    
 }
 
 
@@ -82,9 +85,10 @@
         
         NSLog(@"getting user info directory fail...");
     }
-    [[BWLord myLord] selfDestory];
-    [[WSQFileUploader sharedLoader] selfDestory];
-    [[NewsLoader sharedLoader] selfDestory];
+    NSNotification *note = [NSNotification notificationWithName:@"log out" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:note];
+    
+
 }
 
 

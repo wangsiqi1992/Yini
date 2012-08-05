@@ -73,7 +73,7 @@ static NSString* userInfoDirectory;
     }
     else
     {
-        [[[DBRestClient alloc] initWithSession:[DBSession sharedSession]] loadFile:requestPath intoPath:np];
+        [[self restClient] loadFile:requestPath intoPath:np];
         return np;
     }
     
@@ -81,7 +81,13 @@ static NSString* userInfoDirectory;
 }
 
 
-
+-(DBRestClient*)restClient
+{
+    if (!client) {
+        client = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+    }
+    return client;
+}
 
 
 
