@@ -52,6 +52,11 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    if ([[DBSession sharedSession] isLinked]) {
+        [self.tableView reloadData];
+
+    }
 }
 
 - (void)viewDidUnload
@@ -115,11 +120,14 @@
     if (indexPath.section == 0) {
         cell = [aTableView dequeueReusableCellWithIdentifier:@"MenuUserCell"];
         cell.backgroundView = [[UIImageView alloc] initWithImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-cell.png"]];
-        cell.textLabel.text = [BWLord myLord].displayName;
-        if ([BWLord myLord].displayName) {
-            cell.imageView.image = [UIImage imageWithContentsOfFile:[BWLord myLord].profilePicLocalPath];
-
+        if ([[DBSession sharedSession] isLinked]) {
+            cell.textLabel.text = [BWLord myLord].displayName;
+            if ([BWLord myLord].displayName) {
+                cell.imageView.image = [UIImage imageWithContentsOfFile:[BWLord myLord].profilePicLocalPath];
+                
+            }
         }
+
     } else {
         cell = [aTableView dequeueReusableCellWithIdentifier:@"MenuCell"];
         cell.backgroundView = [[UIImageView alloc] initWithImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-cell.png"]];

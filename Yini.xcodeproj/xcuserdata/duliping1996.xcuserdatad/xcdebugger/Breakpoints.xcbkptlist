@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/MasterViewController.m"
-         timestampString = "365884896.496973"
+         timestampString = "365892151.96634"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "226"
-         endingLineNumber = "226"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "202"
+         endingLineNumber = "202"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/MasterViewController.m"
-         timestampString = "365884896.496973"
+         timestampString = "365892151.96634"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "235"
-         endingLineNumber = "235"
+         startingLineNumber = "238"
+         endingLineNumber = "238"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/MasterViewController.m"
-         timestampString = "365884896.496973"
+         timestampString = "365892151.96634"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "248"
-         endingLineNumber = "248"
+         startingLineNumber = "251"
+         endingLineNumber = "251"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -203,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
+         startingLineNumber = "266"
+         endingLineNumber = "266"
          landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,11 +242,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -255,11 +255,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "230"
-         endingLineNumber = "230"
+         startingLineNumber = "239"
+         endingLineNumber = "239"
          landmarkName = "-loadedNewsList"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "170"
+         endingLineNumber = "170"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -320,11 +320,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "243"
-         endingLineNumber = "243"
+         startingLineNumber = "252"
+         endingLineNumber = "252"
          landmarkName = "-loadedFile"
          landmarkType = "5">
       </FileBreakpoint>
@@ -333,11 +333,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "163"
+         endingLineNumber = "163"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -359,11 +359,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "166"
-         endingLineNumber = "166"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-addToNewsListFromNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -411,24 +411,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWLord.m"
-         timestampString = "365884278.325516"
+         timestampString = "365889356.706373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
-         landmarkName = "-restClient:loadFileFailedWithError:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWLord.m"
-         timestampString = "365884278.325516"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
          landmarkName = "-restClient:loadAccountInfoFailedWithError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -437,11 +424,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWLord.m"
-         timestampString = "365879210.057916"
+         timestampString = "365889356.706373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "129"
-         endingLineNumber = "129"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
          landmarkName = "-client"
          landmarkType = "5">
       </FileBreakpoint>
@@ -654,19 +641,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWLord.m"
-         timestampString = "365877011.575009"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-setDbPlayingGround:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -736,11 +710,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877011.575009"
+         timestampString = "365892768.710919"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "251"
-         endingLineNumber = "251"
+         startingLineNumber = "260"
+         endingLineNumber = "260"
          landmarkName = "-noChange"
          landmarkType = "5">
       </FileBreakpoint>
@@ -784,32 +758,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWLord.m"
-         timestampString = "365879210.057916"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
-         landmarkName = "-selfDestory"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
-         timestampString = "365877095.074085"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
-         landmarkName = "-selfDestory"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -840,11 +788,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/Common Views/MasterView/MasterViewController.m"
-         timestampString = "365884896.496973"
+         timestampString = "365892151.96634"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "187"
-         endingLineNumber = "187"
+         startingLineNumber = "189"
+         endingLineNumber = "189"
          landmarkName = "-selfDestory"
          landmarkType = "5">
       </FileBreakpoint>
@@ -853,11 +801,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWLord.m"
-         timestampString = "365879210.057916"
+         timestampString = "365889356.706373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
          landmarkName = "-myLordAsAUser"
          landmarkType = "5">
       </FileBreakpoint>
@@ -866,12 +814,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWLord.m"
-         timestampString = "365884278.325516"
+         timestampString = "365889356.706373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "165"
-         endingLineNumber = "165"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
          landmarkName = "-restClient:loadedAccountInfo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWLord.m"
+         timestampString = "365889544.915392"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
+         landmarkName = "+myLord"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWAppDelegate.m"
+         timestampString = "365889862.527142"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-application:handleOpenURL:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
+         timestampString = "365892768.710919"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
+         landmarkName = "-selfDestory"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/Classes/Common Views/MasterView/MasterViewController.m"
+         timestampString = "365892337.823754"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "-configureView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -71,7 +71,7 @@ static NewsLoader* _sharedLoader = nil;
 
         
         list = [[NSMutableArray alloc]init];
-        NSDictionary* dic = [NSKeyedUnarchiver unarchiveObjectWithFile:[manager newsListPath]];
+        NSDictionary* dic = [NSKeyedUnarchiver unarchiveObjectWithFile:[[self manager] newsListPath]];
         NSArray *namePaths = [dic keysSortedByValueUsingSelector:@selector(compare:)];
         namePaths = [[namePaths reverseObjectEnumerator] allObjects];
         for (int i = 0; i<50; i++) {
@@ -88,19 +88,26 @@ static NewsLoader* _sharedLoader = nil;
     return list;
 
 }
+-(WSQFileHelper*)manager
+{
+    if (!manager) {
+        manager = [WSQFileHelper sharedHelper];
+    }
+    return manager;
+}
 
 
 -(void)refresh
 {
-    manager.delegate = self;
-    [manager refresh];
+    [self manager].delegate = self;
+    [[self manager] refresh];
 }
 
 -(void)loadThumbnailWithDBPath:(NSString*)path
 {
-    manager.delegate = self;
+    [self manager].delegate = self;
     
-    [manager loadThumbnailForDBPath:path];
+    [[self manager] loadThumbnailForDBPath:path];
 }
 
 -(void)loadMediaFileForNews:(id)wsqNews
@@ -108,7 +115,7 @@ static NewsLoader* _sharedLoader = nil;
     //need to implement here!!
     if ([wsqNews isKindOfClass:[NewsObjectPhoto class]]) {
         NewsObjectPhoto *n = (NewsObjectPhoto*)wsqNews;
-        [manager loadMediaFileForDBPath:n.dbpath];
+        [[self manager] loadMediaFileForDBPath:n.dbpath];
     }
 }
 
@@ -116,9 +123,9 @@ static NewsLoader* _sharedLoader = nil;
 {
     if ([newsObject isKindOfClass:[NewsObjectPhoto class]]) {
         NewsObjectPhoto *n = (NewsObjectPhoto*)newsObject;
-        NSString* localP = [uploader sysFileUploadingTempPathForNews:[manager sysPathNameFromDBPath:n.dbpath]];
+        NSString* localP = [uploader sysFileUploadingTempPathForNews:[[self manager] sysPathNameFromDBPath:n.dbpath]];
         [NSKeyedArchiver archiveRootObject:n toFile:localP];
-        NSString *name = [manager sysPathNameFromDBPath:n.dbpath];
+        NSString *name = [[self manager] sysPathNameFromDBPath:n.dbpath];
 
         [uploader saveSysFileOfNews:name withOldName:name];
         uploader.delegate = self;
@@ -130,7 +137,7 @@ static NewsLoader* _sharedLoader = nil;
 {
     if ([wsqNews isKindOfClass:[WSQNews class]]) {
         WSQNews *wsqNews = (WSQNews*)wsqNews;
-        [manager loadSysFileForNamePath:wsqNews.namePath];
+        [[self manager] loadSysFileForNamePath:wsqNews.namePath];
         
     }
 }
@@ -138,6 +145,8 @@ static NewsLoader* _sharedLoader = nil;
 -(void)selfDestory
 {
     list = nil;
+    manager = nil;
+    uploader = nil;
     
     
 }
@@ -158,12 +167,12 @@ static NewsLoader* _sharedLoader = nil;
     //check any special folder here...
     
 //    WSQNews *n;
-    if ([manager sysFileExistForNamePath:namePath]) {
-        WSQNews* n = (WSQNews*) [[WSQNews alloc]initWithSysFilePath:[manager directoryForNewsSysFile:namePath]];
+    if ([[self manager] sysFileExistForNamePath:namePath]) {
+        WSQNews* n = (WSQNews*) [[WSQNews alloc]initWithSysFilePath:[[self manager] directoryForNewsSysFile:namePath]];
         switch (n.newsType) {
                 case WSQPhoto:
             {
-                NewsObjectPhoto* n = (NewsObjectPhoto*) [[NewsObjectPhoto alloc] initWithSysFilePath:[manager directoryForNewsSysFile:namePath]];
+                NewsObjectPhoto* n = (NewsObjectPhoto*) [[NewsObjectPhoto alloc] initWithSysFilePath:[[self manager] directoryForNewsSysFile:namePath]];
                 [list addObject:n];
 
                 break;
@@ -186,15 +195,15 @@ static NewsLoader* _sharedLoader = nil;
     }
     else
     {
-        WSQNews* n = [[WSQNews alloc]initWithMetadataPath:[manager mediaMetadataPathForNews:namePath]];
+        WSQNews* n = [[WSQNews alloc]initWithMetadataPath:[[self manager] mediaMetadataPathForNews:namePath]];
         switch (n.newsType) {
             case WSQPhoto:
             {
-                NewsObjectPhoto* n = (NewsObjectPhoto*) [[NewsObjectPhoto alloc] initWithMetadataPath:[manager mediaMetadataPathForNews:namePath]];
+                NewsObjectPhoto* n = (NewsObjectPhoto*) [[NewsObjectPhoto alloc] initWithMetadataPath:[[self manager] mediaMetadataPathForNews:namePath]];
                 
                 
                 if (![[NSFileManager defaultManager] fileExistsAtPath:[manager thumbnailPathForNewsNamePath:namePath]]) {
-                    [manager loadThumbnailForDBPath:n.dbpath];
+                    [[self manager] loadThumbnailForDBPath:n.dbpath];
 
                 }
                 [list addObject:n];

@@ -61,7 +61,6 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"background.png"]];
-
     
     
 //    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -76,8 +75,13 @@
 {
 	[super viewWillAppear:animated];
 
-	
-    
+    [self configureView];
+	    
+
+}
+
+-(void)configureView
+{
     if (![[DBSession sharedSession] isLinked]) {
         [[DBSession sharedSession] linkFromController:self];
     }
@@ -85,7 +89,7 @@
     {
         if ([BWLord myLord].dbPlayingGround)
         {
-           
+            
             if (!loader) {
                 loader = [NewsLoader sharedLoader];
             }
@@ -137,6 +141,7 @@
                 }
                 datasource = [loader list];
                 [[self tableView] reloadData];
+                [self refresh];
                 
             }
         }
@@ -146,11 +151,8 @@
             [self presentModalViewController:pvc animated:YES];
         }
         
-
+        
     }
-    
-	    
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -185,6 +187,7 @@
 -(void)selfDestory
 {
     datasource = nil;
+    loader = nil;
     
     
 }

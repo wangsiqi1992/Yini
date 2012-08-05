@@ -74,9 +74,11 @@ static BWLord *myLord;
         myLordProfilePicDBRequestPath = [dbPlayingGround stringByAppendingPathComponent:@"yini system file/user info"];
         myLordProfilePicDBRequestPath = [@"/" stringByAppendingString:myLordProfilePicDBRequestPath];
         [NSKeyedArchiver archiveRootObject:self toFile:[self myLordInfoSavePath]];
-
+        
     }
     [BWAppDelegate instance].dbPlayingGround = dbPlayingGround;
+    
+
     
     
 }
