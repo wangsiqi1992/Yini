@@ -12,12 +12,14 @@
 
 //#import "NewsObjectPhoto.h"
 @protocol WSQFileHelperDelegate <NSObject>
-@optional
 -(void)loadedFile;
+
+@optional
 //-(void)changeInFileWithName:(DBMetadata *)metadata;
 -(void)noChange;
 
 -(void)loadedNewsList;
+
 
 @end
 

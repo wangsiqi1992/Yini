@@ -357,8 +357,10 @@ static NSString *dbRootPath = nil;
             
             //write news names into a plist in systemFile!
             [self saveNewsNames];//change on the list reported once only
-
-        [[self delegate] loadedNewsList];
+        if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
+            
+            [[self delegate] loadedNewsList];
+        }
     }
 
 }
@@ -379,8 +381,10 @@ static NSString *dbRootPath = nil;
         }
         if ([entries count] == 0) {
             
-            [[self delegate] noChange];
-            return;
+            if ([self.delegate respondsToSelector:@selector(noChange)]) {
+                
+                [[self delegate] noChange];
+            }             return;
         }
         else {
             BOOL changeMade = NO;
@@ -478,12 +482,16 @@ static NSString *dbRootPath = nil;
             }
             
             if (changeMade) {
-                [[self delegate] loadedNewsList];
-            }
+                if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
+                    
+                    [[self delegate] loadedNewsList];
+                }            }
             else
             {
-                [[self delegate] noChange];
-            }
+                if ([self.delegate respondsToSelector:@selector(noChange)]) {
+                    
+                    [[self delegate] noChange];
+                }             }
         }
     }
     
@@ -494,6 +502,11 @@ static NSString *dbRootPath = nil;
 {
     [[self delegate] loadedFile];//change reported on every file
     NSLog(@"loaded files to %@", destPath);
+    if ([destPath rangeOfString:@"user info"].location != NSNotFound)
+    {
+        NSNotification *note = [NSNotification notificationWithName:@"user info changed" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:note];
+    }
 }
 
 

@@ -15,7 +15,7 @@
 @implementation BWMyLordInfoViewController
 @synthesize profilPic;
 @synthesize statusTextLable;
-@synthesize littleWheel, lord;
+@synthesize littleWheel, lord, navTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +40,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self configureView];
+    if (self.navTitle)
+    {
+//        self.navigationController.navigationBar. = self.navTitle;
+        
+    }
     
 }
 
@@ -121,7 +126,7 @@
     UIImage *im = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.profilPic.image = im;
     pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
+    [picker dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -144,6 +149,7 @@
     if (isSucceed) {
         [self.littleWheel stopAnimating];
         [self dismissModalViewControllerAnimated:YES];
+        [self.delegate myLordInfoViewDidGotNewProfile];
     }
     
 }

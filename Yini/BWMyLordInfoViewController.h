@@ -21,6 +21,17 @@
 @property (strong, nonatomic) IBOutlet UIImageView *profilPic;
 @property (strong, nonatomic) IBOutlet UILabel *statusTextLable;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheel;
+@property (strong, nonatomic) NSString *navTitle;
+@property (strong, nonatomic) id delegate;
+
 - (IBAction)save:(id)sender;
+
+
+@end
+
+
+@protocol MyLordInfoViewDelegate <NSObject>
+
+-(void)myLordInfoViewDidGotNewProfile;
 
 @end

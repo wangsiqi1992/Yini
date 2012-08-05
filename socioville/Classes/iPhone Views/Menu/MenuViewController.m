@@ -45,6 +45,13 @@
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"background.png"]];
     [self.searchBar setTextColor:[UIColor whiteColor]];
     [self.searchBar field].leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadedUserProfile) name:@"user info changed" object:nil];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidUnload
@@ -108,8 +115,8 @@
     if (indexPath.section == 0) {
         cell = [aTableView dequeueReusableCellWithIdentifier:@"MenuUserCell"];
         cell.backgroundView = [[UIImageView alloc] initWithImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-cell.png"]];
-        cell.textLabel.text = @"Virgil Pana";
-        cell.imageView.image = [UIImage imageNamed:@"user_1.png"];
+        cell.textLabel.text = [BWLord myLord].displayName;
+        cell.imageView.image = [UIImage imageWithContentsOfFile:[BWLord myLord].profilePicLocalPath];
     } else {
         cell = [aTableView dequeueReusableCellWithIdentifier:@"MenuCell"];
         cell.backgroundView = [[UIImageView alloc] initWithImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-cell.png"]];
@@ -148,7 +155,16 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0)
+    {
+        BWMyLordInfoViewController *miVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BWMyLordInfoViewController"];
+//        miVC.navigationItem.title = @"User Info";
+        miVC.navTitle = @"User Info";
+        miVC.delegate = self;
+        [self presentModalViewController:miVC animated:YES];
+        
+        
+        
         return;
     }
     [self.searchBar resignFirstResponder];
@@ -193,5 +209,39 @@
      [mainController revealToggle:nil];
      */
 }
+
+
+
+#pragma mark - yini delegates
+
+
+-(void)myLordInfoViewDidGotNewProfile
+{
+    [[WSQFileHelper sharedHelper] refresh];
+    
+    
+}
+
+
+
+-(void)loadedUserProfile
+{
+    [self.tableView reloadData];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

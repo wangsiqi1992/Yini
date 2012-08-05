@@ -294,11 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileHelper.m"
-         timestampString = "365770366.290678"
+         timestampString = "365864750.560085"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "435"
-         endingLineNumber = "435"
+         startingLineNumber = "439"
+         endingLineNumber = "439"
          landmarkName = "-restClient:loadedDeltaEntries:reset:cursor:hasMore:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -346,11 +346,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileHelper.m"
-         timestampString = "365770366.290678"
+         timestampString = "365866471.148745"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "625"
-         endingLineNumber = "625"
+         startingLineNumber = "638"
+         endingLineNumber = "638"
          landmarkName = "-deleteNewsSysFileWithName:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -398,11 +398,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWMyLordInfoViewController.m"
-         timestampString = "365721125.221417"
+         timestampString = "365862919.168018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-myLordInfoLoaded"
          landmarkType = "5">
       </FileBreakpoint>
@@ -411,11 +411,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWMyLordInfoViewController.m"
-         timestampString = "365721125.221417"
+         timestampString = "365862919.168018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "138"
-         endingLineNumber = "138"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
          landmarkName = "-myLordProfilePicLoaded"
          landmarkType = "5">
       </FileBreakpoint>
@@ -463,24 +463,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWMyLordInfoViewController.m"
-         timestampString = "365721125.221417"
+         timestampString = "365862919.168018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
          landmarkName = "-configureView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWMyLordInfoViewController.m"
-         timestampString = "365721125.221417"
+         timestampString = "365862919.168018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-save:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -645,11 +645,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileHelper.m"
-         timestampString = "365770366.290678"
+         timestampString = "365864750.560085"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "390"
-         endingLineNumber = "390"
+         startingLineNumber = "394"
+         endingLineNumber = "394"
          landmarkName = "-restClient:loadedDeltaEntries:reset:cursor:hasMore:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -729,6 +729,32 @@
          startingLineNumber = "56"
          endingLineNumber = "56"
          landmarkName = "-doneButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BWPhotoVideoViewController.m"
+         timestampString = "365864909.299769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "424"
+         endingLineNumber = "424"
+         landmarkName = "-noChange"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/Classes/Common Views/MasterView/NewsLoader.m"
+         timestampString = "365864960.16087"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "246"
+         endingLineNumber = "246"
+         landmarkName = "-noChange"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
