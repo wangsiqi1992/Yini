@@ -45,6 +45,7 @@
 //        self.navigationController.navigationBar. = self.navTitle;
         
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotAProfile) name:@"user info changed" object:nil];
     
 }
 
@@ -119,6 +120,7 @@
     [self setStatusTextLable:nil];
     [self setLittleWheel:nil];
     [super viewDidUnload];
+    
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -154,7 +156,10 @@
     
 }
 
-
+-(void)gotAProfile
+{
+    [self configureView];
+}
 
 
 

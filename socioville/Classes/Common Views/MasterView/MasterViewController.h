@@ -18,7 +18,7 @@
 #import "MainViewController.h"
 
 
-@interface MasterViewController :PullRefreshTableViewController <NewsLoaderDelegate, ZUUIRevealControllerDelegate>
+@interface MasterViewController :PullRefreshTableViewController <NewsLoaderDelegate, ZUUIRevealControllerDelegate, MyLordInfoViewDelegate>
 
 
 {
@@ -28,7 +28,7 @@
     NSArray *datasource;
     NSInteger selected;
     UITapGestureRecognizer *dismissMenuTap;
-      
+    BOOL gotAProfilePic;
 }
 
 //@property (strong, nonatomic) DetailViewController *detailViewController;

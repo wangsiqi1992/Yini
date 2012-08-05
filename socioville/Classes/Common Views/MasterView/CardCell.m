@@ -66,7 +66,7 @@
 //                [self.littleWheel setHidden:NO];
                 self.majorImage.image = nil;
             }
-            if (n.author) {
+            if (n.author.displayName) {
                 if ([[NSFileManager defaultManager] fileExistsAtPath:n.author.profilePicLocalPath]) {
                     self.userPic.image = [UIImage imageWithContentsOfFile:n.author.profilePicLocalPath];
                 }

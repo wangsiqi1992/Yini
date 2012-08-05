@@ -134,6 +134,14 @@ static BWLord *myLord;
 
 
 
+-(NSString*)profilePicLocalPath
+{
+    if (self.displayName) {
+        return [super profilePicPathForName:self.displayName];
+    }
+    else return nil;
+}
+
 
 
 
@@ -182,7 +190,8 @@ static BWLord *myLord;
 
 -(void)restClient:(DBRestClient *)client loadFileFailedWithError:(NSError *)error
 {
-    [[self delegate] myLordProfilePicLoaded];
+//    [[self delegate] myLordProfilePicLoaded];
+    
 }
 
 -(void)restClient:(DBRestClient *)client loadedFile:(NSString *)destPath
@@ -190,14 +199,6 @@ static BWLord *myLord;
     [[self delegate] myLordProfilePicLoaded];
 }
 
-
--(NSString*)profilePicLocalPath
-{
-    if (self.displayName) {
-        return [super profilePicPathForName:self.displayName];
-    }
-    else return nil;
-}
 
 
 

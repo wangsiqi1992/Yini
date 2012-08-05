@@ -39,7 +39,7 @@
     
     //init data model
     //set activity indicator on!
-    
+    gotAProfilePic = FALSE;
     
     
 
@@ -128,11 +128,12 @@
                     
                     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
                 }
-                if (![BWLord myLord].displayName) {
+                if (![BWLord myLord].displayName || (![[NSFileManager defaultManager] fileExistsAtPath:[BWLord myLord].profilePicLocalPath] && !gotAProfilePic)) {
                     
-                    UIViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"BWMyLordInfoViewController"];
-                    
+                    BWMyLordInfoViewController *lvc = (BWMyLordInfoViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"BWMyLordInfoViewController"];
+                    lvc.delegate = self;
                     [self presentModalViewController:lvc animated:YES];
+                    
                 }
                 datasource = [loader list];
                 [[self tableView] reloadData];
@@ -290,6 +291,11 @@
 - (void)revealController:(ZUUIRevealController *)revealController didHideRearViewController:(UIViewController *)rearViewController
 {
     [dismissMenuTap setEnabled:FALSE];
+}
+
+-(void)myLordInfoViewDidGotNewProfile
+{
+    gotAProfilePic = TRUE;
 }
 
 
