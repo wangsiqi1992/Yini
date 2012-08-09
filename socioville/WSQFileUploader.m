@@ -176,7 +176,13 @@ static NSString *dbSysPath;
         [uploadingList removeObjectForKey:name];
     }
     
-    [self.delegate fileUploadFinished:YES];
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:@"finished save news", @"status", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"finished loading" object:self userInfo:userInfo];
+    
+    if ([self.delegate respondsToSelector:@selector(fileUploadFinished:)])
+    {
+        [self.delegate fileUploadFinished:YES];
+    }
 }
 
 -(void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error

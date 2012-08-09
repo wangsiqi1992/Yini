@@ -14,7 +14,7 @@
 
 
 @protocol NewsLoaderDelegate <NSObject>
-
+@optional
 -(void)newsLoaderDidLoadNewsList;
 -(void)newsLoaderDidLoadFile;
 -(void)noChange;

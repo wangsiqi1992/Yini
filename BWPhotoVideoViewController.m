@@ -58,6 +58,7 @@
     newsNameTextField.delegate = self;
     commentTextField.delegate = self;
     UITapGestureRecognizer *taoCon = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
+    taoCon.delegate = self;
     [self.view addGestureRecognizer:taoCon];
     loader = [NewsLoader sharedLoader];
     
@@ -71,11 +72,11 @@
 																						 320.0f, self.commentsTableView.bounds.size.height)];
 	[self.commentsTableView addSubview:pullToReloadHeaderView];
     
+/*hack the full screen*/
 
-    //try to hack to get a better experience on the scroll to reload
-//    UIPanGestureRecognizer *swiCon = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(disableMainScrollView)];
-//    [self.commentsTableView addGestureRecognizer:swiCon];
-    
+//    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enterFullScreenMode)];
+//    [pgr setNumberOfTapsRequired:2];
+//    [self.mainImageView addGestureRecognizer:pgr];
 }
 
 
@@ -152,8 +153,35 @@
 }
 
 
+/*hack the full screen*/
 
-
+//-(void)enterFullScreenMode
+//{
+//    UIScrollView *sv = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 768, 1004)];
+//    [mainImageView setCenter:CGPointMake(sv.frame.size.width/2, sv.frame.size.height/2)];
+//    [sv addSubview:mainImageView];
+//    [sv setHidden:FALSE];
+//    [mainImageView setHidden:FALSE];
+//    [self.view addSubview:sv];
+//
+//}
+//
+//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+//{
+////    if (touch.view == mainImageView) {
+////        return NO;
+////    }
+//    CGPoint point = [touch locationInView:mainImageView];
+//    
+//    
+//    if ((point.x > 0 && point.x - mainImageView.frame.size.width < 0) && (point.y > 0 && point.y - mainImageView.frame.size.height < 0))
+//    {
+//        
+//        [self enterFullScreenMode];
+//        return NO;
+//    }
+//    return YES;
+//}
 
 
 
@@ -374,7 +402,7 @@
         }
         
         UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
-        ageLable.text = [NSString stringWithFormat:@"%@ ago", [c ageDescription]];
+        ageLable.text = [NSString stringWithFormat:@"%@", [c ageDescription]];
         
         return cell;
     }

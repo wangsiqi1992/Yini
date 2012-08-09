@@ -14,7 +14,7 @@
 #import "BWLord.h"
 #import "UIPullToReloadHeaderView.h"
 
-@interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 {
     NewsLoader *loader;
     WSQNews *detailedObject;

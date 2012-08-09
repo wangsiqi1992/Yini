@@ -6,7 +6,71 @@
 //  Copyright (c) 2012年 siqi wang. All rights reserved.
 //
 
+
+
 #import "WSQFileHelper.h"
+
+@interface WSQFileHelper ()
+
+-(DBRestClient *)restClient;
+
+/** Getter for localCursor.
+ if cusor is nil, archieve it before return...
+ @return    localCursor
+ */
+-(NSString*)cursor;
+
+/** Save the localCursor to the file
+ */
+-(void)saveCursor;
+
+/** Going to have a better approach than this one...
+ call db to load metadata of the root, and process metadata one by one
+ */
+-(void)implementFromScratch;
+
+/** Put a DB metadata into newsNames dictionary
+ @param     metadata    db metadata got from dropbox
+ \warning{
+ checked newsNames before adding object!}
+ @return    sucess or not
+ */
+-(BOOL)putIntoNewsNames:(DBMetadata *)metadata;
+
+/** Check everything in the newsNames dic, if found the metadata contain the same lowercaseString, the name path is returned...
+ @param     name        lowercaseString got from metadata
+ @return    string      true path name as it is on the desktop computer
+ */
+-(NSString*)realNameFromLowerCase:(NSString*)name;
+
+/** Delete: sys file, media file, from newsNames, thumbnail, media metadata!
+ @param     name        name path for the news you want to delete, as it is used for newsNames key
+ */
+-(void)deleteNewsMediaFileWithName:(NSString*)name;
+
+/** Tries to delete: sys file, or any file located inside sys file folder, and sys metadata file...
+ @param     name        sys name path, extension friendly
+ */
+-(void)deleteNewsSysFileWithName:(NSString*)name;
+
+/** Getter for private variable, unarchieve from file if nil, and init it if nil again
+ */
+-(NSMutableDictionary*)newsNames;
+
+/** save newsNames once it is modified, archieve it to file
+ @warning       should be called before announcing new newsList
+ */
+-(void)saveNewsNames;
+
+/** called at init, make local directories
+ */
+-(void)makeDirectories;
+
+
+@end
+
+
+
 
 @implementation WSQFileHelper
 static WSQFileHelper* _sharedHelper = nil;
@@ -128,13 +192,11 @@ static NSString *dbRootPath = nil;
 {
     return [sysFileDirec stringByAppendingPathComponent:@"newsList.plist"];
 }
+
 -(NSString*)localFileDirec
 {
     return mediaFileDirec;
 }
-
-
-
 
 -(NSString*)directoryForNewsSysFile:(NSString*)name
 {
@@ -151,13 +213,11 @@ static NSString *dbRootPath = nil;
     
 }
 
-
 -(NSString*)directoryForNewsMediaFile:(NSString *)name
 {
     return [mediaFileDirec stringByAppendingPathComponent:name];
     
 }
-
 
 -(NSString*)mediaMetadataPathForNews:(NSString *)name
 {
@@ -196,25 +256,10 @@ static NSString *dbRootPath = nil;
     return [[[self pathNameFromDBPath:path] stringByDeletingPathExtension] stringByAppendingPathExtension:@"plist"];
 }
 
-//-(NSString*)trimDBRoot:(NSString *)dbFullPath
-//{
-//    
-//}
-
-
-
-
-
-
-
-
-
-
 -(NSString*)thumbnailPathForNewsNamePath:(NSString *)namePath
 {
     return [thumbnailSavePath stringByAppendingPathComponent:namePath];
 }
-
 
 -(BOOL)sysFileExistForNamePath:(NSString *)np
 {
@@ -278,7 +323,6 @@ static NSString *dbRootPath = nil;
     dbRootPath = dbP;
 }
 
-
 -(void)loadThumbnailForDBPath:(NSString *)DBPath
 {
     NSRange r = [DBPath rangeOfString:dbRootPath];
@@ -288,7 +332,6 @@ static NSString *dbRootPath = nil;
     [[self restClient] loadThumbnail:DBPath ofSize:@"s" intoPath:tPath];
     
 }
-
 
 -(void)loadMediaFileForDBPath:(NSString *)dbPath
 {
@@ -381,9 +424,12 @@ static NSString *dbRootPath = nil;
         if (hasMore) {
             [[self restClient] loadDelta:cursor];
         }
+        BOOL changeMadeInActivityFolder = NO;
+
         if ([entries count] == 0) {
             
             if ([self.delegate respondsToSelector:@selector(noChange)]) {
+                changeMadeInActivityFolder = NO;
                 
                 [[self delegate] noChange];
             }             return;
@@ -448,6 +494,9 @@ static NSString *dbRootPath = nil;
                             {
                                 NSString *localPath = [[NSString alloc]init];
                                 NSString *pathName = [self pathNameFromDBPath:d.metadata.path];
+                                if ([pathName rangeOfString:@"user activities"].location != NSNotFound) {
+                                    changeMadeInActivityFolder = YES;
+                                }
                                 localPath = [self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName];
                                 
                                 if (![manager fileExistsAtPath:localPath])
@@ -491,9 +540,12 @@ static NSString *dbRootPath = nil;
             else
             {
                 if ([self.delegate respondsToSelector:@selector(noChange)]) {
-                    
                     [[self delegate] noChange];
                 }             }
+        }
+        if (!changeMadeInActivityFolder) {
+            NSNotification *note = [NSNotification notificationWithName:@"user activities no change" object:self];
+            [[NSNotificationCenter defaultCenter] postNotification:note];
         }
     }
     
@@ -507,6 +559,13 @@ static NSString *dbRootPath = nil;
     if ([destPath rangeOfString:@"user info"].location != NSNotFound)
     {
         NSNotification *note = [NSNotification notificationWithName:@"user info changed" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:note];
+    }
+    if ([destPath rangeOfString:@"user activities"].location != NSNotFound)
+    {
+        NSString *userName = [[[destPath componentsSeparatedByString:@"/"] lastObject] stringByDeletingPathExtension];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:userName forKey:@"userName"];
+        NSNotification *note = [NSNotification notificationWithName:@"user activities changed" object:self userInfo:userInfo];
         [[NSNotificationCenter defaultCenter] postNotification:note];
     }
 }
@@ -550,6 +609,8 @@ static NSString *dbRootPath = nil;
     return localCursor;
 }
 
+/** Save the localCursor to the file
+ */
 -(void)saveCursor
 {
     if (![NSKeyedArchiver archiveRootObject:localCursor toFile:cursorPath]) {
@@ -557,6 +618,9 @@ static NSString *dbRootPath = nil;
     }
 }
 
+/** Going to have a better approach than this one...
+ call db to load metadata of the root, and process metadata one by one
+ */
 -(void)implementFromScratch
 {
     [self makeDirectories];
@@ -564,6 +628,12 @@ static NSString *dbRootPath = nil;
 
 }
 
+/** Put a DB metadata into newsNames dictionary
+ @param     metadata    db metadata got from dropbox
+ \warning{
+            checked newsNames before adding object!}
+ @return    sucess or not
+ */
 -(BOOL)putIntoNewsNames:(DBMetadata *)metadata
 {
     

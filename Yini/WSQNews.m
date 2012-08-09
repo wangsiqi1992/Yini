@@ -138,7 +138,7 @@
         }
     }
     
-    return nil;
+    return WSQNewsTypeNotSure;
     
 }
 

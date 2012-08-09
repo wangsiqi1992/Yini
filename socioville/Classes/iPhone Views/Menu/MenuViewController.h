@@ -12,6 +12,7 @@
 #import <DropboxSDK/DropboxSDK.h>
 #import "BWMyLordInfoViewController.h"
 #import "WSQFileHelper.h"
+#import "BWActivityLoaderViewController.h"
 
 
 @interface MenuViewController : UIViewController <ZUUIRevealControllerDelegate, UITableViewDelegate, UITableViewDataSource, WSQFileHelperDelegate, MyLordInfoViewDelegate>

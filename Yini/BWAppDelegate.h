@@ -12,6 +12,8 @@
 
 
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate, DBSessionDelegate>
+{
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

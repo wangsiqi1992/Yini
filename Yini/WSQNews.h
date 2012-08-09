@@ -16,7 +16,8 @@
 enum WSQNewsTypes {
     WSQPhoto,
     WSQVideo,
-    WSQArticle
+    WSQArticle, 
+    WSQNewsTypeNotSure
 };
 
 @interface WSQNews : NSObject<NSCoding>
@@ -38,7 +39,7 @@ enum WSQNewsTypes {
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *newsName;
 @property (nonatomic, strong) NSArray *commentsArray;
-@property (nonatomic, strong) NSString *namePath;
+@property (nonatomic, strong) NSString *namePath;//sys name path
 @property (nonatomic, strong) BWUser *author;
 
 

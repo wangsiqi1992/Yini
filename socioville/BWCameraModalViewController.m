@@ -37,9 +37,7 @@
     
     selectedImage = nil;
     newsName = nil;
-    uploader = [WSQFileUploader sharedLoader];
-    helper = [WSQFileHelper sharedHelper];
-    loader = [NewsLoader sharedLoader];
+
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldResignFirstResp)];
     [self.navigationController.view addGestureRecognizer:tgr];
     
@@ -57,21 +55,12 @@
     {
         newsName = nameTextField.text;
         [littleWheel startAnimating];
-        NSDate* now = [NSDate date];
-        fileName = [[[NSString stringWithFormat:@"%@ %@", [BWLord myLord].displayName, [NSDateFormatter localizedStringFromDate:now dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle]] stringByReplacingOccurrencesOfString:@":" withString:@" "] stringByAppendingPathExtension:@"jpg"];
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:newsName, @"news name", nil];
         
-                    
-        NSString *saveP = [[WSQFileUploader sharedLoader] mediaFileUploadingTempPathForNews:fileName];
-        
-        NSError *e;
-
-        NSData *d = UIImageJPEGRepresentation(selectedImage, 1);
-        [d writeToFile:saveP options:NSDataWritingAtomic error:&e];
-        NSLog(@"%@", [e localizedDescription]);
-
-        [uploader saveMediaFileOfNews:fileName withOldName:nil];
-        uploader.delegate = self;
-        
+        if ([[BWNewsWriter sharedWriter] composePhotoNewsWithPhoto:selectedImage attributes:dic])
+        {
+            [self dismissModalViewControllerAnimated:YES];
+        }
     }
 }
 
@@ -135,37 +124,7 @@
 
 
 
-#pragma mark - delegate call backs...
 
--(void)fileUploadFinished:(BOOL)isSucceed
-{
-
-    if (isSucceed) {
-        [loader refresh];
-        loader.delegate = self;
-    }
-
-
-    
-}
-
--(void)newsLoaderDidLoadFile
-{
-    NewsObjectPhoto *newsOject = [[NewsObjectPhoto alloc] initWithMetadataPath:[helper mediaMetadataPathForNews:fileName]];
-    if (newsOject) {
-        newsOject.author = [[BWLord myLord] myLordAsAUser];
-        newsOject.newsName = newsName;
-        [loader saveNewsObject:newsOject];
-        loader.delegate = self;
-    }
-    
-}
-
--(void)saveNewsObjectSucceed
-{
-    //yeah!
-    [self dismissModalViewControllerAnimated:YES];
-}
 
 
 

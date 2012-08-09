@@ -7,16 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewsLoader.h"
+#import "BWNewsWriter.h"
 
-@interface BWCameraModalViewController : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, WSQFileUploaderDelegate, NewsLoaderDelegate>
+@interface BWCameraModalViewController : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate>
 {
     UIImage *selectedImage;
     NSString *newsName;
-    NSString *fileName;
-    WSQFileUploader *uploader;
-    WSQFileHelper *helper;
-    NewsLoader *loader;
+
 }
 - (IBAction)doneButton:(id)sender;
 - (IBAction)closeButton:(id)sender;

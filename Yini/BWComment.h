@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BWUser.h"
+#import "BWAgeCalculator.h"
 @interface BWComment : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSDate *createdDate;

@@ -250,21 +250,28 @@ static NewsLoader* _sharedLoader = nil;
 {
     list = nil;
     NSLog(@"news loader got a delegate massage saying loaded a file");
-    [[self delegate] newsLoaderDidLoadFile];
+    if ([self.delegate respondsToSelector:@selector(newsLoaderDidLoadFile)]) {
+        [[self delegate] newsLoaderDidLoadFile];
+    }
 }
 
 
 
 -(void)noChange
 {
-    [[self delegate] noChange];
+    if ([self.delegate respondsToSelector:@selector(noChange)]) {
+        [[self delegate] noChange];
+
+    }
 }
 
 
 -(void)fileUploadFinished:(BOOL)isSucceed
 {
     if (isSucceed) {
-        [self.delegate saveNewsObjectSucceed];
+        if ([self.delegate respondsToSelector:@selector(saveNewsObjectSucceed)]) {
+            [self.delegate saveNewsObjectSucceed];
+        }
 
     }
     else

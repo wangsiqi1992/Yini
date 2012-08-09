@@ -199,7 +199,23 @@
         } else {
             [mainController revealToggle:nil];
         }
-    } else {
+    }
+    else if(indexPath.row == 1)
+    {
+        if ([mainController.frontViewController isKindOfClass:[UINavigationController class]]
+            && ![((UINavigationController *)mainController.frontViewController).topViewController isKindOfClass:[SecondViewController class]])
+        {
+            BWActivityLoaderViewController *secondVC = [self.storyboard instantiateViewControllerWithIdentifier:@"activity VC"];
+            secondVC.user = [[BWLord myLord] myLordAsAUser];
+            
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:secondVC];
+            [mainController setFrontViewController:nav animated:YES];
+        } else {
+            [mainController revealToggle:nil];
+        }
+    }
+    
+    else {
         if ([mainController.frontViewController isKindOfClass:[UINavigationController class]] 
             && ![((UINavigationController *)mainController.frontViewController).topViewController isKindOfClass:[SecondViewController class]]) 
         {

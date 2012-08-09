@@ -10,5 +10,7 @@
 #import "ZUUIRevealController.h"
 
 @interface MainViewController : ZUUIRevealController
+{
+}
 
 @end

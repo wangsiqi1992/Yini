@@ -22,7 +22,7 @@
                             , @"menu-home.png", @"imageName"
                             , nil]
                          , [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"Popular", @"name"
+                              @"My activities", @"name"
                             , @"menu-eye.png", @"imageName"
                             , nil]
                          , [NSDictionary dictionaryWithObjectsAndKeys:

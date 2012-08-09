@@ -7,9 +7,13 @@
 // 
 
 #import "BaseViewController.h"
+#import "ProgressBanner.h"
+
 
 @interface CustomTabBarViewController : BaseViewController <UINavigationControllerDelegate>
 {
+    ProgressBanner *pb;
+
 }
 
 @property (nonatomic) BOOL allowLandscape;

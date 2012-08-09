@@ -217,6 +217,7 @@
     CardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CardCell"];
 
     if (!cell) {
+        
         NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CardCell" owner:nil options:nil];
         for (id obj in views) {
             if ([obj isKindOfClass:[UITableViewCell class]]) {
@@ -300,6 +301,12 @@
 {
     gotAProfilePic = TRUE;
 }
+
+
+
+
+
+
 
 
 
