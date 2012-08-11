@@ -83,6 +83,7 @@ static BWNewsWriter *sharedWriter;
             news = (WSQNews*)newsObject;
             fileName = news.namePath;
             [[WSQFileHelper sharedHelper] refresh];
+            waitingForFile = NO;
             status = BWNewsWriterStatusUploadingSystemFile;
             task = BWNewsWriterTaskSaveNews;
             return YES;
@@ -246,7 +247,7 @@ static BWNewsWriter *sharedWriter;
 {
     NSArray *paths = [note.userInfo objectForKey:@"changed paths"];
     BOOL changed = [[note.userInfo objectForKey:@"changed"] boolValue];
-    NSString *changedPath = [note.userInfo objectForKey:@"changed path"];
+    NSString *changedPath = [note.userInfo objectForKey:@"name path"];
 
     if ((task == BWNewsWriterTaskCompostNews) && (status == BWNewsWriterStatusUploadingSystemFile) && paths)
     {
@@ -288,7 +289,8 @@ static BWNewsWriter *sharedWriter;
                 {
                     if ([np rangeOfString:fileName].location != NSNotFound)
                     {
-                        [[WSQFileHelper sharedHelper] refresh];//refresh, and wait until there is no our file change happend...
+                            //[[WSQFileHelper sharedHelper] refresh];//refresh, and wait until there is no our file change happend...
+                        waitingForFile = YES;
                         ready = NO;
                         break;
                     }
@@ -300,6 +302,7 @@ static BWNewsWriter *sharedWriter;
                 {///if it is our news sys file...
                     news = [self.delegate reImplementNews];
                         ///ready!
+                    waitingForFile = NO;
                 }
                 else
                 {///if it is not our sys file... ours might be comming later....
@@ -308,7 +311,9 @@ static BWNewsWriter *sharedWriter;
             }
         }
         if (ready) {
-            [self uploadTheRightOne:news];
+            if (!waitingForFile) {
+                [self uploadTheRightOne:news];
+            }
         }
         else
         {

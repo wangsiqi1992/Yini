@@ -32,6 +32,7 @@ enum task {
     WSQNews* news;
     NSInteger status;
     NSInteger task;
+    BOOL waitingForFile;    /**only used for save news sys file... when checking if updates~*/
 }
 
 

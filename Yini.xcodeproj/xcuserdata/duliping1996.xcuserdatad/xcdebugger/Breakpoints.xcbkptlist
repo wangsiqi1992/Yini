@@ -1009,11 +1009,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366317245.206007"
+         timestampString = "366361922.584869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "318"
-         endingLineNumber = "318"
+         startingLineNumber = "323"
+         endingLineNumber = "323"
          landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1022,11 +1022,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366317245.206007"
+         timestampString = "366361922.584869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "229"
-         endingLineNumber = "229"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
          landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1048,11 +1048,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366317245.206007"
+         timestampString = "366361922.584869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253"
+         startingLineNumber = "254"
+         endingLineNumber = "254"
          landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1100,11 +1100,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366316968.254641"
+         timestampString = "366361922.584869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1113,11 +1113,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366317245.206007"
+         timestampString = "366361922.584869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "279"
-         endingLineNumber = "279"
+         startingLineNumber = "280"
+         endingLineNumber = "280"
          landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1126,11 +1126,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366317245.206007"
+         timestampString = "366361922.584869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "224"
-         endingLineNumber = "224"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
          landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1145,6 +1145,19 @@
          startingLineNumber = "436"
          endingLineNumber = "436"
          landmarkName = "-writingNewsSucceed"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWNewsWriter.m"
+         timestampString = "366362140.539619"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "315"
+         endingLineNumber = "315"
+         landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
