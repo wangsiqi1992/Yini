@@ -39,11 +39,36 @@
     WSQNews *news = [[WSQNews alloc] initWithSysFilePath:path];
     if (news.newsType == WSQPhoto) {
         NewsObjectPhoto *aNews = (NewsObjectPhoto*)news;
-        self.mainImageView.image = [UIImage imageWithContentsOfFile:[aNews mediaPath]];
+        self.mainImageView.image = [[BWImageStroe sharedStore] thumbnailImageWithDBPath:aNews.dbpath];
+        
         self.newsNameLabel.text = aNews.newsName;
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

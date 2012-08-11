@@ -47,6 +47,56 @@ static BWImageStroe *sharedStrore;
     return profileP;
 }
 
+-(UIImage*)thumbnailImageWithDBPath:(NSString *)namePath
+{
+    if ([thumbNailDic objectForKey:namePath]) {
+        return [thumbNailDic objectForKey:namePath];
+    }
+    else
+    {
+        NSString *mediaP = [[WSQFileHelper sharedHelper] directoryForNewsMediaFile:[[WSQFileHelper sharedHelper] pathNameFromDBPath:namePath]];
+        NSString *thumbP = [[WSQFileHelper sharedHelper] thumbnailPathForNewsNamePath:[[WSQFileHelper sharedHelper] pathNameFromDBPath:namePath]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:mediaP]) {
+            UIImage *i = [UIImage imageWithContentsOfFile:mediaP];
+            [thumbNailDic setObject:i forKey:namePath];
+            return i;
+        }
+        
+        UIImage *i = [UIImage imageWithContentsOfFile:thumbP];
+        if(i)
+        {
+            [thumbNailDic setObject:i forKey:namePath];
+            return i;
+        }
+        else
+        {
+            [[WSQFileHelper sharedHelper] loadThumbnailForDBPath:namePath];
+            return nil;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -(void)userInfoChanged:(NSNotification*)note
 {
     BOOL changed = [[note.userInfo objectForKey:@"changed"] boolValue];

@@ -31,10 +31,7 @@
 -(void)setUser:(BWUser *)user
 {
     self.nameLabel.text = user.displayName;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:user.profilePicLocalPath])
-    {
-        self.profilePicView.image = [UIImage imageWithContentsOfFile:user.profilePicLocalPath];
-    }
+    self.profilePicView.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:user.displayName];
     
 }
 

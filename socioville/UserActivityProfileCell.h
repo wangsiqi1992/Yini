@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BWUser.h"
+#import "BWImageStroe.h"
+
 
 @interface UserActivityProfileCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicView;

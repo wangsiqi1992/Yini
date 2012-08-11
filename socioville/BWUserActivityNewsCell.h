@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewsObjectPhoto.h"
 #import "BWActivityNews.h"
+#import "BWImageStroe.h"
 
 @interface BWUserActivityNewsCell : UITableViewCell
 

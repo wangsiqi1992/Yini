@@ -55,17 +55,17 @@
             [self.playImageView removeFromSuperview];
             label.text = n.newsName;
             
-            if ([[NSFileManager defaultManager] fileExistsAtPath:[n thumbnailPath]])
-            {
-                self.majorImage.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:[n thumbnailPath]]];
+            
+            if ([[BWImageStroe sharedStore] thumbnailImageWithDBPath:n.dbpath]) {
+                self.majorImage.image = [[BWImageStroe sharedStore] thumbnailImageWithDBPath:n.dbpath];
                 
             }
             else {
-//                [[NewsLoader sharedLoader] loadThumbnailWithPath:n.dbpath];
                 [self.littleWheel startAnimating];
-//                [self.littleWheel setHidden:NO];
                 self.majorImage.image = nil;
             }
+            
+            
             if (n.author.displayName)
             {
                 self.userPic.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:n.author.displayName];

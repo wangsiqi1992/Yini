@@ -1178,16 +1178,16 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWImageStroe.m"
-         timestampString = "366382090.769263"
+         timestampString = "366386331.978495"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "105"
+         endingLineNumber = "105"
          landmarkName = "-userInfoChanged:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/Classes/iPhone Views/Menu/MenuViewController.m"
@@ -1197,6 +1197,45 @@
          startingLineNumber = "276"
          endingLineNumber = "276"
          landmarkName = "-userInfoChanged:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWImageStroe.m"
+         timestampString = "366386331.978495"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "-thumbnailImageWithDBPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWActivityLoader.m"
+         timestampString = "366392763.158203"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-activitiesPreparedForProfilePage"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWActivityLoader.m"
+         timestampString = "366393093.971337"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
+         landmarkName = "-activitiesPreparedForProfilePage"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

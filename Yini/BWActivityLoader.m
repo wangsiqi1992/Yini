@@ -42,7 +42,7 @@ static NSString *activityInfoPath;
         if (acti.type == BWActivityTypeNews)
         {//if news, it is added stright away
             BWActivityNews *news = (BWActivityNews*)acti;
-            if ([[WSQFileHelper sharedHelper] fileExistInSysFolderWithNamePath:news.newsSysNamePath])
+            if ([[WSQFileHelper sharedHelper] fileExistInSysFolderWithNamePath:news.newsSysNamePath])///&& [[NSFileManager defaultManager] fileExistsAtPath:[[WSQFileHelper sharedHelper] directoryForNewsMediaFile:news.newsSysNamePath]]
             {//if we got the news~
                 [preparedArray addObject:news];
             }
@@ -74,8 +74,9 @@ static NSString *activityInfoPath;
             
         }
     }
+    NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     
-    return preparedArray;
+    return [preparedArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sorter]];
 }
 
 
