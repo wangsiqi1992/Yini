@@ -13,6 +13,8 @@
 #import "BWMyLordInfoViewController.h"
 #import "WSQFileHelper.h"
 #import "BWActivityLoaderViewController.h"
+#import "BWImageStroe.h"
+
 
 
 @interface MenuViewController : UIViewController <ZUUIRevealControllerDelegate, UITableViewDelegate, UITableViewDataSource, WSQFileHelperDelegate, MyLordInfoViewDelegate>

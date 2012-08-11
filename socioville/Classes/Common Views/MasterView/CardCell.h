@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 //#import "NewsObjectPhoto.h"
 #import "NewsLoader.h"
+#import "BWImageStroe.h"
+
 
 
 @interface CardCell : UITableViewCell

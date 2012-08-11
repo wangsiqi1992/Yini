@@ -96,7 +96,7 @@
     
     [self.commentsTableView reloadData];
 //    self.commentTextField.text = @"";
-    self.myLordProfilePic.image = [UIImage imageWithContentsOfFile:[[BWLord myLord] profilePicLocalPath]];
+    self.myLordProfilePic.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:[BWLord myLord].displayName];
 
     
     if (savingComment) {
@@ -379,9 +379,8 @@
         UILabel *commentLable = (UILabel*)[cell viewWithTag:2];
         commentLable.text = c.commentString;
         UIImageView *authorPicView = (UIImageView*)[cell viewWithTag:3];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[c.author profilePicLocalPath]]) {
-            authorPicView.image = [UIImage imageWithContentsOfFile:[c.author profilePicLocalPath]];
-        }
+        
+        authorPicView.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:c.author.displayName];
         
         UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
         ageLable.text = [NSString stringWithFormat:@"%@", [c ageDescription]];

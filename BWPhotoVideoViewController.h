@@ -14,6 +14,7 @@
 #import "BWLord.h"
 #import "UIPullToReloadHeaderView.h"
 #import "BWNewsWriter.h"
+#import "BWImageStroe.h"
 
 @interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, BWNewsWriterDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 {

@@ -76,8 +76,6 @@ static NSString* userInfoDirectory;
         [[self restClient] loadFile:requestPath intoPath:np];
         return np;
     }
-    
-
 }
 
 

@@ -32,13 +32,17 @@
 - (id)init
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfoChanged:) name:[BWNotificationCenter userInfoNotificationName] object:[BWNotificationCenter sharedCenter]];
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfoChanged:) name:[BWNotificationCenter userInfoNotificationName] object:[BWNotificationCenter sharedCenter]];
+    
     [super viewDidLoad];
     self.dataSource = [DataSource dataSource];
     [self.tableView reloadData];
@@ -122,10 +126,13 @@
         cell.backgroundView = [[UIImageView alloc] initWithImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-cell.png"]];
         if ([[DBSession sharedSession] isLinked]) {
             cell.textLabel.text = [BWLord myLord].displayName;
-            if ([BWLord myLord].displayName) {
-                cell.imageView.image = [UIImage imageWithContentsOfFile:[BWLord myLord].profilePicLocalPath];
+            if ([BWLord myLord].displayName)
+            {
+                 
+                cell.imageView.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:[BWLord myLord].displayName];
                 
             }
+           
         }
 
     } else {
@@ -262,7 +269,13 @@
     
 }
 
-
+-(void)userInfoChanged:(NSNotification*)note
+{
+    BOOL changed = [[note.userInfo objectForKey:@"changed"] boolValue];
+    if (changed) {
+        [self.tableView reloadData];
+    }
+}
 
 
 

@@ -22,6 +22,7 @@
 		17AEC0D715D428620076AF48 /* BWNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AEC0D615D428620076AF48 /* BWNotificationCenter.m */; };
 		17DB4E4D15B8922D0016651B /* BWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E4C15B8922D0016651B /* BWUser.m */; };
 		17DB4E5115B941290016651B /* BWLord.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E5015B941280016651B /* BWLord.m */; };
+		17E5551D15D6501800362F40 /* BWImageStroe.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E5551C15D6501800362F40 /* BWImageStroe.m */; };
 		17EEEA0515CD870D0085A645 /* BWCameraModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EEEA0415CD870D0085A645 /* BWCameraModalViewController.m */; };
 		17EEEA0815CD90CE0085A645 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EEEA0715CD90CE0085A645 /* add.png */; };
 		17EEEA0C15CDA7FE0085A645 /* addNewPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EEEA0B15CDA7FE0085A645 /* addNewPhoto.png */; };
@@ -296,6 +297,8 @@
 		17DB4E4C15B8922D0016651B /* BWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWUser.m; sourceTree = "<group>"; };
 		17DB4E4F15B941280016651B /* BWLord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLord.h; sourceTree = "<group>"; };
 		17DB4E5015B941280016651B /* BWLord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWLord.m; sourceTree = "<group>"; };
+		17E5551B15D6501700362F40 /* BWImageStroe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWImageStroe.h; sourceTree = "<group>"; };
+		17E5551C15D6501800362F40 /* BWImageStroe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWImageStroe.m; sourceTree = "<group>"; };
 		17EEEA0315CD870D0085A645 /* BWCameraModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BWCameraModalViewController.h; path = ../socioville/BWCameraModalViewController.h; sourceTree = "<group>"; };
 		17EEEA0415CD870D0085A645 /* BWCameraModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWCameraModalViewController.m; path = ../socioville/BWCameraModalViewController.m; sourceTree = "<group>"; };
 		17EEEA0715CD90CE0085A645 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
@@ -1288,6 +1291,8 @@
 		17FBC40515B020D400450199 /* FileRelated */ = {
 			isa = PBXGroup;
 			children = (
+				17E5551B15D6501700362F40 /* BWImageStroe.h */,
+				17E5551C15D6501800362F40 /* BWImageStroe.m */,
 				17F4CC4915D0F6B7005516A6 /* BWNewsWriter.h */,
 				17F4CC4A15D0F6B7005516A6 /* BWNewsWriter.m */,
 				17FBC1D715AF057C00450199 /* NewsLoader.h */,
@@ -1625,6 +1630,7 @@
 				177A4F3115D27F98001BF130 /* BWAgeCalculator.m in Sources */,
 				177A4F3515D2874F001BF130 /* BWCommentsWriter.m in Sources */,
 				17AEC0D715D428620076AF48 /* BWNotificationCenter.m in Sources */,
+				17E5551D15D6501800362F40 /* BWImageStroe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
