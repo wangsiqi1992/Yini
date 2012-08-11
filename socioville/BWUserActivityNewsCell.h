@@ -12,6 +12,9 @@
 #import "BWImageStroe.h"
 
 @interface BWUserActivityNewsCell : UITableViewCell
+{
+    BWActivityNews *newsActivity;
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *mainImageView;
 
@@ -24,6 +27,7 @@
 
 
 -(void)setNewsActivity:(BWActivityNews*)activity;
+@property (nonatomic, strong) BWActivityNews* newsActivity;
 
 
 @end

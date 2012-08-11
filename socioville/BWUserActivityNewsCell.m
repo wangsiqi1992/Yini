@@ -13,6 +13,7 @@
 @synthesize nameLabel;
 @synthesize newsNameLabel;
 @synthesize dateDescription;
+@synthesize newsActivity;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,6 +33,7 @@
 
 -(void)setNewsActivity:(BWActivityNews *)activity
 {
+    newsActivity = activity;
     self.nameLabel.text = activity.userDiscription;
     self.dateDescription.text = [activity ageDescription];
     NSString *namePath = activity.newsSysNamePath;
@@ -46,6 +48,10 @@
     }
 }
 
+-(BWActivityNews*)newsActivity
+{
+    return newsActivity;
+}
 
 
 

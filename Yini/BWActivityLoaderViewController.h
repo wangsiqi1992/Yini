@@ -14,6 +14,8 @@
 #import "UserActivityProfileCell.h"
 #import "ZUUIRevealController.h"
 #import "MainViewController.h"
+#import "BWPhotoVideoViewController.h"
+
 
 
 @interface BWActivityLoaderViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>

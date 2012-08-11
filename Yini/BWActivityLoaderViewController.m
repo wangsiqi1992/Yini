@@ -34,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.title = NSLocalizedString(@"Cards View", @"Cards View");
+        //self.title = NSLocalizedString(@"Cards View", @"Cards View");
     
     UINavigationController *nav = self.navigationController;
     MainViewController *controller = (MainViewController*)nav.parentViewController; // MainViewController : ZUUIRevealController
@@ -83,6 +83,7 @@
     {
         actiLoader = [[BWActivityLoader alloc] initWithUserName:self.user.displayName];
         activities = [actiLoader activitiesPreparedForProfilePage];
+        self.title = self.user.displayName;
     }
     else
     {
@@ -181,6 +182,29 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.section == 1) {
+        if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[BWUserActivityNewsCell class]])
+        {
+            BWUserActivityNewsCell *cell = (BWUserActivityNewsCell*)[tableView cellForRowAtIndexPath:indexPath];
+            BWActivityNews* acti = cell.newsActivity;
+            WSQNews *news = [[WSQNews alloc] initWithSysFilePath:[[WSQFileHelper sharedHelper] directoryForNewsSysFile:acti.newsSysNamePath]];
+            if ([news isKindOfClass:[NewsObjectPhoto class]])
+            {
+                BWPhotoVideoViewController *vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"newsDetailedVC"];
+                [vc initWithDetailedObject:news];
+                [[self navigationController] pushViewController:vc animated:YES];
+            }
+            else
+            {
+                NSLog(@"news type not supported yet...");
+            }
+            
+        }
+        else if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[BWUserActivityCommentsCell class]])
+        {
+            NSLog(@"implement segue for comments activity");
+        }
+    }
 }
 
 

@@ -108,7 +108,8 @@
     WSQNews* dOb = (WSQNews*)detailedObject;
 
     
-    if (dOb) {
+    if (dOb)
+    {
         if (dOb.newsType == WSQPhoto)
         {
             NewsObjectPhoto *p = (NewsObjectPhoto*) dOb;
@@ -145,7 +146,9 @@
                 loader.delegate = self;
             }
             
-        }        
+        }
+        self.title = dOb.newsName;
+
     }
 }
 
