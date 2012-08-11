@@ -1,0 +1,53 @@
+.TH "NSString(NSString_DBJSON)" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NSString(NSString_DBJSON) \- 
+.PP
+Adds JSON parsing methods to NSString\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <NSString+DBJSON\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBJSONFragmentValue\fP"
+.br
+.RI "\fIReturns the object represented in the receiver, or nil on error\&. \fP"
+.ti -1c
+.RI "(id) - \fBJSONValue\fP"
+.br
+.RI "\fIReturns the NSDictionary or NSArray represented by the current string's JSON representation\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Adds JSON parsing methods to NSString\&. 
+
+This is a category on NSString that adds methods for parsing the target string\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (id) JSONFragmentValue "
+
+.PP
+Returns the object represented in the receiver, or nil on error\&. Returns a a scalar object represented by the string's JSON fragment representation\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+Given we bill ourselves as a 'strict' JSON library, this method should be removed\&. 
+.RE
+.PP
+
+.SS "- (id) JSONValue "
+
+.PP
+Returns the NSDictionary or NSArray represented by the current string's JSON representation\&. Returns the dictionary or array represented in the receiver, or nil on error\&.
+.PP
+Returns the NSDictionary or NSArray represented by the current string's JSON representation\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

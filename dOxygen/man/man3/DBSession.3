@@ -1,0 +1,131 @@
+.TH "DBSession" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DBSession \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBSession\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithAppKey:appSecret:root:\fP"
+.br
+.ti -1c
+.RI "(BOOL) - \fBisLinked\fP"
+.br
+.ti -1c
+.RI "(void) - \fBunlinkAll\fP"
+.br
+.ti -1c
+.RI "(void) - \fBunlinkUserId:\fP"
+.br
+.ti -1c
+.RI "(\fBMPOAuthCredentialConcreteStore\fP *) - \fBcredentialStoreForUserId:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBupdateAccessToken:accessTokenSecret:forUserId:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBappScheme\fP"
+.br
+.ti -1c
+.RI "(void) - \fBlinkFromController:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBlinkUserId:fromController:\fP"
+.br
+.ti -1c
+.RI "(BOOL) - \fBhandleOpenURL:\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(\fBDBSession\fP *) + \fBsharedSession\fP"
+.br
+.ti -1c
+.RI "(void) + \fBsetSharedSession:\fP"
+.br
+.ti -1c
+.RI "(NSDictionary *) + \fBparseURLParams:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "NSDictionary * \fBbaseCredentials\fP"
+.br
+.ti -1c
+.RI "NSMutableDictionary * \fBcredentialStores\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthCredentialConcreteStore\fP * \fBanonymousStore\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSString * \fBroot\fP"
+.br
+.ti -1c
+.RI "NSArray * \fBuserIds\fP"
+.br
+.ti -1c
+.RI "id< \fBDBSessionDelegate\fP > \fBdelegate\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSString *) appScheme "
+
+.SS "- (\fBMPOAuthCredentialConcreteStore\fP *) credentialStoreForUserId: (NSString *)userId"
+
+.SS "- (BOOL) handleOpenURL: (NSURL *)url"
+
+.SS "- (id) initWithAppKey: (NSString *)key(NSString *)secret(NSString *)root"
+
+.SS "- (BOOL) isLinked "
+
+.SS "- (void) linkFromController: (UIViewController *)rootController"
+
+.SS "- (void) linkUserId: (NSString *)userId(UIViewController *)rootController"
+
+.SS "+ (NSDictionary*) parseURLParams: (NSString *)query"
+
+.SS "+ (void) setSharedSession: (\fBDBSession\fP *)session"
+
+.SS "+ (\fBDBSession\fP*) sharedSession "
+
+.SS "- (void) unlinkAll "
+
+.SS "- (void) unlinkUserId: (NSString *)userId"
+
+.SS "- (void) updateAccessToken: (NSString *)token(NSString *)secret(NSString *)userId"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (\fBMPOAuthCredentialConcreteStore\fP*) anonymousStore\fC [protected]\fP"
+
+.SS "- (NSDictionary*) baseCredentials\fC [protected]\fP"
+
+.SS "- (NSMutableDictionary*) credentialStores\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (id< \fBDBSessionDelegate\fP >) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSString *) root\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSArray*) userIds\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

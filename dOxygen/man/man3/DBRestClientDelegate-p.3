@@ -1,0 +1,227 @@
+.TH "<DBRestClientDelegate>" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+<DBRestClientDelegate> \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBRestClient\&.h>\fP
+.PP
+Inherited by \fBBWLord\fP, \fB<DBRestClientPhotosDelegate>\fP, \fBWSQFileHelper\fP, and \fBWSQFileUploader\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) - \fBrestClient:loadedMetadata:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:metadataUnchangedAtPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadMetadataFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedDeltaEntries:reset:cursor:hasMore:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadDeltaFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedAccountInfo:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadAccountInfoFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedFile:contentType:metadata:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadProgress:forFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadFileFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedThumbnail:metadata:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadThumbnailFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:uploadedFile:from:metadata:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:uploadProgress:forFile:from:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:uploadFileFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:uploadedFile:from:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedFile:contentType:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedThumbnail:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedRevisions:forFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadRevisionsFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:restoredFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:restoreFileFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:createdFolder:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:createFolderFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:deletedPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:deletePathFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:copiedPath:to:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:copyPathFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:createdCopyRef:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:createCopyRefFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:copiedRef:to:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:copyFromRefFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:movedPath:to:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:movePathFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedSearchResults:forPath:keyword:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:searchFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedSharableLink:forFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadSharableLinkFailedWithError:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadedStreamableURL:forFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestClient:loadStreamableURLFailedWithError:\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)fromPath(\fBDBMetadata\fP *)to\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)copyRef(\fBDBMetadata\fP *)to\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)copyRef\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(\fBDBMetadata\fP *)folder\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)path\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(\fBDBAccountInfo\fP *)info\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSArray *)entries(BOOL)shouldReset(NSString *)cursor(BOOL)hasMore\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath(NSString *)contentType\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath(NSString *)contentType(\fBDBMetadata\fP *)metadata\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(\fBDBMetadata\fP *)metadata\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSArray *)revisions(NSString *)path\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)restClient(NSArray *)results(NSString *)path(NSString *)keyword\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)restClient(NSString *)link(NSString *)path\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)restClient(NSURL *)url(NSString *)path\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath(\fBDBMetadata\fP *)metadata\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(CGFloat)progress(NSString *)destPath\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)restClient(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)restClient(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)path\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)from_path(\fBDBMetadata\fP *)result\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(\fBDBMetadata\fP *)fileMetadata\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)restClient(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath(NSString *)srcPath\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSString *)destPath(NSString *)srcPath(\fBDBMetadata\fP *)metadata\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(NSError *)error\fC [optional]\fP"
+
+.SS "- (void) restClient: (\fBDBRestClient\fP *)client(CGFloat)progress(NSString *)destPath(NSString *)srcPath\fC [optional]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

@@ -1,0 +1,42 @@
+.TH "MPOAuthSignatureParameter" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthSignatureParameter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthSignatureParameter\&.h>\fP
+.PP
+Inherits \fBMPURLRequestParameter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithText:andSecret:forRequest:usingMethod:\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSString *) + \fBsignatureBaseStringUsingParameterString:forRequest:\fP"
+.br
+.ti -1c
+.RI "(NSString *) + \fBHMAC_SHA1SignatureForText:usingSecret:\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Member Function Documentation"
+.PP 
+.SS "+ (NSString *) HMAC_SHA1SignatureForText: (NSString *)inText(NSString *)inSecret"
+
+.SS "- (id) initWithText: (NSString *)inText(NSString *)inSecret(\fBMPOAuthURLRequest\fP *)inRequest(NSString *)inMethod"
+
+.SS "+ (NSString *) signatureBaseStringUsingParameterString: (NSString *)inParameterString(\fBMPOAuthURLRequest\fP *)inRequest"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

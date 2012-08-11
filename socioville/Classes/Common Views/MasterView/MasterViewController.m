@@ -53,8 +53,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"clear catch" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
 
     
     

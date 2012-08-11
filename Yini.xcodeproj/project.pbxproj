@@ -19,7 +19,7 @@
 		17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */; };
 		17AA430715BAFDDA003FC918 /* UIPullToReloadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AA430515BAFB2A003FC918 /* UIPullToReloadHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		17AA430B15BAFE38003FC918 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AA430A15BAFE38003FC918 /* AudioToolbox.framework */; };
-		17AEC0D315D427420076AF48 /* card_comment_bkg_up@2x\\345\\211\\257\\346\\234\\254.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AEC0D215D427420076AF48 /* card_comment_bkg_up@2x\\345\\211\\257\\346\\234\\254.png */; };
+		17AEC0D715D428620076AF48 /* BWNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AEC0D615D428620076AF48 /* BWNotificationCenter.m */; };
 		17DB4E4D15B8922D0016651B /* BWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E4C15B8922D0016651B /* BWUser.m */; };
 		17DB4E5115B941290016651B /* BWLord.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DB4E5015B941280016651B /* BWLord.m */; };
 		17EEEA0515CD870D0085A645 /* BWCameraModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EEEA0415CD870D0085A645 /* BWCameraModalViewController.m */; };
@@ -290,7 +290,8 @@
 		17AA430415BAFB2A003FC918 /* UIPullToReloadHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIPullToReloadHeaderView.h; sourceTree = "<group>"; };
 		17AA430515BAFB2A003FC918 /* UIPullToReloadHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIPullToReloadHeaderView.m; sourceTree = "<group>"; };
 		17AA430A15BAFE38003FC918 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		17AEC0D215D427420076AF48 /* card_comment_bkg_up@2x\\345\\211\\257\\346\\234\\254.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "card_comment_bkg_up@2x\\\\345\\\\211\\\\257\\\\346\\\\234\\\\254.png"; path = "yini/card_comment_bkg_up@2x\\\\345\\\\211\\\\257\\\\346\\\\234\\\\254.png"; sourceTree = "<group>"; };
+		17AEC0D515D428620076AF48 /* BWNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BWNotificationCenter.h; path = ../BWNotificationCenter.h; sourceTree = "<group>"; };
+		17AEC0D615D428620076AF48 /* BWNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWNotificationCenter.m; path = ../BWNotificationCenter.m; sourceTree = "<group>"; };
 		17DB4E4B15B8922D0016651B /* BWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWUser.h; sourceTree = "<group>"; };
 		17DB4E4C15B8922D0016651B /* BWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWUser.m; sourceTree = "<group>"; };
 		17DB4E4F15B941280016651B /* BWLord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLord.h; sourceTree = "<group>"; };
@@ -755,6 +756,8 @@
 		17FBC1B015AF054800450199 /* Yini */ = {
 			isa = PBXGroup;
 			children = (
+				17AEC0D515D428620076AF48 /* BWNotificationCenter.h */,
+				17AEC0D615D428620076AF48 /* BWNotificationCenter.m */,
 				177A4F3615D2876A001BF130 /* comments related */,
 				177A4F2F15D27F98001BF130 /* BWAgeCalculator.h */,
 				177A4F3015D27F98001BF130 /* BWAgeCalculator.m */,
@@ -1045,7 +1048,6 @@
 		17FBC22715AF057C00450199 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				17AEC0D215D427420076AF48 /* card_comment_bkg_up@2x\\345\\211\\257\\346\\234\\254.png */,
 				1715697115BAC6B600B2B969 /* random~ipad.png */,
 				17FBC22815AF057C00450199 /* Common */,
 				17FBC24415AF057C00450199 /* iPad */,
@@ -1553,7 +1555,6 @@
 				1715697415BAEF9300B2B969 /* refresh-browser.jpeg in Resources */,
 				17EEEA0815CD90CE0085A645 /* add.png in Resources */,
 				17EEEA0C15CDA7FE0085A645 /* addNewPhoto.png in Resources */,
-				17AEC0D315D427420076AF48 /* card_comment_bkg_up@2x\\345\\211\\257\\346\\234\\254.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,6 +1624,7 @@
 				17F4CC6915D18587005516A6 /* BWActivityComent.m in Sources */,
 				177A4F3115D27F98001BF130 /* BWAgeCalculator.m in Sources */,
 				177A4F3515D2874F001BF130 /* BWCommentsWriter.m in Sources */,
+				17AEC0D715D428620076AF48 /* BWNotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

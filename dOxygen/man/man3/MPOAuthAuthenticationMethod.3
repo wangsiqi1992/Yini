@@ -1,0 +1,86 @@
+.TH "MPOAuthAuthenticationMethod" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthAuthenticationMethod \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthAuthenticationMethod\&.h>\fP
+.PP
+Inherited by \fBMPOAuthAuthenticationMethodOAuth\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithAPI:forURL:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithAPI:forURL:withConfiguration:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBauthenticate\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetTokenRefreshInterval:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrefreshAccessToken\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBMPOAuthAPI\fP * \fBoauthAPI_\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBoauthGetAccessTokenURL_\fP"
+.br
+.ti -1c
+.RI "NSTimer * \fBrefreshTimer_\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "\fBMPOAuthAPI\fP * \fBoauthAPI\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBoauthGetAccessTokenURL\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) authenticate "
+
+.PP
+Implemented in \fBMPOAuthAuthenticationMethodOAuth\fP\&.
+.SS "- (id) initWithAPI: (\fBMPOAuthAPI\fP *)inAPI(NSURL *)inURL"
+
+.SS "- (id) initWithAPI: (\fBMPOAuthAPI\fP *)inAPI(NSURL *)inURL(NSDictionary *)inConfig"
+
+.SS "- (void) refreshAccessToken "
+
+.SS "- (void) setTokenRefreshInterval: (NSTimeInterval)inTimeInterval"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (\fBMPOAuthAPI\fP*) oauthAPI_\fC [protected]\fP"
+
+.SS "- (NSURL*) oauthGetAccessTokenURL_\fC [protected]\fP"
+
+.SS "- (NSTimer*) refreshTimer_\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (\fBMPOAuthAPI\fP*) oauthAPI\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSURL*) oauthGetAccessTokenURL\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

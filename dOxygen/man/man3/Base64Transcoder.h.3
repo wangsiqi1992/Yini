@@ -1,0 +1,42 @@
+.TH "DropboxSDK.framework/Headers/Base64Transcoder.h" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DropboxSDK.framework/Headers/Base64Transcoder.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBEstimateBas64EncodedDataSize\fP (size_t inDataSize)"
+.br
+.ti -1c
+.RI "size_t \fBEstimateBas64DecodedDataSize\fP (size_t inDataSize)"
+.br
+.ti -1c
+.RI "bool \fBBase64EncodeData\fP (const void *inInputData, size_t inInputDataSize, char *outOutputData, size_t *ioOutputDataSize)"
+.br
+.ti -1c
+.RI "bool \fBBase64DecodeData\fP (const void *inInputData, size_t inInputDataSize, void *ioOutputData, size_t *ioOutputDataSize)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool Base64DecodeData (const void *inInputData, size_tinInputDataSize, void *ioOutputData, size_t *ioOutputDataSize)"
+
+.SS "bool Base64EncodeData (const void *inInputData, size_tinInputDataSize, char *outOutputData, size_t *ioOutputDataSize)"
+
+.SS "size_t EstimateBas64DecodedDataSize (size_tinDataSize)"
+
+.SS "size_t EstimateBas64EncodedDataSize (size_tinDataSize)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

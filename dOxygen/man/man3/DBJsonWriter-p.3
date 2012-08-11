@@ -1,0 +1,67 @@
+.TH "<DBJsonWriter>" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+<DBJsonWriter> \- 
+.PP
+Options for the writer class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBJsonWriter\&.h>\fP
+.PP
+Inherited by \fBDBJSON\fP, and \fBDBJsonWriter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSString *) - \fBstringWithObject:\fP"
+.br
+.RI "\fIReturn JSON representation (or fragment) for the given object\&. \fP"
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "BOOL \fBhumanReadable\fP"
+.br
+.RI "\fIWhether we are generating human-readable (multiline) JSON\&. \fP"
+.ti -1c
+.RI "BOOL \fBsortKeys\fP"
+.br
+.RI "\fIWhether or not to sort the dictionary keys in the output\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Options for the writer class\&. 
+
+This exists so the \fBDBJSON\fP facade can implement the options in the writer without having to re-declare them\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSString*) stringWithObject: (id)value"
+
+.PP
+Return JSON representation (or fragment) for the given object\&. Returns a string containing JSON representation of the passed in value, or nil on error\&. If nil is returned and \fCerror\fP is not NULL, \fC*error\fP can be interrogated to find the cause of the error\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvalue\fP any instance that can be represented as a JSON fragment 
+.RE
+.PP
+
+.SH "Property Documentation"
+.PP 
+.SS "- (BOOL) humanReadable\fC [read]\fP, \fC [write]\fP, \fC [atomic]\fP"
+
+.PP
+Whether we are generating human-readable (multiline) JSON\&. Set whether or not to generate human-readable JSON\&. The default is NO, which produces JSON without any whitespace\&. (Except inside strings\&.) If set to YES, generates human-readable JSON with linebreaks after each array value and dictionary key/value pair, indented two spaces per nesting level\&. 
+.SS "- (BOOL) sortKeys\fC [read]\fP, \fC [write]\fP, \fC [atomic]\fP"
+
+.PP
+Whether or not to sort the dictionary keys in the output\&. If this is set to YES, the dictionary keys in the JSON output will be in sorted order\&. (This is useful if you need to compare two structures, for example\&.) The default is NO\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

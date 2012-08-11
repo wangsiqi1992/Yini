@@ -1,0 +1,45 @@
+.TH "<DBJsonParser>" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+<DBJsonParser> \- 
+.PP
+Options for the parser class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBJsonParser\&.h>\fP
+.PP
+Inherited by \fBDBJSON\fP, and \fBDBJsonParser\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBobjectWithString:\fP"
+.br
+.RI "\fIReturn the object represented by the given string\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Options for the parser class\&. 
+
+This exists so the \fBDBJSON\fP facade can implement the options in the parser without having to re-declare them\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (id) objectWithString: (NSString *)repr"
+
+.PP
+Return the object represented by the given string\&. Returns the object represented by the passed-in string or nil on error\&. The returned object can be a string, number, boolean, null, array or dictionary\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrepr\fP the json string to parse 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

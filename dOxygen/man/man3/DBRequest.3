@@ -1,0 +1,166 @@
+.TH "DBRequest" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DBRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBRequest\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithURLRequest:andInformTarget:selector:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcancel\fP"
+.br
+.ti -1c
+.RI "(id) - \fBparseResponseAsType:\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) + \fBsetNetworkRequestDelegate:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "id \fBtarget\fP"
+.br
+.ti -1c
+.RI "SEL \fBselector\fP"
+.br
+.ti -1c
+.RI "NSURLConnection * \fBurlConnection\fP"
+.br
+.ti -1c
+.RI "NSFileHandle * \fBfileHandle\fP"
+.br
+.ti -1c
+.RI "NSString * \fBtempFilename\fP"
+.br
+.ti -1c
+.RI "NSInteger \fBbytesDownloaded\fP"
+.br
+.ti -1c
+.RI "NSMutableData * \fBresultData\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "SEL \fBfailureSelector\fP"
+.br
+.ti -1c
+.RI "SEL \fBdownloadProgressSelector\fP"
+.br
+.ti -1c
+.RI "SEL \fBuploadProgressSelector\fP"
+.br
+.ti -1c
+.RI "NSString * \fBresultFilename\fP"
+.br
+.ti -1c
+.RI "NSDictionary * \fBuserInfo\fP"
+.br
+.ti -1c
+.RI "NSURLRequest * \fBrequest\fP"
+.br
+.ti -1c
+.RI "NSHTTPURLResponse * \fBresponse\fP"
+.br
+.ti -1c
+.RI "NSDictionary * \fBxDropboxMetadataJSON\fP"
+.br
+.ti -1c
+.RI "NSInteger \fBstatusCode\fP"
+.br
+.ti -1c
+.RI "CGFloat \fBdownloadProgress\fP"
+.br
+.ti -1c
+.RI "CGFloat \fBuploadProgress\fP"
+.br
+.ti -1c
+.RI "NSData * \fBresultData\fP"
+.br
+.ti -1c
+.RI "NSString * \fBresultString\fP"
+.br
+.ti -1c
+.RI "NSObject * \fBresultJSON\fP"
+.br
+.ti -1c
+.RI "NSError * \fBerror\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) cancel "
+
+.SS "- (id) initWithURLRequest: (NSURLRequest *)request(id)target(SEL)selector"
+
+.SS "- (id) parseResponseAsType: (Class)cls"
+
+.SS "+ (void) setNetworkRequestDelegate: (id< \fBDBNetworkRequestDelegate\fP >)delegate"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (NSInteger) bytesDownloaded\fC [protected]\fP"
+
+.SS "- (NSFileHandle*) fileHandle\fC [protected]\fP"
+
+.SS "- (NSMutableData*) resultData\fC [protected]\fP"
+
+.SS "- (SEL) selector\fC [protected]\fP"
+
+.SS "- (id) target\fC [protected]\fP"
+
+.SS "- (NSString*) tempFilename\fC [protected]\fP"
+
+.SS "- (NSURLConnection*) urlConnection\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (CGFloat) downloadProgress\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (SEL) downloadProgressSelector\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSError *) error\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (SEL) failureSelector\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSURLRequest *) request\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSHTTPURLResponse *) response\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSData*) resultData\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSString *) resultFilename\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSObject*) resultJSON\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSString*) resultString\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSInteger) statusCode\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (CGFloat) uploadProgress\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (SEL) uploadProgressSelector\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSDictionary *) userInfo\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSDictionary *) xDropboxMetadataJSON\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

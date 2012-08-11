@@ -29,6 +29,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        savingComment = false;
+        savingNewsName = false;
     }
     return self;
 }
@@ -84,6 +86,7 @@
 -(void)configureViewForDetailObject
 {
     [self.commentUploadingLittleWheel stopAnimating];
+    [self.littleWheelForNewsNameTextField stopAnimating];
     WSQNews *n = (WSQNews *)detailedObject;
     NSString *dobSnp = [n sysFileFullPath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:dobSnp]) {
@@ -95,6 +98,13 @@
 //    self.commentTextField.text = @"";
     self.myLordProfilePic.image = [UIImage imageWithContentsOfFile:[[BWLord myLord] profilePicLocalPath]];
 
+    
+    if (savingComment) {
+        [self.commentUploadingLittleWheel startAnimating];
+    }
+    if (savingNewsName) {
+        [self.littleWheelForNewsNameTextField startAnimating];
+    }
     WSQNews* dOb = (WSQNews*)detailedObject;
 
     
@@ -131,13 +141,11 @@
             {
                 //activity indicator starting here...
                 [self.littleWheel startAnimating];
-                [[NewsLoader sharedLoader] loadMediaFileForNews:dOb];
-                [NewsLoader sharedLoader].delegate = self;
+                [loader loadMediaFileForNews:dOb];
+                loader.delegate = self;
             }
             
-        }
-        // else if ([dOb isKindOfClass:<#(__unsafe_unretained Class)#>])
-        
+        }        
     }
 }
 
@@ -151,39 +159,6 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-
-/*hack the full screen*/
-
-//-(void)enterFullScreenMode
-//{
-//    UIScrollView *sv = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 768, 1004)];
-//    [mainImageView setCenter:CGPointMake(sv.frame.size.width/2, sv.frame.size.height/2)];
-//    [sv addSubview:mainImageView];
-//    [sv setHidden:FALSE];
-//    [mainImageView setHidden:FALSE];
-//    [self.view addSubview:sv];
-//
-//}
-//
-//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-//{
-////    if (touch.view == mainImageView) {
-////        return NO;
-////    }
-//    CGPoint point = [touch locationInView:mainImageView];
-//    
-//    
-//    if ((point.x > 0 && point.x - mainImageView.frame.size.width < 0) && (point.y > 0 && point.y - mainImageView.frame.size.height < 0))
-//    {
-//        
-//        [self enterFullScreenMode];
-//        return NO;
-//    }
-//    return YES;
-//}
-
-
 
 
 
@@ -262,27 +237,32 @@
 {
     [self dismissKeyboard];
     //place holder text...check
-    if (textField == newsNameTextField) {
-        if (textField.text != detailedObject.newsName) {
+    if (textField == newsNameTextField)
+    {
+        if (textField.text != detailedObject.newsName)
+        {
             detailedObject.newsName = textField.text;
             [littleWheelForNewsNameTextField startAnimating];
-            [loader saveNewsObject:detailedObject];
-            loader.delegate = self;
+            [[BWNewsWriter sharedWriter] saveNewsObject:detailedObject];
+            [BWNewsWriter sharedWriter].delegate = self;
+            appendingNewsName = textField.text;
+            savingNewsName = YES;
         }
 
     }
     else if(textField == commentTextField)
     {
-        if (textField.text) {
+        if (textField.text)
+        {
             //made the comment...
             [self.commentUploadingLittleWheel startAnimating];
             appendingComment = [[BWComment alloc] initWithAuthor:[[BWLord myLord] myLordAsAUser] commentString:textField.text];
             
             [self pullDownToReloadAction];
-            refreshReady = FALSE;
-            commentReady = TRUE;
-
-
+            
+            [self addCommentToNewsObject];
+            [self saveComment];
+            savingComment = YES;
         }
     }
     //get the text and save it here...
@@ -353,13 +333,15 @@
 
 -(void)saveComment
 {
-    refreshReady = FALSE;
-    commentReady = FALSE;
+    [[BWNewsWriter sharedWriter] saveNewsObject:detailedObject];
+    [BWNewsWriter sharedWriter].delegate = self;
+}
+
+-(void)addCommentToNewsObject
+{
     NSMutableArray *comments = [[NSMutableArray alloc] initWithArray:detailedObject.commentsArray];
     [comments addObject:appendingComment];
     detailedObject.commentsArray = comments;
-    [loader saveNewsObject:detailedObject];
-    loader.delegate = self;
 }
 
 
@@ -435,15 +417,11 @@
 -(void)newsLoaderDidLoadFile
 {
     [pullToReloadHeaderView finishReloading:self.commentsTableView animated:YES];
+    self.commentTextField.text = @"";
+    self.newsNameTextField.text = @"";
     [self configureViewForDetailObject];
     
-    if (commentReady) {
-        [self saveComment];
-    }
-    else
-    {
-        refreshReady = TRUE;
-    }
+
 
 }
 
@@ -451,28 +429,29 @@
 {
     NSLog(@"detail vc got a notice that the data modle has no change...");
     [pullToReloadHeaderView finishReloading:self.commentsTableView animated:YES];
-
-    if (commentReady) {
-        [self saveComment];
-    }
-    else
-    {
-        refreshReady = TRUE;
-    }
-
 }
 
--(void)saveNewsObjectSucceed
+-(void)writingNewsSucceed
 {
-    [littleWheelForNewsNameTextField stopAnimating];
     [loader refresh];
     loader.delegate = self;
     [self configureViewForDetailObject];
-    self.commentTextField.text = @"";
-
-    
+    savingNewsName = false;
+    savingComment = false;
 }
 
+-(WSQNews*)reImplementNews
+{
+    [self configureViewForDetailObject];
+    if (savingComment) {
+        [self addCommentToNewsObject];
+    }
+    else if (savingNewsName)
+    {
+        detailedObject.newsName = appendingNewsName;
+    }
+    return detailedObject;
+}
 
 
 - (void)viewDidUnload {
@@ -482,5 +461,6 @@
     [self setMyLordProfilePic:nil];
     pullToReloadHeaderView = nil;
     [super viewDidUnload];
+        //set delegates, and things to nil...
 }
 @end

@@ -1,0 +1,98 @@
+.TH "WSQFileUploader" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WSQFileUploader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <WSQFileUploader\&.h>\fP
+.PP
+Inherits \fB<DBRestClientDelegate>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) - \fBsaveSysFileOfNews:withOldName:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsaveMediaFileOfNews:withOldName:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBsysFileUploadingTempPathForNews:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBmediaFileUploadingTempPathForNews:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBselfDestory\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetDBRootPath\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(\fBWSQFileUploader\fP *) + \fBsharedLoader\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "NSFileManager * \fBmanager\fP"
+.br
+.ti -1c
+.RI "\fBWSQFileHelper\fP * \fBhelper\fP"
+.br
+.ti -1c
+.RI "\fBDBRestClient\fP * \fBclient\fP"
+.br
+.ti -1c
+.RI "NSMutableDictionary * \fBuploadingList\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id \fBdelegate\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSString *) mediaFileUploadingTempPathForNews: (NSString*)name"
+
+.SS "- (void) saveMediaFileOfNews: (NSString*)name(NSString*)oldName"
+
+.SS "- (void) saveSysFileOfNews: (NSString*)name(NSString*)oldName"
+
+.SS "- (void) selfDestory "
+
+.SS "- (void) setDBRootPath "
+
+.SS "+ (\fBWSQFileUploader\fP *) sharedLoader "
+
+.SS "- (NSString *) sysFileUploadingTempPathForNews: (NSString*)name"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (\fBDBRestClient\fP *) client\fC [protected]\fP"
+
+.SS "- (\fBWSQFileHelper\fP*) helper\fC [protected]\fP"
+
+.SS "- (NSFileManager*) manager\fC [protected]\fP"
+
+.SS "- (NSMutableDictionary*) uploadingList\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (id) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

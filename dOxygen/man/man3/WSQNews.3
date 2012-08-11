@@ -1,0 +1,104 @@
+.TH "WSQNews" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WSQNews \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <WSQNews\&.h>\fP
+.PP
+Inherited by \fBNewsObjectPhoto\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithMetadataPath:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithSysFilePath:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBsysFileFullPath\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSArray *) + \fBphotoExtensions\fP"
+.br
+.ti -1c
+.RI "(NSArray *) + \fBvideoExtensions\fP"
+.br
+.ti -1c
+.RI "(NSArray *) + \fBarticleExtensions\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSDate * \fBcreatedDate\fP"
+.br
+.ti -1c
+.RI "int \fBnewsType\fP"
+.br
+.ti -1c
+.RI "NSDate * \fBlastModifiedDate\fP"
+.br
+.ti -1c
+.RI "NSString * \fBfilename\fP"
+.br
+.ti -1c
+.RI "NSString * \fBnewsName\fP"
+.br
+.ti -1c
+.RI "NSArray * \fBcommentsArray\fP"
+.br
+.ti -1c
+.RI "NSString * \fBnamePath\fP"
+.br
+.ti -1c
+.RI "\fBBWUser\fP * \fBauthor\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "+ (NSArray *) articleExtensions "
+
+.SS "- (id) initWithMetadataPath: (NSString*)path"
+
+.SS "- (id) initWithSysFilePath: (NSString *)path"
+
+.PP
+Reimplemented in \fBNewsObjectPhoto\fP\&.
+.SS "+ (NSArray *) photoExtensions "
+
+.SS "- (NSString *) sysFileFullPath "
+
+.SS "+ (NSArray *) videoExtensions "
+
+.SH "Property Documentation"
+.PP 
+.SS "- (\fBBWUser\fP*) author\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (NSArray*) commentsArray\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (NSDate*) createdDate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (NSString*) filename\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (NSDate*) lastModifiedDate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (NSString*) namePath\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (NSString*) newsName\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (int) newsType\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

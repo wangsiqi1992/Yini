@@ -1,0 +1,71 @@
+.TH "NSObject(NSObject_DBJSON)" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NSObject(NSObject_DBJSON) \- 
+.PP
+Adds JSON generation to Foundation classes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <NSObject+DBJSON\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSString *) - \fBJSONFragment\fP"
+.br
+.RI "\fIReturns a string containing the receiver encoded as a JSON fragment\&. \fP"
+.ti -1c
+.RI "(NSString *) - \fBJSONRepresentation\fP"
+.br
+.RI "\fIReturns a string containing the receiver encoded in JSON\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Adds JSON generation to Foundation classes\&. 
+
+This is a category on NSObject that adds methods for returning JSON representations of standard objects to the objects themselves\&. This means you can call the -JSONRepresentation method on an NSArray object and it'll do what you want\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSString *) JSONFragment "
+
+.PP
+Returns a string containing the receiver encoded as a JSON fragment\&. This method is added as a category on NSObject but is only actually supported for the following objects: 
+.PD 0
+
+.IP "\(bu" 2
+NSDictionary 
+.IP "\(bu" 2
+NSArray 
+.IP "\(bu" 2
+NSString 
+.IP "\(bu" 2
+NSNumber (also used for booleans) 
+.IP "\(bu" 2
+NSNull
+.PP
+\fBDeprecated\fP
+.RS 4
+Given we bill ourselves as a 'strict' JSON library, this method should be removed\&. 
+.RE
+.PP
+
+.SS "- (NSString *) JSONRepresentation "
+
+.PP
+Returns a string containing the receiver encoded in JSON\&. This method is added as a category on NSObject but is only actually supported for the following objects: 
+.PD 0
+
+.IP "\(bu" 2
+NSDictionary 
+.IP "\(bu" 2
+NSArray 
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

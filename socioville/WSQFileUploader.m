@@ -39,7 +39,7 @@ static NSString *dbSysPath;
     if (self) {
         
         // Work your initialising magic here as you normally would
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
 
         
         manager = [NSFileManager defaultManager];

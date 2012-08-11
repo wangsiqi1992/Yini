@@ -1,0 +1,71 @@
+.TH "ColorSwitcher" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ColorSwitcher \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <ColorSwitcher\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinit\fP"
+.br
+.ti -1c
+.RI "(UIImage *) - \fBgetImageWithName:\fP"
+.br
+.ti -1c
+.RI "(UIImage *) - \fBprocessImage:withKey:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBconfigureAppWithHue:andSaturation:\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSMutableDictionary * \fBmodifiedImages\fP"
+.br
+.ti -1c
+.RI "float \fBhue\fP"
+.br
+.ti -1c
+.RI "float \fBsaturation\fP"
+.br
+.ti -1c
+.RI "float \fBbaseHue\fP"
+.br
+.ti -1c
+.RI "UIColor * \fBtextColor\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) configureAppWithHue: (float)theHue(float)theSaturation"
+
+.SS "- (UIImage *) getImageWithName: (NSString*)imageName"
+
+.SS "- (id) init "
+
+.SS "- (UIImage *) processImage: (UIImage*)originalImage(NSString*)key"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (float) baseHue\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (float) hue\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSMutableDictionary*) modifiedImages\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (float) saturation\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIColor*) textColor\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

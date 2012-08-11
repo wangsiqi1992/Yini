@@ -13,16 +13,19 @@
 #import "BWComment.h"
 #import "BWLord.h"
 #import "UIPullToReloadHeaderView.h"
+#import "BWNewsWriter.h"
 
-@interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, BWNewsWriterDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 {
     NewsLoader *loader;
     WSQNews *detailedObject;
     UITextField *activeTextField;
     BWComment *appendingComment;
-    BOOL commentReady;
-    BOOL refreshReady;
+    NSString *appendingNewsName;
+
     BOOL checkForRefresh;
+    BOOL savingNewsName;
+    BOOL savingComment;
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheelForNewsNameTextField;

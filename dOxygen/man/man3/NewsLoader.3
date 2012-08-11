@@ -1,0 +1,108 @@
+.TH "NewsLoader" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NewsLoader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <NewsLoader\&.h>\fP
+.PP
+Inherits \fB<WSQFileHelperDelegate>\fP, and \fB<WSQFileUploaderDelegate>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSArray *) - \fBlist\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrefresh\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadThumbnailWithDBPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadMediaFileForNews:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsaveNewsObject:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrefreshForNews:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBselfDestory\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(\fBNewsLoader\fP *) + \fBsharedLoader\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "id< \fBNewsLoaderDelegate\fP > \fBdelegate\fP"
+.br
+.ti -1c
+.RI "NSMutableArray * \fBlist\fP"
+.br
+.ti -1c
+.RI "\fBWSQFileHelper\fP * \fBmanager\fP"
+.br
+.ti -1c
+.RI "\fBWSQFileUploader\fP * \fBuploader\fP"
+.br
+.ti -1c
+.RI "\fBDBRestClient\fP * \fBrestClient\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id \fBdelegate\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSArray*) list "
+
+.SS "- (void) loadMediaFileForNews: (id)wsqNews"
+
+.SS "- (void) loadThumbnailWithDBPath: (NSString*)path"
+
+.SS "- (void) refresh "
+
+.SS "- (void) refreshForNews: (id)wsqNews"
+
+.SS "- (void) saveNewsObject: (id)newsObject"
+
+.SS "- (void) selfDestory "
+
+.SS "+ (\fBNewsLoader\fP *) sharedLoader "
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (id<\fBNewsLoaderDelegate\fP>) delegate\fC [protected]\fP"
+
+.SS "- (NSArray *) list\fC [protected]\fP"
+
+.SS "- (\fBWSQFileHelper\fP *) manager\fC [protected]\fP"
+
+.SS "- (\fBDBRestClient\fP*) restClient\fC [protected]\fP"
+
+.SS "- (\fBWSQFileUploader\fP*) uploader\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (id) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

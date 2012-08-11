@@ -1,0 +1,25 @@
+var interface_m_p_o_auth_a_p_i =
+[
+    [ "authenticate", "interface_m_p_o_auth_a_p_i.html#af7f00def916d10864ee8ff2aa41487a2", null ],
+    [ "credentialNamed:", "interface_m_p_o_auth_a_p_i.html#ae69b29196e641a5c94eb2b0ae0606979", null ],
+    [ "dataForMethod:", "interface_m_p_o_auth_a_p_i.html#aee6c2a75e85fab6d3279eeef36f5d320", null ],
+    [ "dataForMethod:withParameters:", "interface_m_p_o_auth_a_p_i.html#a8c04b09b3d09c928ee94b7c29009de65", null ],
+    [ "dataForURL:andMethod:withParameters:", "interface_m_p_o_auth_a_p_i.html#a7321cd6106a922ca6b29f46f54a5cf79", null ],
+    [ "discardCredentials", "interface_m_p_o_auth_a_p_i.html#a1647c8f565b1cba1e308720d49dd2504", null ],
+    [ "initWithCredentials:andBaseURL:", "interface_m_p_o_auth_a_p_i.html#a467808bec24c810a9731b889d3648208", null ],
+    [ "initWithCredentials:authenticationURL:andBaseURL:", "interface_m_p_o_auth_a_p_i.html#abaf85bca5a17209c6647570659cbb32e", null ],
+    [ "initWithCredentials:authenticationURL:andBaseURL:autoStart:", "interface_m_p_o_auth_a_p_i.html#acecdde375e29fd0621265807109f1a7d", null ],
+    [ "isAuthenticated", "interface_m_p_o_auth_a_p_i.html#a8378af32a4f87632560ac7014d36561a", null ],
+    [ "performMethod:atURL:withParameters:withTarget:andAction:", "interface_m_p_o_auth_a_p_i.html#a57d1bd68045b7d263d19c258372d6956", null ],
+    [ "performMethod:withTarget:andAction:", "interface_m_p_o_auth_a_p_i.html#aab14bbe7f6a04fe8cf79c2a51f1ea8a5", null ],
+    [ "performPOSTMethod:atURL:withParameters:withTarget:andAction:", "interface_m_p_o_auth_a_p_i.html#ac199f1fd82ad9a47217bb987d78ab531", null ],
+    [ "performURLRequest:withTarget:andAction:", "interface_m_p_o_auth_a_p_i.html#ac9f8470c3e25b5bd08e2d402fa5739c1", null ],
+    [ "removeCredentialNamed:", "interface_m_p_o_auth_a_p_i.html#aad97b72da4e2a89a9a87892b7e7c47ec", null ],
+    [ "setCredential:withName:", "interface_m_p_o_auth_a_p_i.html#a94f474ba2a3d17b8747ebd9fe2bc26ee", null ],
+    [ "authenticationMethod", "interface_m_p_o_auth_a_p_i.html#ad98790b9d065296702959911ebf38a4c", null ],
+    [ "authenticationState", "interface_m_p_o_auth_a_p_i.html#ac2873128138c36b744c87a8c8ea3ab71", null ],
+    [ "authenticationURL", "interface_m_p_o_auth_a_p_i.html#a230c6deabb2a2a2b575bc6dfd05a6919", null ],
+    [ "baseURL", "interface_m_p_o_auth_a_p_i.html#a2d166ddcc34455b08d76471b4d87029d", null ],
+    [ "credentials", "interface_m_p_o_auth_a_p_i.html#a2df0ebcf95ed3c99a61d6d147137b79a", null ],
+    [ "signatureScheme", "interface_m_p_o_auth_a_p_i.html#a324f4cdee751977a2e35b0ac34ea680f", null ]
+];

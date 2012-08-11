@@ -1,0 +1,117 @@
+.TH "DropboxSDK.framework/Headers/DBLog.h" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DropboxSDK.framework/Headers/DBLog.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#import <Foundation/Foundation\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNS_FORMAT_FUNCTION\fP(F, A)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void \fBDBLogCallback\fP (\fBDBLogLevel\fP logLevel, NSString *format, va_list args)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBDBLogLevel\fP { \fBDBLogLevelInfo\fP =  0, \fBDBLogLevelAnalytics\fP, \fBDBLogLevelWarning\fP, \fBDBLogLevelError\fP, \fBDBLogLevelFatal\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "NSString * \fBDBLogFilePath\fP (void)"
+.br
+.ti -1c
+.RI "void \fBDBSetupLogToFile\fP (void)"
+.br
+.ti -1c
+.RI "NSString * \fBDBStringFromLogLevel\fP (\fBDBLogLevel\fP logLevel)"
+.br
+.ti -1c
+.RI "void \fBDBLogSetLevel\fP (\fBDBLogLevel\fP logLevel)"
+.br
+.ti -1c
+.RI "void \fBDBLogSetCallback\fP (\fBDBLogCallback\fP *callback)"
+.br
+.ti -1c
+.RI "void \fBDBLog\fP (\fBDBLogLevel\fP logLevel, NSString *format,\&.\&.\&.) \fBNS_FORMAT_FUNCTION\fP(2"
+.br
+.ti -1c
+.RI "void void \fBDBLogInfo\fP (NSString *format,\&.\&.\&.) \fBNS_FORMAT_FUNCTION\fP(1"
+.br
+.ti -1c
+.RI "void void void \fBDBLogWarning\fP (NSString *format,\&.\&.\&.) \fBNS_FORMAT_FUNCTION\fP(1"
+.br
+.ti -1c
+.RI "void void void void \fBDBLogError\fP (NSString *format,\&.\&.\&.) \fBNS_FORMAT_FUNCTION\fP(1"
+.br
+.ti -1c
+.RI "void void void void void \fBDBLogFatal\fP (NSString *format,\&.\&.\&.) \fBNS_FORMAT_FUNCTION\fP(1"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define NS_FORMAT_FUNCTION(F, A)"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void DBLogCallback(\fBDBLogLevel\fP logLevel, NSString *format, va_list args)"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBDBLogLevel\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIDBLogLevelInfo \fP\fP
+.TP
+\fB\fIDBLogLevelAnalytics \fP\fP
+.TP
+\fB\fIDBLogLevelWarning \fP\fP
+.TP
+\fB\fIDBLogLevelError \fP\fP
+.TP
+\fB\fIDBLogLevelFatal \fP\fP
+
+.SH "Function Documentation"
+.PP 
+.SS "void DBLog (\fBDBLogLevel\fPlogLevel, NSString *format, \&.\&.\&.)"
+
+.SS "void void void void DBLogError (NSString *format, \&.\&.\&.)"
+
+.SS "void void void void void DBLogFatal (NSString *format, \&.\&.\&.)"
+
+.SS "NSString* DBLogFilePath (void)"
+
+.SS "void void DBLogInfo (NSString *format, \&.\&.\&.)"
+
+.SS "void DBLogSetCallback (\fBDBLogCallback\fP *callback)"
+
+.SS "void DBLogSetLevel (\fBDBLogLevel\fPlogLevel)"
+
+.SS "void void void DBLogWarning (NSString *format, \&.\&.\&.)"
+
+.SS "void DBSetupLogToFile (void)"
+
+.SS "NSString* DBStringFromLogLevel (\fBDBLogLevel\fPlogLevel)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

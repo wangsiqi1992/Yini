@@ -1,0 +1,137 @@
+.TH "STSegmentedControl" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+STSegmentedControl \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <STSegmentedControl\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithItems:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBinsertSegmentWithTitle:atIndex:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBinsertSegmentWithImage:atIndex:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBremoveSegmentAtIndex:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBremoveAllSegments\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetTitle:forSegmentAtIndex:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBtitleForSegmentAtIndex:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetImage:forSegmentAtIndex:\fP"
+.br
+.ti -1c
+.RI "(UIImage *) - \fBimageForSegmentAtIndex:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBinitializeImages\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "BOOL \fBprogrammaticIndexChange\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSMutableArray * \fBsegments\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBnormalImageLeft\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBnormalImageMiddle\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBnormalImageRight\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBselectedImageLeft\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBselectedImageMiddle\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBselectedImageRight\fP"
+.br
+.ti -1c
+.RI "NSUInteger \fBnumberOfSegments\fP"
+.br
+.ti -1c
+.RI "BOOL \fBmomentary\fP"
+.br
+.ti -1c
+.RI "NSInteger \fBselectedSegmentIndex\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (UIImage *) imageForSegmentAtIndex: (NSUInteger)index"
+
+.SS "- (void) initializeImages "
+
+.SS "- (id) initWithItems: (NSArray *)items"
+
+.SS "- (void) insertSegmentWithImage: (NSString *)image(NSUInteger)index"
+
+.SS "- (void) insertSegmentWithTitle: (NSString *)title(NSUInteger)index"
+
+.SS "- (void) removeAllSegments "
+
+.SS "- (void) removeSegmentAtIndex: (NSUInteger)index"
+
+.SS "- (void) setImage: (NSString *)image(NSUInteger)index"
+
+.SS "- (void) setTitle: (NSString *)title(NSUInteger)index"
+
+.SS "- (NSString *) titleForSegmentAtIndex: (NSUInteger)index"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (BOOL) programmaticIndexChange\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (BOOL) momentary\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIImage *) normalImageLeft\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIImage *) normalImageMiddle\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIImage *) normalImageRight\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSUInteger) numberOfSegments\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSMutableArray *) segments\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIImage *) selectedImageLeft\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIImage *) selectedImageMiddle\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (UIImage *) selectedImageRight\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSInteger) selectedSegmentIndex\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

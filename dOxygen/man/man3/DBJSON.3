@@ -1,0 +1,79 @@
+.TH "DBJSON" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DBJSON \- 
+.PP
+Facade for DBJsonWriter/DBJsonParser\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBJSON\&.h>\fP
+.PP
+Inherits \fBDBJsonBase\fP, \fB<DBJsonParser>\fP, and \fB<DBJsonWriter>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBfragmentWithString:error:\fP"
+.br
+.RI "\fIReturn the fragment represented by the given string\&. \fP"
+.ti -1c
+.RI "(id) - \fBobjectWithString:error:\fP"
+.br
+.RI "\fIReturn the object represented by the given string\&. \fP"
+.ti -1c
+.RI "(id) - \fBobjectWithString:allowScalar:error:\fP"
+.br
+.RI "\fIParse the string and return the represented object (or scalar) \fP"
+.ti -1c
+.RI "(NSString *) - \fBstringWithObject:error:\fP"
+.br
+.RI "\fIReturn JSON representation of an array or dictionary\&. \fP"
+.ti -1c
+.RI "(NSString *) - \fBstringWithFragment:error:\fP"
+.br
+.RI "\fIReturn JSON representation of any legal JSON value\&. \fP"
+.ti -1c
+.RI "(NSString *) - \fBstringWithObject:allowScalar:error:\fP"
+.br
+.RI "\fIReturn JSON representation (or fragment) for the given object\&. \fP"
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Facade for DBJsonWriter/DBJsonParser\&. 
+
+Requests are forwarded to instances of \fBDBJsonWriter\fP and \fBDBJsonParser\fP\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (id) fragmentWithString: (NSString *)jsonrep(NSError **)error"
+
+.PP
+Return the fragment represented by the given string\&. 
+.SS "- (id) \fBobjectWithString:\fP (id)value(BOOL)x(NSError **)error"
+
+.PP
+Parse the string and return the represented object (or scalar) 
+.SS "- (id) \fBobjectWithString:\fP (NSString *)jsonrep(NSError **)error"
+
+.PP
+Return the object represented by the given string\&. 
+.SS "- (NSString*) stringWithFragment: (id)value(NSError **)error"
+
+.PP
+Return JSON representation of any legal JSON value\&. 
+.SS "- (NSString*) \fBstringWithObject:\fP (id)value(BOOL)x(NSError **)error"
+
+.PP
+Return JSON representation (or fragment) for the given object\&. 
+.SS "- (NSString*) \fBstringWithObject:\fP (id)value(NSError **)error"
+
+.PP
+Return JSON representation of an array or dictionary\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

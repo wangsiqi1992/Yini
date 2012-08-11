@@ -1,0 +1,73 @@
+.TH "ZUUIRevealController" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ZUUIRevealController \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <ZUUIRevealController\&.h>\fP
+.PP
+Inherited by \fBMainViewController\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithFrontViewController:rearViewController:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrevealGesture:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrevealToggle:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetFrontViewController:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetFrontViewController:animated:\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "IBOutlet UIViewController * \fBfrontViewController\fP"
+.br
+.ti -1c
+.RI "IBOutlet UIViewController * \fBrearViewController\fP"
+.br
+.ti -1c
+.RI "\fBFrontViewPosition\fP \fBcurrentFrontViewPosition\fP"
+.br
+.ti -1c
+.RI "id< \fBZUUIRevealControllerDelegate\fP > \fBdelegate\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (id) initWithFrontViewController: (UIViewController *)aFrontViewController(UIViewController *)aBackViewController"
+
+.SS "- (void) revealGesture: (UIPanGestureRecognizer *)recognizer"
+
+.SS "- (void) revealToggle: (id)sender"
+
+.SS "- (void) setFrontViewController: (UIViewController *)frontViewController"
+
+.SS "- (void) \fBsetFrontViewController:\fP (UIViewController *)frontViewController(BOOL)animated"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (\fBFrontViewPosition\fP) currentFrontViewPosition\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (id<\fBZUUIRevealControllerDelegate\fP>) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (IBOutlet UIViewController*) frontViewController\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (IBOutlet UIViewController*) rearViewController\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

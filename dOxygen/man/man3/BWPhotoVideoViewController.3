@@ -1,0 +1,124 @@
+.TH "BWPhotoVideoViewController" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BWPhotoVideoViewController \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <BWPhotoVideoViewController\&.h>\fP
+.PP
+Inherits \fB<NewsLoaderDelegate>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) - \fBinitWithDetailedObject:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBNewsLoader\fP * \fBloader\fP"
+.br
+.ti -1c
+.RI "\fBWSQNews\fP * \fBdetailedObject\fP"
+.br
+.ti -1c
+.RI "UITextField * \fBactiveTextField\fP"
+.br
+.ti -1c
+.RI "\fBBWComment\fP * \fBappendingComment\fP"
+.br
+.ti -1c
+.RI "BOOL \fBcommentReady\fP"
+.br
+.ti -1c
+.RI "BOOL \fBrefreshReady\fP"
+.br
+.ti -1c
+.RI "BOOL \fBcheckForRefresh\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "IBOutlet UIActivityIndicatorView * \fBlittleWheel\fP"
+.br
+.ti -1c
+.RI "IBOutlet UIActivityIndicatorView * \fBlittleWheelForNewsNameTextField\fP"
+.br
+.ti -1c
+.RI "IBOutlet UIActivityIndicatorView * \fBcommentUploadingLittleWheel\fP"
+.br
+.ti -1c
+.RI "IBOutlet UIImageView * \fBmainImageView\fP"
+.br
+.ti -1c
+.RI "IBOutlet UITextField * \fBnewsNameTextField\fP"
+.br
+.ti -1c
+.RI "IBOutlet UIScrollView * \fBscrollView\fP"
+.br
+.ti -1c
+.RI "IBOutlet UITableView * \fBcommentsTableView\fP"
+.br
+.ti -1c
+.RI "IBOutlet UITextField * \fBcommentTextField\fP"
+.br
+.ti -1c
+.RI "IBOutlet UIImageView * \fBmyLordProfilePic\fP"
+.br
+.ti -1c
+.RI "\fBUIPullToReloadHeaderView\fP * \fBpullToReloadHeaderView\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) initWithDetailedObject: (id)dOb"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (UITextField*) activeTextField\fC [protected]\fP"
+
+.SS "- (\fBBWComment\fP*) appendingComment\fC [protected]\fP"
+
+.SS "- (BOOL) checkForRefresh\fC [protected]\fP"
+
+.SS "- (BOOL) commentReady\fC [protected]\fP"
+
+.SS "- (\fBWSQNews\fP*) detailedObject\fC [protected]\fP"
+
+.SS "- (\fBNewsLoader\fP*) loader\fC [protected]\fP"
+
+.SS "- (BOOL) refreshReady\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (IBOutlet UITableView*) commentsTableView\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UITextField*) commentTextField\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UIActivityIndicatorView*) commentUploadingLittleWheel\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UIActivityIndicatorView*) littleWheel\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UIActivityIndicatorView*) littleWheelForNewsNameTextField\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UIImageView*) mainImageView\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UIImageView*) myLordProfilePic\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (IBOutlet UITextField*) newsNameTextField\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+.SS "- (\fBUIPullToReloadHeaderView\fP*) pullToReloadHeaderView\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (IBOutlet UIScrollView*) scrollView\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

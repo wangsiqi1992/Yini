@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "BWLord.h"
-
+#import "BWNotificationCenter.h"
 
 /**
  @param 
@@ -110,6 +110,13 @@
  @see               realNameFromLowerCase: to convert
  */
 -(NSString*)pathNameFromDBPath:(NSString *)path;
+
+/**
+	get the media path name from full path
+	@param path
+	@returns media folder(/News) name path
+ */
+-(NSString*)mediaFilePathNameFromLocalDirectory:(NSString*)path;
 
 /** Use pathNameFromDBPath: to convert and change extension to plist
  @param     path    db any file path

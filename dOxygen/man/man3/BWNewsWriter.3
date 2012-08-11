@@ -1,0 +1,57 @@
+.TH "BWNewsWriter" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BWNewsWriter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <BWNewsWriter\&.h>\fP
+.PP
+Inherits \fB<NewsLoaderDelegate>\fP, and \fB<WSQFileUploaderDelegate>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(BOOL) - \fBcomposePhotoNewsWithPhoto:attributes:\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(\fBBWNewsWriter\fP *) + \fBsharedWriter\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "NSString * \fBfileName\fP"
+.br
+.ti -1c
+.RI "NSDictionary * \fBpendingAtrributes\fP"
+.br
+.ti -1c
+.RI "id \fBnews\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (BOOL) composePhotoNewsWithPhoto: (UIImage*)image(NSDictionary*)attributes"
+
+.SS "+ (\fBBWNewsWriter\fP *) sharedWriter "
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (NSString*) fileName\fC [protected]\fP"
+
+.SS "- (id) news\fC [protected]\fP"
+
+.SS "- (NSDictionary*) pendingAtrributes\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

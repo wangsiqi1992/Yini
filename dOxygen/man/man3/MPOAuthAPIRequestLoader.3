@@ -1,0 +1,124 @@
+.TH "MPOAuthAPIRequestLoader" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthAPIRequestLoader \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthAPIRequestLoader\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithURL:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithRequest:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadSynchronously:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBMPOAuthCredentialConcreteStore\fP * \fB_credentials\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthURLRequest\fP * \fB_oauthRequest\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthURLResponse\fP * \fB_oauthResponse\fP"
+.br
+.ti -1c
+.RI "NSMutableData * \fB_dataBuffer\fP"
+.br
+.ti -1c
+.RI "NSString * \fB_dataAsString\fP"
+.br
+.ti -1c
+.RI "NSError * \fB_error\fP"
+.br
+.ti -1c
+.RI "id \fB_target\fP"
+.br
+.ti -1c
+.RI "SEL \fB_action\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id< \fBMPOAuthCredentialStore\fP, 
+.br
+\fBMPOAuthParameterFactory\fP > \fBcredentials\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthURLRequest\fP * \fBoauthRequest\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthURLResponse\fP * \fBoauthResponse\fP"
+.br
+.ti -1c
+.RI "NSData * \fBdata\fP"
+.br
+.ti -1c
+.RI "NSString * \fBresponseString\fP"
+.br
+.ti -1c
+.RI "id \fBtarget\fP"
+.br
+.ti -1c
+.RI "SEL \fBaction\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (id) initWithRequest: (\fBMPOAuthURLRequest\fP *)inRequest"
+
+.SS "- (id) initWithURL: (NSURL *)inURL"
+
+.SS "- (void) loadSynchronously: (BOOL)inSynchronous"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (SEL) _action\fC [protected]\fP"
+
+.SS "- (\fBMPOAuthCredentialConcreteStore\fP*) _credentials\fC [protected]\fP"
+
+.SS "- (NSString*) _dataAsString\fC [protected]\fP"
+
+.SS "- (NSMutableData*) _dataBuffer\fC [protected]\fP"
+
+.SS "- (NSError*) _error\fC [protected]\fP"
+
+.SS "- (\fBMPOAuthURLRequest\fP*) _oauthRequest\fC [protected]\fP"
+
+.SS "- (\fBMPOAuthURLResponse\fP*) _oauthResponse\fC [protected]\fP"
+
+.SS "- (id) _target\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (SEL) action\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (id<\fBMPOAuthCredentialStore\fP, \fBMPOAuthParameterFactory\fP>) credentials\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSData*) data\fC [read]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (\fBMPOAuthURLRequest\fP*) oauthRequest\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (\fBMPOAuthURLResponse\fP*) oauthResponse\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSString*) responseString\fC [read]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (id) target\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

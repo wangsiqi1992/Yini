@@ -56,8 +56,7 @@
         NSLog(@"getting all directory fail...");
     }
     
-    NSNotification *note = [NSNotification notificationWithName:@"clear catch" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:note];
+    [[BWNotificationCenter sharedCenter] clearCatch];
     
 }
 
@@ -85,8 +84,7 @@
         
         NSLog(@"getting user info directory fail...");
     }
-    NSNotification *note = [NSNotification notificationWithName:@"log out" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:note];
+    [[BWNotificationCenter sharedCenter] logOut];
     
 
 }

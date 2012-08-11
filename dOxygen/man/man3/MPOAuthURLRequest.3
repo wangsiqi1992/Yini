@@ -1,0 +1,66 @@
+.TH "MPOAuthURLRequest" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthURLRequest \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthURLRequest\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithURL:andParameters:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithURLRequest:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBaddParameters:\fP"
+.br
+.ti -1c
+.RI "(NSMutableURLRequest *) - \fBurlRequestSignedWithSecret:usingMethod:\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSURL * \fBurl\fP"
+.br
+.ti -1c
+.RI "NSString * \fBHTTPMethod\fP"
+.br
+.ti -1c
+.RI "NSURLRequest * \fBurlRequest\fP"
+.br
+.ti -1c
+.RI "NSMutableArray * \fBparameters\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) addParameters: (NSArray *)inParameters"
+
+.SS "- (id) initWithURL: (NSURL *)inURL(NSArray *)parameters"
+
+.SS "- (id) initWithURLRequest: (NSURLRequest *)inRequest"
+
+.SS "- (NSMutableURLRequest*) urlRequestSignedWithSecret: (NSString *)inSecret(NSString *)inScheme"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (NSString*) HTTPMethod\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSMutableArray*) parameters\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSURL*) url\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSURLRequest*) urlRequest\fC [read]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

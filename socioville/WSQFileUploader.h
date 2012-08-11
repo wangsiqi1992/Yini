@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "WSQFileHelper.h"
+#import "BWNotificationCenter.h"
 @interface WSQFileUploader : NSObject<DBRestClientDelegate>
 {
     NSFileManager *manager;

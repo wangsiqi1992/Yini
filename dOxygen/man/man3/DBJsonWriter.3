@@ -1,0 +1,54 @@
+.TH "DBJsonWriter" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DBJsonWriter \- 
+.PP
+The JSON writer class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBJsonWriter\&.h>\fP
+.PP
+Inherits \fBDBJsonBase\fP, and \fB<DBJsonWriter>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSString *) - \fBstringWithFragment:\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The JSON writer class\&. 
+
+Objective-C types are mapped to JSON types in the following way:
+.PP
+.PD 0
+.IP "\(bu" 2
+NSNull -> Null 
+.IP "\(bu" 2
+NSString -> String 
+.IP "\(bu" 2
+NSArray -> Array 
+.IP "\(bu" 2
+NSDictionary -> Object 
+.IP "\(bu" 2
+NSNumber (-initWithBool:) -> Boolean 
+.IP "\(bu" 2
+NSNumber -> Number
+.PP
+In JSON the keys of an object must be strings\&. NSDictionary keys need not be, but attempting to convert an NSDictionary with non-string keys into JSON will throw an exception\&.
+.PP
+NSNumber instances created with the +initWithBool: method are converted into the JSON boolean 'true' and 'false' values, and vice versa\&. Any other NSNumber instances are converted to a JSON number the way you would expect\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSString*) stringWithFragment: (id)value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

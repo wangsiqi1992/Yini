@@ -1,0 +1,222 @@
+.TH "DBRestClient" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DBRestClient \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBRestClient\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithSession:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithSession:userId:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcancelAllRequests\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadMetadata:withHash:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadMetadata:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadMetadata:atRev:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadDelta:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadFile:intoPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadFile:atRev:intoPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcancelFileLoad:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadThumbnail:ofSize:intoPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcancelThumbnailLoad:size:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBuploadFile:toPath:withParentRev:fromPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcancelFileUpload:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBuploadFile:toPath:fromPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadRevisionsForFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadRevisionsForFile:limit:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrestoreFile:toRev:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcreateFolder:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBdeletePath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcopyFrom:toPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcreateCopyRef:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBcopyFromRef:toPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBmoveFrom:toPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadAccountInfo\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsearchPath:forKeyword:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadSharableLinkForFile:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadStreamableURLForFile:\fP"
+.br
+.ti -1c
+.RI "(NSUInteger) - \fBrequestCount\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadCuDelta:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBDBSession\fP * \fBsession\fP"
+.br
+.ti -1c
+.RI "NSString * \fBuserId\fP"
+.br
+.ti -1c
+.RI "NSString * \fBroot\fP"
+.br
+.ti -1c
+.RI "NSMutableSet * \fBrequests\fP"
+.br
+.ti -1c
+.RI "NSMutableDictionary * \fBloadRequests\fP"
+.br
+.ti -1c
+.RI "NSMutableDictionary * \fBimageLoadRequests\fP"
+.br
+.ti -1c
+.RI "NSMutableDictionary * \fBuploadRequests\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id< \fBDBRestClientDelegate\fP > \fBdelegate\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) cancelAllRequests "
+
+.SS "- (void) cancelFileLoad: (NSString *)path"
+
+.SS "- (void) cancelFileUpload: (NSString *)path"
+
+.SS "- (void) cancelThumbnailLoad: (NSString *)path(NSString *)size"
+
+.SS "- (void) copyFrom: (NSString *)fromPath(NSString *)toPath"
+
+.SS "- (void) copyFromRef: (NSString *)copyRef(NSString *)toPath"
+
+.SS "- (void) createCopyRef: (NSString *)path"
+
+.SS "- (void) createFolder: (NSString *)path"
+
+.SS "- (void) deletePath: (NSString *)path"
+
+.SS "- (id) initWithSession: (\fBDBSession\fP *)session"
+
+.SS "- (id) \fBinitWithSession:\fP (\fBDBSession\fP *)session(NSString *)userId"
+
+.SS "- (void) loadAccountInfo "
+
+.SS "- (void) loadCuDelta: (NSString *)cursor"
+
+.SS "- (void) loadDelta: (NSString *)cursor"
+
+.SS "- (void) loadFile: (NSString *)path(NSString *)rev(NSString *)destPath"
+
+.SS "- (void) loadFile: (NSString *)path(NSString *)destinationPath"
+
+.SS "- (void) loadMetadata: (NSString *)path"
+
+.SS "- (void) \fBloadMetadata:\fP (NSString *)path(NSString *)rev"
+
+.SS "- (void) \fBloadMetadata:\fP (NSString *)path(NSString *)hash"
+
+.SS "- (void) loadRevisionsForFile: (NSString *)path"
+
+.SS "- (void) \fBloadRevisionsForFile:\fP (NSString *)path(NSInteger)limit"
+
+.SS "- (void) loadSharableLinkForFile: (NSString *)path"
+
+.SS "- (void) loadStreamableURLForFile: (NSString *)path"
+
+.SS "- (void) loadThumbnail: (NSString *)path(NSString *)size(NSString *)destinationPath"
+
+.SS "- (void) moveFrom: (NSString *)fromPath(NSString *)toPath"
+
+.SS "- (NSUInteger) requestCount "
+
+.SS "- (void) restoreFile: (NSString *)path(NSString *)rev"
+
+.SS "- (void) searchPath: (NSString *)path(NSString *)keyword"
+
+.SS "- (void) uploadFile: (NSString *)filename(NSString *)path"
+
+.SS "- (void) uploadFile: (NSString *)filename(NSString *)path(NSString *)parentRev(NSString *)sourcePath"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (NSMutableDictionary*) imageLoadRequests\fC [protected]\fP"
+
+.SS "- (NSMutableDictionary*) loadRequests\fC [protected]\fP"
+
+.SS "- (NSMutableSet*) requests\fC [protected]\fP"
+
+.SS "- (NSString*) root\fC [protected]\fP"
+
+.SS "- (\fBDBSession\fP*) session\fC [protected]\fP"
+
+.SS "- (NSMutableDictionary*) uploadRequests\fC [protected]\fP"
+
+.SS "- (NSString*) userId\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (id< \fBDBRestClientDelegate\fP >) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

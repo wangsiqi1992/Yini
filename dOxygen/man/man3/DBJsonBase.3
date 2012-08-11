@@ -1,0 +1,78 @@
+.TH "DBJsonBase" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DBJsonBase \- 
+.PP
+Common base class for parsing & writing\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <DBJsonBase\&.h>\fP
+.PP
+Inherited by \fBDBJSON\fP, \fBDBJsonParser\fP, and \fBDBJsonWriter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) - \fBaddErrorWithCode:description:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBclearErrorTrace\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "NSMutableArray * \fBerrorTrace\fP"
+.br
+.ti -1c
+.RI "NSUInteger \fBdepth\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSUInteger \fBmaxDepth\fP"
+.br
+.RI "\fIThe maximum recursing depth\&. \fP"
+.ti -1c
+.RI "NSArray * \fBerrorTrace\fP"
+.br
+.RI "\fIReturn an error trace, or nil if there was no errors\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Common base class for parsing & writing\&. 
+
+This class contains the common error-handling code and option between the parser/writer\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) addErrorWithCode: (NSUInteger)code(NSString *)str"
+
+.SS "- (void) clearErrorTrace "
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (NSUInteger) depth\fC [protected]\fP"
+
+.SS "- (NSMutableArray*) errorTrace\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (NSArray*) errorTrace\fC [read]\fP, \fC [atomic]\fP, \fC [copy]\fP"
+
+.PP
+Return an error trace, or nil if there was no errors\&. Note that this method returns the trace of the last method that failed\&. You need to check the return value of the call you're making to figure out if the call actually failed, before you know call this method\&. 
+.SS "- (NSUInteger) maxDepth\fC [read]\fP, \fC [write]\fP, \fC [atomic]\fP"
+
+.PP
+The maximum recursing depth\&. Defaults to 512\&. If the input is nested deeper than this the input will be deemed to be malicious and the parser returns nil, signalling an error\&. ('Nested too deep'\&.) You can turn off this security feature by setting the maxDepth value to 0\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

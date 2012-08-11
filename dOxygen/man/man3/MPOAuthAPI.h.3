@@ -1,0 +1,125 @@
+.TH "DropboxSDK.framework/Headers/MPOAuthAPI.h" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DropboxSDK.framework/Headers/MPOAuthAPI.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#import <Foundation/Foundation\&.h>\fP
+.br
+\fC#import 'MPOAuthCredentialStore\&.h'\fP
+.br
+\fC#import 'MPOAuthParameterFactory\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "protocol \fB<MPOAuthAPIInternalClient>\fP"
+.br
+.ti -1c
+.RI "class \fBMPOAuthAPI\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMPOAuthSignatureScheme\fP { \fBMPOAuthSignatureSchemePlainText\fP, \fBMPOAuthSignatureSchemeHMACSHA1\fP, \fBMPOAuthSignatureSchemeRSASHA1\fP }"
+.br
+.ti -1c
+.RI "enum \fBMPOAuthAuthenticationState\fP { \fBMPOAuthAuthenticationStateUnauthenticated\fP =  0, \fBMPOAuthAuthenticationStateAuthenticating\fP =  1, \fBMPOAuthAuthenticationStateAuthenticated\fP =  2 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "NSString *const \fBMPOAuthNotificationAccessTokenReceived\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthNotificationAccessTokenRejected\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthNotificationAccessTokenRefreshed\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthNotificationOAuthCredentialsReady\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthNotificationErrorHasOccurred\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthCredentialRequestTokenKey\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthCredentialRequestTokenSecretKey\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthCredentialAccessTokenKey\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthCredentialAccessTokenSecretKey\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthCredentialSessionHandleKey\fP"
+.br
+.ti -1c
+.RI "NSString *const \fBMPOAuthTokenRefreshDateDefaultsKey\fP"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMPOAuthAuthenticationState\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIMPOAuthAuthenticationStateUnauthenticated \fP\fP
+.TP
+\fB\fIMPOAuthAuthenticationStateAuthenticating \fP\fP
+.TP
+\fB\fIMPOAuthAuthenticationStateAuthenticated \fP\fP
+
+.SS "enum \fBMPOAuthSignatureScheme\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIMPOAuthSignatureSchemePlainText \fP\fP
+.TP
+\fB\fIMPOAuthSignatureSchemeHMACSHA1 \fP\fP
+.TP
+\fB\fIMPOAuthSignatureSchemeRSASHA1 \fP\fP
+
+.SH "Variable Documentation"
+.PP 
+.SS "NSString* const MPOAuthCredentialAccessTokenKey"
+
+.SS "NSString* const MPOAuthCredentialAccessTokenSecretKey"
+
+.SS "NSString* const MPOAuthCredentialRequestTokenKey"
+
+.SS "NSString* const MPOAuthCredentialRequestTokenSecretKey"
+
+.SS "NSString* const MPOAuthCredentialSessionHandleKey"
+
+.SS "NSString* const MPOAuthNotificationAccessTokenReceived"
+
+.SS "NSString* const MPOAuthNotificationAccessTokenRefreshed"
+
+.SS "NSString* const MPOAuthNotificationAccessTokenRejected"
+
+.SS "NSString* const MPOAuthNotificationErrorHasOccurred"
+
+.SS "NSString* const MPOAuthNotificationOAuthCredentialsReady"
+
+.SS "NSString* const MPOAuthTokenRefreshDateDefaultsKey"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

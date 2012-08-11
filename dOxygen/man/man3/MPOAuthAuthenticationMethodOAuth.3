@@ -1,0 +1,80 @@
+.TH "MPOAuthAuthenticationMethodOAuth" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthAuthenticationMethodOAuth \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthAuthenticationMethodOAuth\&.h>\fP
+.PP
+Inherits \fBMPOAuthAuthenticationMethod\fP, and \fB<MPOAuthAPIInternalClient>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) - \fBauthenticate\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "NSURL * \fBoauthRequestTokenURL_\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBoauthAuthorizeTokenURL_\fP"
+.br
+.ti -1c
+.RI "BOOL \fBoauth10aModeActive_\fP"
+.br
+.ti -1c
+.RI "id
+.br
+< \fBMPOAuthAuthenticationMethodOAuthDelegate\fP > \fBdelegate_\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id
+.br
+< \fBMPOAuthAuthenticationMethodOAuthDelegate\fP > \fBdelegate\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBoauthRequestTokenURL\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBoauthAuthorizeTokenURL\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) authenticate "
+
+.PP
+Implements \fBMPOAuthAuthenticationMethod\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "- (id<\fBMPOAuthAuthenticationMethodOAuthDelegate\fP>) delegate_\fC [protected]\fP"
+
+.SS "- (BOOL) oauth10aModeActive_\fC [protected]\fP"
+
+.SS "- (NSURL*) oauthAuthorizeTokenURL_\fC [protected]\fP"
+
+.SS "- (NSURL*) oauthRequestTokenURL_\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (id<\fBMPOAuthAuthenticationMethodOAuthDelegate\fP>) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSURL*) oauthAuthorizeTokenURL\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSURL*) oauthRequestTokenURL\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

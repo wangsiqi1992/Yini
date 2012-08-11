@@ -33,7 +33,7 @@ static BWLord *myLord;
     self = [super init];
     if (self)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
         if ([[DBSession sharedSession] isLinked]) {
             NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *dp = [a objectAtIndex:0];

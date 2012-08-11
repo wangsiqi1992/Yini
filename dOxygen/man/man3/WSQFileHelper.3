@@ -1,0 +1,188 @@
+.TH "WSQFileHelper" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WSQFileHelper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <WSQFileHelper\&.h>\fP
+.PP
+Inherits \fB<DBRestClientDelegate>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSString *) - \fBnewsListPath\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBlocalFileDirec\fP"
+.br
+.ti -1c
+.RI "(void) - \fBrefresh\fP"
+.br
+.RI "\fIAsk Dropbox SDK to loade Delta\&. \fP"
+.ti -1c
+.RI "(void) - \fBselfDestory\fP"
+.br
+.RI "\fISet local variables to nil\&. \fP"
+.ti -1c
+.RI "(void) - \fBsetDBRootPath:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBdirectoryForNewsSysFile:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBdirectoryForNewsMediaFile:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBsysMetadataPathForNews:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBmediaMetadataPathForNews:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBpathNameFromDBPath:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBsysPathNameFromDBPath:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBsysFolderAnyFileDirectoryWithOriginalNamePath:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBtrimDBRoot:\fP"
+.br
+.ti -1c
+.RI "(BOOL) - \fBsysFileExistForNamePath:\fP"
+.br
+.ti -1c
+.RI "(BOOL) - \fBfileExistInSysFolderWithNamePath:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBthumbnailPathForNewsNamePath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadThumbnailForDBPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadMediaFileForDBPath:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBloadSysFileForNamePath:\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(\fBWSQFileHelper\fP *) + \fBsharedHelper\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBDBRestClient\fP * \fBrestClient\fP"
+.br
+.RI "\fIDBclient, [self restClient] is called to get this variable\&. \fP"
+.ti -1c
+.RI "NSFileManager * \fBmanager\fP"
+.br
+.ti -1c
+.RI "NSString * \fBlocalCursor\fP"
+.br
+.RI "\fIset and save to a file automatically \fP"
+.ti -1c
+.RI "NSMutableDictionary * \fBnewsNames\fP"
+.br
+.RI "\fIused to load news and archieved to file auto\&. \fP"
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id \fBdelegate\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (NSString *) directoryForNewsMediaFile: (NSString *)name"
+
+.SS "- (NSString *) directoryForNewsSysFile: (NSString*)name"
+
+.SS "- (BOOL) fileExistInSysFolderWithNamePath: (NSString*)np"
+
+.SS "- (void) loadMediaFileForDBPath: (NSString*)dbPath"
+
+.SS "- (void) loadSysFileForNamePath: (NSString*)nPath"
+
+.SS "- (void) loadThumbnailForDBPath: (NSString*)DBPath"
+
+.SS "- (NSString *) localFileDirec "
+\fBReturns:\fP
+.RS 4
+"<documentsDirectory>/News" 
+.RE
+.PP
+
+.SS "- (NSString *) mediaMetadataPathForNews: (NSString*)name"
+
+.SS "- (NSString *) newsListPath "
+\fBReturns:\fP
+.RS 4
+local path to the news list I saved\&.\&.\&. 
+.RE
+.PP
+
+.SS "- (NSString *) pathNameFromDBPath: (NSString *)path"
+
+.SS "- (void) refresh "
+
+.PP
+Ask Dropbox SDK to loade Delta\&. Will announce notifications\&. 
+.SS "- (void) selfDestory "
+
+.PP
+Set local variables to nil\&. Set loacalCursor, newsNames to nil\&. 
+.SS "- (void) setDBRootPath: (NSString*)dbP"
+
+.SS "+ (\fBWSQFileHelper\fP *) sharedHelper "
+
+.SS "- (BOOL) sysFileExistForNamePath: (NSString *)np"
+
+.SS "- (NSString *) sysFolderAnyFileDirectoryWithOriginalNamePath: (NSString*)oNamePath"
+
+.SS "- (NSString *) sysMetadataPathForNews: (NSString*)name"
+
+.SS "- (NSString *) sysPathNameFromDBPath: (NSString *)path"
+
+.SS "- (NSString *) thumbnailPathForNewsNamePath: (NSString*)namePath"
+
+.SS "- (NSString*) trimDBRoot: (NSString *)dbFullPath"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (NSString*) localCursor\fC [protected]\fP"
+
+.PP
+set and save to a file automatically 
+.SS "- (NSFileManager*) manager\fC [protected]\fP"
+
+.SS "- (NSMutableDictionary *) newsNames\fC [protected]\fP"
+
+.PP
+used to load news and archieved to file auto\&. 
+.SS "- (\fBDBRestClient\fP *) restClient\fC [protected]\fP"
+
+.PP
+DBclient, [self restClient] is called to get this variable\&. 
+.SH "Property Documentation"
+.PP 
+.SS "- (id) delegate\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [strong]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

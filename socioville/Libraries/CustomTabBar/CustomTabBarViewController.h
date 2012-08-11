@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "ProgressBanner.h"
-
+#import "BWNotificationCenter.h"
 
 @interface CustomTabBarViewController : BaseViewController <UINavigationControllerDelegate>
 {

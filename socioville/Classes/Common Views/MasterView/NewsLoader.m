@@ -51,8 +51,8 @@ static NewsLoader* _sharedLoader = nil;
     if (self != nil)
     {
         //init here
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"clear catch" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
 
 
         
@@ -119,19 +119,7 @@ static NewsLoader* _sharedLoader = nil;
     }
 }
 
--(void)saveNewsObject:(id)newsObject
-{
-    if ([newsObject isKindOfClass:[NewsObjectPhoto class]]) {
-        NewsObjectPhoto *n = (NewsObjectPhoto*)newsObject;
-        NSString* localP = [uploader sysFileUploadingTempPathForNews:[[self manager] sysPathNameFromDBPath:n.dbpath]];
-        [NSKeyedArchiver archiveRootObject:n toFile:localP];
-        NSString *name = [[self manager] sysPathNameFromDBPath:n.dbpath];
 
-        [uploader saveSysFileOfNews:name withOldName:name];
-        uploader.delegate = self;
-        
-    }
-}
 
 -(void)refreshForNews:(id)wsqNews
 {

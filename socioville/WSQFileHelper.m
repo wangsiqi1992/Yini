@@ -127,8 +127,8 @@ static NSString *dbRootPath = nil;
         localCursor = nil;
         newsNames = nil;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"clear catch" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:@"log out" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
         
         NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *dp = [a objectAtIndex:0];
@@ -249,6 +249,20 @@ static NSString *dbRootPath = nil;
         return nil;
     }
 
+}
+
+-(NSString*)mediaFilePathNameFromLocalDirectory:(NSString*)path
+{
+    NSRange newsRange = [path rangeOfString:mediaFileDirec];
+    if (newsRange.location == NSNotFound) {
+        return nil;
+    }
+    else
+    {
+        NSString *pathName = [path substringFromIndex:newsRange.location + newsRange.length + 1];
+        return pathName;
+    }
+    
 }
 
 -(NSString*)sysPathNameFromDBPath:(NSString *)path
@@ -424,18 +438,19 @@ static NSString *dbRootPath = nil;
         if (hasMore) {
             [[self restClient] loadDelta:cursor];
         }
-        BOOL changeMadeInActivityFolder = NO;
 
         if ([entries count] == 0) {
             
+            [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
             if ([self.delegate respondsToSelector:@selector(noChange)]) {
-                changeMadeInActivityFolder = NO;
                 
                 [[self delegate] noChange];
             }             return;
         }
         else {
             BOOL changeMade = NO;
+            NSMutableArray *changedNamePath = [[NSMutableArray alloc]init];
+            
             for (DBDeltaEntry *d in entries)
             {
                 NSRange r = [d.lowercasePath rangeOfString:[dbRootPath lowercaseString]];
@@ -451,6 +466,9 @@ static NSString *dbRootPath = nil;
                 else
                 {
                     changeMade = TRUE;
+                    if (d.metadata) {
+                        [changedNamePath addObject:[self pathNameFromDBPath:d.metadata.path]];
+                    }
                     //change made in our folder
                     //check path
                     //reload news or system file?!
@@ -495,7 +513,6 @@ static NSString *dbRootPath = nil;
                                 NSString *localPath = [[NSString alloc]init];
                                 NSString *pathName = [self pathNameFromDBPath:d.metadata.path];
                                 if ([pathName rangeOfString:@"user activities"].location != NSNotFound) {
-                                    changeMadeInActivityFolder = YES;
                                 }
                                 localPath = [self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName];
                                 
@@ -532,21 +549,24 @@ static NSString *dbRootPath = nil;
                 }
             }
             
-            if (changeMade) {
+            if (changeMade)
+            {
                 if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
                     
                     [[self delegate] loadedNewsList];
-                }            }
+                    
+                }
+                [[BWNotificationCenter sharedCenter] filesChangedWhenLoadingTheDelta:changedNamePath];
+
+            }
             else
             {
+                [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
                 if ([self.delegate respondsToSelector:@selector(noChange)]) {
                     [[self delegate] noChange];
                 }             }
         }
-        if (!changeMadeInActivityFolder) {
-            NSNotification *note = [NSNotification notificationWithName:@"user activities no change" object:self];
-            [[NSNotificationCenter defaultCenter] postNotification:note];
-        }
+
     }
     
     //[[self delegate] changeInFileWithName:];
@@ -556,18 +576,7 @@ static NSString *dbRootPath = nil;
 {
     [[self delegate] loadedFile];//change reported on every file
     NSLog(@"loaded files to %@", destPath);
-    if ([destPath rangeOfString:@"user info"].location != NSNotFound)
-    {
-        NSNotification *note = [NSNotification notificationWithName:@"user info changed" object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:note];
-    }
-    if ([destPath rangeOfString:@"user activities"].location != NSNotFound)
-    {
-        NSString *userName = [[[destPath componentsSeparatedByString:@"/"] lastObject] stringByDeletingPathExtension];
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:userName forKey:@"userName"];
-        NSNotification *note = [NSNotification notificationWithName:@"user activities changed" object:self userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotification:note];
-    }
+    [[BWNotificationCenter sharedCenter] loadedFile:[self mediaFilePathNameFromLocalDirectory:destPath]];
 }
 
 

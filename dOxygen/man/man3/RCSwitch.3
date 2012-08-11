@@ -1,0 +1,134 @@
+.TH "RCSwitch" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RCSwitch \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <RCSwitch\&.h>\fP
+.PP
+Inherited by \fBRCSwitchOnOff\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(void) - \fBinitCommon\fP"
+.br
+.ti -1c
+.RI "(void) - \fBregenerateImages\fP"
+.br
+.ti -1c
+.RI "(void) - \fBdrawUnderlayersInRect:withOffset:inTrackWidth:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetOn:animated:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "UIImage * \fBknobImage\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBknobImagePressed\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBsliderOff\fP"
+.br
+.ti -1c
+.RI "UIImage * \fBsliderOn\fP"
+.br
+.ti -1c
+.RI "float \fBpercent\fP"
+.br
+.ti -1c
+.RI "float \fBoldPercent\fP"
+.br
+.ti -1c
+.RI "float \fBendcapWidth\fP"
+.br
+.ti -1c
+.RI "CGPoint \fBstartPoint\fP"
+.br
+.ti -1c
+.RI "float \fBscale\fP"
+.br
+.ti -1c
+.RI "float \fBdrawHeight\fP"
+.br
+.ti -1c
+.RI "float \fBanimationDuration\fP"
+.br
+.ti -1c
+.RI "CGSize \fBlastBoundsSize\fP"
+.br
+.ti -1c
+.RI "NSDate * \fBendDate\fP"
+.br
+.ti -1c
+.RI "BOOL \fBmustFlip\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "float \fBknobWidth\fP"
+.br
+.ti -1c
+.RI "BOOL \fBon\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) drawUnderlayersInRect: (CGRect)aRect(float)offset(float)trackWidth"
+
+.SS "- (void) initCommon "
+
+.SS "- (void) regenerateImages "
+
+.SS "- (void) setOn: (BOOL)aBool(BOOL)animated"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (float) animationDuration\fC [protected]\fP"
+
+.SS "- (float) drawHeight\fC [protected]\fP"
+
+.SS "- (float) endcapWidth\fC [protected]\fP"
+
+.SS "- (NSDate*) endDate\fC [protected]\fP"
+
+.SS "- (UIImage*) knobImage\fC [protected]\fP"
+
+.SS "- (UIImage*) knobImagePressed\fC [protected]\fP"
+
+.SS "- (CGSize) lastBoundsSize\fC [protected]\fP"
+
+.SS "- (BOOL) mustFlip\fC [protected]\fP"
+
+.SS "- (float) oldPercent\fC [protected]\fP"
+
+.SS "- (float) percent\fC [protected]\fP"
+
+.SS "- (float) scale\fC [protected]\fP"
+
+.SS "- (UIImage*) sliderOff\fC [protected]\fP"
+
+.SS "- (UIImage*) sliderOn\fC [protected]\fP"
+
+.SS "- (CGPoint) startPoint\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (float) knobWidth\fC [read]\fP, \fC [write]\fP, \fC [atomic]\fP, \fC [assign]\fP"
+
+.SS "- (BOOL) on\fC [read]\fP, \fC [write]\fP, \fC [atomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

@@ -1,0 +1,140 @@
+.TH "MPOAuthAPI" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthAPI \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthAPI\&.h>\fP
+.PP
+Inherits \fB<MPOAuthAPIInternalClient>\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithCredentials:andBaseURL:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithCredentials:authenticationURL:andBaseURL:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBinitWithCredentials:authenticationURL:andBaseURL:autoStart:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBauthenticate\fP"
+.br
+.ti -1c
+.RI "(BOOL) - \fBisAuthenticated\fP"
+.br
+.ti -1c
+.RI "(void) - \fBperformMethod:withTarget:andAction:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBperformMethod:atURL:withParameters:withTarget:andAction:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBperformPOSTMethod:atURL:withParameters:withTarget:andAction:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBperformURLRequest:withTarget:andAction:\fP"
+.br
+.ti -1c
+.RI "(NSData *) - \fBdataForMethod:\fP"
+.br
+.ti -1c
+.RI "(NSData *) - \fBdataForMethod:withParameters:\fP"
+.br
+.ti -1c
+.RI "(NSData *) - \fBdataForURL:andMethod:withParameters:\fP"
+.br
+.ti -1c
+.RI "(id) - \fBcredentialNamed:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBsetCredential:withName:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBremoveCredentialNamed:\fP"
+.br
+.ti -1c
+.RI "(void) - \fBdiscardCredentials\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id< \fBMPOAuthCredentialStore\fP, 
+.br
+\fBMPOAuthParameterFactory\fP > \fBcredentials\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBbaseURL\fP"
+.br
+.ti -1c
+.RI "NSURL * \fBauthenticationURL\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthAuthenticationMethod\fP * \fBauthenticationMethod\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthSignatureScheme\fP \fBsignatureScheme\fP"
+.br
+.ti -1c
+.RI "\fBMPOAuthAuthenticationState\fP \fBauthenticationState\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (void) authenticate "
+
+.SS "- (id) credentialNamed: (NSString *)inCredentialName"
+
+.SS "- (NSData *) dataForMethod: (NSString *)inMethod"
+
+.SS "- (NSData *) \fBdataForMethod:\fP (NSString *)inMethod(NSArray *)inParameters"
+
+.SS "- (NSData *) dataForURL: (NSURL *)inURL(NSString *)inMethod(NSArray *)inParameters"
+
+.SS "- (void) discardCredentials "
+
+.SS "- (id) initWithCredentials: (NSDictionary *)inCredentials(NSURL *)inURL"
+
+.SS "- (id) initWithCredentials: (NSDictionary *)inCredentials(NSURL *)inAuthURL(NSURL *)inBaseURL"
+
+.SS "- (id) initWithCredentials: (NSDictionary *)inCredentials(NSURL *)inAuthURL(NSURL *)inBaseURL(BOOL)aFlag"
+
+.SS "- (BOOL) isAuthenticated "
+
+.SS "- (void) performMethod: (NSString *)inMethod(NSURL *)inURL(NSArray *)inParameters(id)inTarget(SEL)inAction"
+
+.SS "- (void) performMethod: (NSString *)inMethod(id)inTarget(SEL)inAction"
+
+.SS "- (void) performPOSTMethod: (NSString *)inMethod(NSURL *)inURL(NSArray *)inParameters(id)inTarget(SEL)inAction"
+
+.SS "- (void) performURLRequest: (NSURLRequest *)inRequest(id)inTarget(SEL)inAction"
+
+.SS "- (void) removeCredentialNamed: (NSString *)inName"
+
+.SS "- (void) setCredential: (id)inCredential(NSString *)inName"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (\fBMPOAuthAuthenticationMethod\fP*) authenticationMethod\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (\fBMPOAuthAuthenticationState\fP) authenticationState\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+.SS "- (NSURL*) authenticationURL\fC [read]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (NSURL*) baseURL\fC [read]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (id<\fBMPOAuthCredentialStore\fP, \fBMPOAuthParameterFactory\fP>) credentials\fC [read]\fP, \fC [nonatomic]\fP, \fC [retain]\fP"
+
+.SS "- (\fBMPOAuthSignatureScheme\fP) signatureScheme\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

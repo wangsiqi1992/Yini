@@ -9,13 +9,29 @@
 #import <Foundation/Foundation.h>
 #import "NewsLoader.h"
 #import "BWMyLordActivityWriter.h"
+#import "BWNotificationCenter.h"
+enum status{
+    BWNewsWriterStatusUploadingMediaFile,
+    BWNewsWriterStatusUploadingSystemFile,
+    BWNewsWriterStatusUploadingActivity,
+    BWNewsWriterStatusFree
+};
 
-@interface BWNewsWriter : NSObject<NewsLoaderDelegate, WSQFileUploaderDelegate>
+enum task {
+    BWNewsWriterTaskCompostNews = 1,
+    BWNewsWriterTaskSaveNews = 2
+    };
+
+
+
+
+@interface BWNewsWriter : NSObject<WSQFileUploaderDelegate>
 {
     NSString *fileName;
     NSDictionary *pendingAtrributes;
-    id news;
-    
+    WSQNews* news;
+    NSInteger status;
+    NSInteger task;
 }
 
 
@@ -23,7 +39,48 @@
 +(BWNewsWriter*)sharedWriter;
 -(BOOL)composePhotoNewsWithPhoto:(UIImage*)image attributes:(NSDictionary*)attributes;
 
+-(BOOL)saveNewsObject:(id)newsObject;
+@property (nonatomic, strong) id delegate;
+
 @end
+
+
+
+
+
+
+
+
+@protocol BWNewsWriterDelegate <NSObject>
+
+-(WSQNews*)reImplementNews;
+
+@optional
+-(void)writingNewsSucceed;
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

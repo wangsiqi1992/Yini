@@ -45,7 +45,7 @@
 //        self.navigationController.navigationBar. = self.navTitle;
         
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotAProfile) name:@"user info changed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotAProfile:) name:[BWNotificationCenter userInfoNotificationName] object:nil];
     
 }
 
@@ -119,6 +119,7 @@
     [self setProfilPic:nil];
     [self setStatusTextLable:nil];
     [self setLittleWheel:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
     
 }
@@ -156,9 +157,11 @@
     
 }
 
--(void)gotAProfile
+-(void)gotAProfile:(NSNotification*)note
 {
-    [self configureView];
+    if ([[note.userInfo objectForKey:@"changed"] boolValue] == YES) {
+        [self configureView];
+    }
 }
 
 

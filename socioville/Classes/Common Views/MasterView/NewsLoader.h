@@ -11,7 +11,7 @@
 #import "NewsObjectPhoto.h"
 #import "WSQFileHelper.h"
 #import "WSQFileUploader.h"
-
+#import "BWNotificationCenter.h"
 
 @protocol NewsLoaderDelegate <NSObject>
 @optional
@@ -54,7 +54,7 @@
 
 -(void)loadMediaFileForNews:(id)wsqNews;
 
--(void)saveNewsObject:(id)newsObject;
+//-(void)saveNewsObject:(id)newsObject;
 
 -(void)refreshForNews:(id)wsqNews;
 

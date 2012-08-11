@@ -1,0 +1,93 @@
+.TH "MPURLRequestParameter" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPURLRequestParameter \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPURLRequestParameter\&.h>\fP
+.PP
+Inherited by \fBMPOAuthSignatureParameter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithName:andValue:\fP"
+.br
+.ti -1c
+.RI "(NSString *) - \fBURLEncodedParameterString\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(NSArray *) + \fBparametersFromString:\fP"
+.br
+.ti -1c
+.RI "(NSArray *) + \fBparametersFromDictionary:\fP"
+.br
+.ti -1c
+.RI "(NSDictionary *) + \fBparameterDictionaryFromString:\fP"
+.br
+.ti -1c
+.RI "(NSString *) + \fBparameterStringForParameters:\fP"
+.br
+.ti -1c
+.RI "(NSString *) + \fBparameterStringForDictionary:\fP"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "NSString * \fB_name\fP"
+.br
+.ti -1c
+.RI "NSString * \fB_value\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "NSString * \fBname\fP"
+.br
+.ti -1c
+.RI "NSString * \fBvalue\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "- (id) initWithName: (NSString *)inName(NSString *)inValue"
+
+.SS "+ (NSDictionary *) parameterDictionaryFromString: (NSString *)inString"
+
+.SS "+ (NSArray *) parametersFromDictionary: (NSDictionary *)inDictionary"
+
+.SS "+ (NSArray *) parametersFromString: (NSString *)inString"
+
+.SS "+ (NSString *) parameterStringForDictionary: (NSDictionary *)inParameterDictionary"
+
+.SS "+ (NSString *) parameterStringForParameters: (NSArray *)inParameters"
+
+.SS "- (NSString *) URLEncodedParameterString "
+
+.SH "Member Data Documentation"
+.PP 
+.SS "- (NSString*) _name\fC [protected]\fP"
+
+.SS "- (NSString*) _value\fC [protected]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (NSString*) name\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [copy]\fP"
+
+.SS "- (NSString*) value\fC [read]\fP, \fC [write]\fP, \fC [nonatomic]\fP, \fC [copy]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.

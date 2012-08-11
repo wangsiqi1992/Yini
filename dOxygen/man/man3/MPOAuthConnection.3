@@ -1,0 +1,52 @@
+.TH "MPOAuthConnection" 3 "Thu Aug 9 2012" "Version 1.0" "Yini" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MPOAuthConnection \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#import <MPOAuthConnection\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(id) - \fBinitWithRequest:delegate:credentials:\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "(\fBMPOAuthConnection\fP *) + \fBconnectionWithRequest:delegate:credentials:\fP"
+.br
+.ti -1c
+.RI "(NSData *) + \fBsendSynchronousRequest:usingCredentials:returningResponse:error:\fP"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "id< \fBMPOAuthCredentialStore\fP, 
+.br
+\fBMPOAuthParameterFactory\fP > \fBcredentials\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "+ (\fBMPOAuthConnection\fP *) connectionWithRequest: (\fBMPOAuthURLRequest\fP *)inRequest(id)inDelegate(NSObject< \fBMPOAuthCredentialStore\fP, \fBMPOAuthParameterFactory\fP > *)inCredentials"
+
+.SS "- (id) initWithRequest: (\fBMPOAuthURLRequest\fP *)inRequest(id)inDelegate(NSObject< \fBMPOAuthCredentialStore\fP, \fBMPOAuthParameterFactory\fP > *)inCredentials"
+
+.SS "+ (NSData *) sendSynchronousRequest: (\fBMPOAuthURLRequest\fP *)inRequest(NSObject< \fBMPOAuthCredentialStore\fP, \fBMPOAuthParameterFactory\fP > *)inCredentials(\fBMPOAuthURLResponse\fP **)outResponse(NSError **)inError"
+
+.SH "Property Documentation"
+.PP 
+.SS "- (id<\fBMPOAuthCredentialStore\fP, \fBMPOAuthParameterFactory\fP>) credentials\fC [read]\fP, \fC [nonatomic]\fP, \fC [assign]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Yini from the source code\&.
