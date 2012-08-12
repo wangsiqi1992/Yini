@@ -1,5 +1,5 @@
 //
-//  BWProfileImageView.h
+//  BWProfileImageVIew.h
 //  Yini
 //
 //  Created by siqi wang on 12-8-12.
@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BWImageStroe.h"
+#import "BWActivityLoaderViewController.h"
 
-@interface BWProfileImageView : UIView
+@interface BWProfileImageVIew : UIImageView
+{
+    UIViewController *vc;
+    UITapGestureRecognizer *tapRec;
+}
+
+@property (nonatomic, strong) NSString* userDisplayName;
+-(void)enableTouchEventFromVC:(UIViewController*)viewCon;
+
+
+
+
+
 
 @end
