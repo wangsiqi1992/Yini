@@ -44,6 +44,8 @@
  */
 +(NSString*)playingGroundAllOurFilesNotificationName;
 
+
++(NSString*)uploadFinishedNotificationName;
 /**
  Used for the helper and uploader to send notifications, help other object to get the correct notification name they are registering..
  @warning       no notification is registered for other use...
@@ -98,6 +100,7 @@
  */
 -(void)loading:(BOOL)yes withProgress:(float)progress uiDescription:(NSString*)description;
 
+-(void)uploadFinished;
 
 
 

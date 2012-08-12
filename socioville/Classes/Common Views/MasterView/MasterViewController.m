@@ -55,7 +55,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFinished) name:[BWNotificationCenter uploadFinishedNotificationName] object:nil];
     
     
     
@@ -283,6 +284,11 @@
     [self stopLoading];
 }
 
+
+-(void)uploadFinished
+{
+    [[self tableView] reloadData];
+}
 
 
 

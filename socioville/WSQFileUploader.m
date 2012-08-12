@@ -176,8 +176,7 @@ static NSString *dbSysPath;
         [uploadingList removeObjectForKey:name];
     }
     
-    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:@"finished save news", @"status", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"finished loading" object:self userInfo:userInfo];
+    [[BWNotificationCenter sharedCenter] uploadFinished];
     
     if ([self.delegate respondsToSelector:@selector(fileUploadFinished:)])
     {

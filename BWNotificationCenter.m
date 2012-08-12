@@ -15,7 +15,10 @@ static NSString *userActivityNotificationName = @"user activities";
 static NSString *userInfoNotificationName = @"user info";
 static NSString *newsSysFileFolderNotificationName = @"yini system file";
 static NSString *playingGroundAllOurFilesNotificationName = @"all file";
-//static NSString *NotificationName = @"";
+static NSString *uploadFinishedNotificationName = @"upload finished";
+    //static NSString *NotificationName = @"";
+    //static NSString *NotificationName = @"";
+    //static NSString *NotificationName = @"";
 static BWNotificationCenter* sharedCenter;
 
 
@@ -48,6 +51,11 @@ static BWNotificationCenter* sharedCenter;
 +(NSString*)playingGroundAllOurFilesNotificationName
 {
     return playingGroundAllOurFilesNotificationName;
+}
+
++(NSString*)uploadFinishedNotificationName
+{
+    return uploadFinishedNotificationName;
 }
 
 
@@ -154,7 +162,10 @@ static BWNotificationCenter* sharedCenter;
     [center postNotificationName:uiProgressBarShowNotification object:self userInfo:dic];
 }
 
-
+-(void)uploadFinished
+{
+    [center postNotificationName:uploadFinishedNotificationName object:self];
+}
 
 
 
