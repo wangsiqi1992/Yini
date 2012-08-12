@@ -430,7 +430,8 @@
 -(void)selectedAUser:(UIGestureRecognizer*)gestureRe
 {
     UITableViewCell *cell = (UITableViewCell*)[gestureRe.view superview];
-    NSArray* cA = detailedObject.commentsArray;
+    NSArray* cA = [[detailedObject.commentsArray objectEnumerator] allObjects];
+    
     BWComment *comment = (BWComment*)[cA objectAtIndex:[self.commentsTableView indexPathForCell:cell].row];
     BWActivityLoaderViewController *vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"activity VC"];
     [vc setUser:comment.author];
