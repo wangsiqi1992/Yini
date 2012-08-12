@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366415331.331997"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "258"
-         endingLineNumber = "258"
+         startingLineNumber = "266"
+         endingLineNumber = "266"
          landmarkName = "-dismissKeyboard"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366415331.331997"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "272"
-         endingLineNumber = "272"
+         startingLineNumber = "280"
+         endingLineNumber = "280"
          landmarkName = "-textFieldShouldReturn:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -463,11 +463,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366465806.99679"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "510"
-         endingLineNumber = "510"
+         startingLineNumber = "519"
+         endingLineNumber = "519"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -476,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366415331.331997"
+         timestampString = "366481347.473092"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
          landmarkName = "-configureViewForDetailObject"
          landmarkType = "5">
       </FileBreakpoint>
@@ -502,11 +502,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366482059.870163"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "320"
-         endingLineNumber = "320"
+         startingLineNumber = "325"
+         endingLineNumber = "325"
          landmarkName = "-scrollViewDidScroll:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -515,11 +515,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366482059.870163"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "336"
-         endingLineNumber = "336"
+         startingLineNumber = "341"
+         endingLineNumber = "341"
          landmarkName = "-scrollViewDidEndDragging:willDecelerate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -528,11 +528,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366482059.870163"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "348"
-         endingLineNumber = "348"
+         startingLineNumber = "353"
+         endingLineNumber = "353"
          landmarkName = "@implementation BWPhotoVideoViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -541,11 +541,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366482059.870163"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "311"
-         endingLineNumber = "311"
+         startingLineNumber = "316"
+         endingLineNumber = "316"
          landmarkName = "-scrollViewWillBeginDragging:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -567,11 +567,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366482059.870163"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "354"
-         endingLineNumber = "354"
+         startingLineNumber = "359"
+         endingLineNumber = "359"
          landmarkName = "-pullDownToReloadAction"
          landmarkType = "5">
       </FileBreakpoint>
@@ -593,11 +593,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366482059.870163"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "355"
-         endingLineNumber = "355"
+         startingLineNumber = "360"
+         endingLineNumber = "360"
          landmarkName = "-pullDownToReloadAction"
          landmarkType = "5">
       </FileBreakpoint>
@@ -866,11 +866,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -892,11 +892,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366417107.718683"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
+         startingLineNumber = "176"
+         endingLineNumber = "176"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -905,11 +905,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "95"
-         endingLineNumber = "95"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -957,11 +957,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366465285.267514"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
+         startingLineNumber = "197"
+         endingLineNumber = "197"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -970,11 +970,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366417107.718683"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "162"
+         endingLineNumber = "162"
          landmarkName = "-tableView:heightForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -983,11 +983,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366465285.267514"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "199"
-         endingLineNumber = "199"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1061,11 +1061,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366465806.99679"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "493"
-         endingLineNumber = "493"
+         startingLineNumber = "502"
+         endingLineNumber = "502"
          landmarkName = "-reImplementNews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1074,11 +1074,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "463"
-         endingLineNumber = "463"
+         startingLineNumber = "472"
+         endingLineNumber = "472"
          landmarkName = "-newsLoaderDidLoadFile"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1100,11 +1100,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "480"
-         endingLineNumber = "480"
+         startingLineNumber = "489"
+         endingLineNumber = "489"
          landmarkName = "-writingNewsSucceed"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1178,11 +1178,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366465285.267514"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "211"
+         endingLineNumber = "211"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1191,11 +1191,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366415331.331997"
+         timestampString = "366481347.473092"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-configureViewForDetailObject"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1204,11 +1204,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "425"
-         endingLineNumber = "425"
+         startingLineNumber = "433"
+         endingLineNumber = "433"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1217,24 +1217,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366415331.331997"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "212"
-         endingLineNumber = "212"
+         startingLineNumber = "220"
+         endingLineNumber = "220"
          landmarkName = "-textFieldDidEndEditing:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366416239.102335"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "446"
-         endingLineNumber = "446"
+         startingLineNumber = "455"
+         endingLineNumber = "455"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1243,11 +1243,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoaderViewController.m"
-         timestampString = "366416306.897299"
+         timestampString = "366477686.817861"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1256,11 +1256,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
-         timestampString = "366460516.892063"
+         timestampString = "366481776.40611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "483"
-         endingLineNumber = "483"
+         startingLineNumber = "492"
+         endingLineNumber = "492"
          landmarkName = "-writingNewsSucceed"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1301,6 +1301,32 @@
          startingLineNumber = "40"
          endingLineNumber = "40"
          landmarkName = "-activitiesPreparedForProfilePage"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWActivityLoaderViewController.m"
+         timestampString = "366477686.817861"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWActivityLoaderViewController.m"
+         timestampString = "366481443.787121"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

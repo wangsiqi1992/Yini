@@ -37,6 +37,7 @@
 		17F4CC6315D1714C005516A6 /* BWActivityLoaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4CC6215D1714B005516A6 /* BWActivityLoaderViewController.m */; };
 		17F4CC6615D177FB005516A6 /* BWActivityLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4CC6515D177FB005516A6 /* BWActivityLoader.m */; };
 		17F4CC6915D18587005516A6 /* BWActivityComent.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4CC6815D18587005516A6 /* BWActivityComent.m */; };
+		17F8208515D80B57009D3F64 /* BWProfileImageVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F8208415D80B57009D3F64 /* BWProfileImageVIew.m */; };
 		17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1A815AF054800450199 /* UIKit.framework */; };
 		17FBC1AB15AF054800450199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AA15AF054800450199 /* Foundation.framework */; };
 		17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FBC1AC15AF054800450199 /* CoreGraphics.framework */; };
@@ -325,6 +326,8 @@
 		17F4CC6515D177FB005516A6 /* BWActivityLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWActivityLoader.m; sourceTree = "<group>"; };
 		17F4CC6715D18586005516A6 /* BWActivityComent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWActivityComent.h; sourceTree = "<group>"; };
 		17F4CC6815D18587005516A6 /* BWActivityComent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWActivityComent.m; sourceTree = "<group>"; };
+		17F8208315D80B57009D3F64 /* BWProfileImageVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BWProfileImageVIew.h; path = Yini/BWProfileImageVIew.h; sourceTree = SOURCE_ROOT; };
+		17F8208415D80B57009D3F64 /* BWProfileImageVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWProfileImageVIew.m; path = Yini/BWProfileImageVIew.m; sourceTree = SOURCE_ROOT; };
 		17FBC1A415AF054800450199 /* Yini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FBC1A815AF054800450199 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17FBC1AA15AF054800450199 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -700,6 +703,8 @@
 		17F4CC5215D106D5005516A6 /* custom views */ = {
 			isa = PBXGroup;
 			children = (
+				17F8208315D80B57009D3F64 /* BWProfileImageVIew.h */,
+				17F8208415D80B57009D3F64 /* BWProfileImageVIew.m */,
 				17F4CC6A15D18FD1005516A6 /* activity cell */,
 				17F4CC4F15D106C2005516A6 /* ProgressBanner.h */,
 				17F4CC5015D106C2005516A6 /* ProgressBanner.m */,
@@ -1631,6 +1636,7 @@
 				177A4F3515D2874F001BF130 /* BWCommentsWriter.m in Sources */,
 				17AEC0D715D428620076AF48 /* BWNotificationCenter.m in Sources */,
 				17E5551D15D6501800362F40 /* BWImageStroe.m in Sources */,
+				17F8208515D80B57009D3F64 /* BWProfileImageVIew.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

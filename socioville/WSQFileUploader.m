@@ -191,8 +191,11 @@ static NSString *dbSysPath;
     
 }
 
-
-
+-(void)restClient:(DBRestClient *)restClient uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath
+{
+    NSLog(@"%f", progress);
+    
+}
 
 
 

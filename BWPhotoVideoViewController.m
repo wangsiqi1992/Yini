@@ -100,7 +100,8 @@
     
     [self.commentsTableView reloadData];
 //    self.commentTextField.text = @"";
-    self.myLordProfilePic.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:[BWLord myLord].displayName];
+    [self.myLordProfilePic setUserDisplayName:[BWLord myLord].displayName];
+    [self.myLordProfilePic enableTouchEventFromVC:self];
 
     
     if (savingComment) {
@@ -161,7 +162,14 @@
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:homeButton];
 
         }
-        self.title = dOb.newsName;
+        if (![dOb.newsName isEqualToString:@""]) {
+            self.title = dOb.newsName;
+
+        }
+        else
+        {
+            self.title = @"News";
+        }
 
     }
 }
@@ -301,9 +309,6 @@
 }
 
 
-#pragma mark - gesture
-
-
 
 
 #pragma mark - pull to reload thing
@@ -406,18 +411,21 @@
         titleLabel.text = c.author.displayName;
         UILabel *commentLable = (UILabel*)[cell viewWithTag:2];
         commentLable.text = c.commentString;
-        UIImageView *authorPicView = (UIImageView*)[cell viewWithTag:3];
+        BWProfileImageView *authorPicView = (BWProfileImageView*)[cell viewWithTag:3];
         
-        authorPicView.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:c.author.displayName];
+//        authorPicView.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:c.author.displayName];
+//        
+//        UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
+//        ageLable.text = [NSString stringWithFormat:@"%@", [c ageDescription]];
+//        UITapGestureRecognizer *tapR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedAUser:)];
+//        [authorPicView addGestureRecognizer:tapR];
+//        tapR.delegate = self;
+//        [tableView setCanCancelContentTouches:NO];
         
-        UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
-        ageLable.text = [NSString stringWithFormat:@"%@", [c ageDescription]];
-        UITapGestureRecognizer *tapR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedAUser:)];
-        [authorPicView addGestureRecognizer:tapR];
-        tapR.delegate = self;
-        [tableView setCanCancelContentTouches:NO];
+        [authorPicView setUserDisplayName:c.author.displayName];
+        [authorPicView enableTouchEventFromVC:self];
         
-        [tapR setEnabled:YES];
+//        [tapR setEnabled:YES];
         return cell;
     }
     else
@@ -427,18 +435,18 @@
 
 }
 
--(void)selectedAUser:(UIGestureRecognizer*)gestureRe
-{
-    UITableViewCell *cell = (UITableViewCell*)[gestureRe.view superview];
-    NSArray* cA = [[detailedObject.commentsArray objectEnumerator] allObjects];
-    
-    BWComment *comment = (BWComment*)[cA objectAtIndex:[self.commentsTableView indexPathForCell:cell].row];
-    BWActivityLoaderViewController *vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"activity VC"];
-    [vc setUser:comment.author];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    
-}
+//-(void)selectedAUser:(UIGestureRecognizer*)gestureRe
+//{
+//    UITableViewCell *cell = (UITableViewCell*)[gestureRe.view superview];
+//    NSArray* cA = [[detailedObject.commentsArray objectEnumerator] allObjects];
+//    
+//    BWComment *comment = (BWComment*)[cA objectAtIndex:[self.commentsTableView indexPathForCell:cell].row];
+//    BWActivityLoaderViewController *vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"activity VC"];
+//    [vc setUser:comment.author];
+//    [self.navigationController pushViewController:vc animated:YES];
+//    
+//    
+//}
 
 #pragma mark - Table view delegate
 

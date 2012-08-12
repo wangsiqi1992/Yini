@@ -17,7 +17,7 @@
 #import "BWImageStroe.h"
 #import "BWActivityLoaderViewController.h"
 #import "BWMyLordActivityWriter.h"
-
+#import "BWProfileImageView.h"
 
 @interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, BWNewsWriterDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -40,7 +40,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITableView *commentsTableView;
 @property (strong, nonatomic) IBOutlet UITextField *commentTextField;
-@property (strong, nonatomic) IBOutlet UIImageView *myLordProfilePic;
+@property (strong, nonatomic) IBOutlet BWProfileImageView *myLordProfilePic;
 
 @property(nonatomic, readonly) UIPullToReloadHeaderView *pullToReloadHeaderView;
 
