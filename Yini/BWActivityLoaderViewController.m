@@ -152,7 +152,7 @@
             return 160;
         }
         if ([[activities objectAtIndex:indexPath.row] isKindOfClass:[BWActivityComent class]]) {
-            return 85;
+            return 103;
             
         }
     

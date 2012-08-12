@@ -32,6 +32,7 @@
 {
     if ([super init]) {
         self.newsSysNamePath = namePath;
+        self.type = BWActivityTypeNews;
         return self;
     }
     return nil;

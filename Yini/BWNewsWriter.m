@@ -93,6 +93,8 @@ static BWNewsWriter *sharedWriter;
     }
     else
     {
+        NSLog(@"TODO: news writer busy status error!");
+
         return NO;
     }
 }
@@ -152,83 +154,68 @@ static BWNewsWriter *sharedWriter;
     
     if (isSucceed)
     {
-        
-        if (task == BWNewsWriterTaskCompostNews) {
-            switch (status)
-            {
-                case BWNewsWriterStatusUploadingMediaFile:
-                {
-                    [[WSQFileHelper sharedHelper] refresh];
-                    status = BWNewsWriterStatusUploadingSystemFile;
-                }
-                    
-                    break;
-                case BWNewsWriterStatusUploadingSystemFile:
-                {
-                    if (task == BWNewsWriterTaskCompostNews)
-                    {
-                        fileName = nil;
-                        pendingAtrributes = nil;
-                        [[BWNotificationCenter sharedCenter] loading:NO withProgress:0 uiDescription:@"finished loading"];
-                        if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
-                            [self.delegate writingNewsSucceed];
-                            
-                        }
-                        [[WSQFileUploader sharedLoader] setDelegate:Nil];
-                        [[NewsLoader sharedLoader] setDelegate:Nil];
-                        
-                            ///@todo:   move this up a level, shouldn't been done here!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        if ([news isKindOfClass:[WSQNews class]])
-                        {
-                            WSQNews *theNews = (WSQNews*)news;
-                            BWActivityNews *acti = [[BWActivityNews alloc] initWithNewsSysNamePath:theNews.namePath];
-                            [acti setUserDiscription:[NSString stringWithFormat:@"%@ shared a news:", acti.owner.displayName]];
-                            [[BWMyLordActivityWriter sharedLordActiWriter] addNewActivity:acti];
-                            
-                            status = BWNewsWriterStatusUploadingActivity;
-                        }
-                        news = nil;
-                    }
-                    else if(task == BWNewsWriterTaskSaveNews)
-                    {
-                        if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
-                            [self.delegate writingNewsSucceed];
-                            
-                        }
-                        fileName = nil;
-                        news = nil;
-                        status = BWNewsWriterStatusFree;
-                        
-                    }
-                    
-                }
-                    break;
-                case BWNewsWriterStatusUploadingActivity:
-                {
-                    status = BWNewsWriterStatusFree;
-                }
-                    break;
-                case BWNewsWriterStatusFree:
-                {
-                    [WSQFileUploader sharedLoader].delegate = nil;
-                }
-                    break;
-                    
-                default:
-                    break;
-            }
-        }
-        else if (task == BWNewsWriterTaskSaveNews && status == BWNewsWriterStatusUploadingActivity)
+        switch (status)
         {
-            status = BWNewsWriterStatusFree;
-            if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
-                [self.delegate writingNewsSucceed];
+            case BWNewsWriterStatusUploadingMediaFile:
+            {// only happen when task == compost news!
+                [[WSQFileHelper sharedHelper] refresh];
+                status = BWNewsWriterStatusUploadingSystemFile;
             }
-            
-            
+                
+                break;
+            case BWNewsWriterStatusUploadingSystemFile:
+            {
+                if (task == BWNewsWriterTaskCompostNews)
+                {
+                    fileName = nil;
+                    pendingAtrributes = nil;
+                    [[BWNotificationCenter sharedCenter] loading:NO withProgress:0 uiDescription:@"finished loading"];
+                    if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
+                        [self.delegate writingNewsSucceed];
+                        
+                    }
+//                    [[WSQFileUploader sharedLoader] setDelegate:Nil];
+                    [[NewsLoader sharedLoader] setDelegate:Nil];
+                    
+                        ///@todo:   move this up a level, shouldn't been done here!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    if ([news isKindOfClass:[WSQNews class]])
+                    {
+                        WSQNews *theNews = (WSQNews*)news;
+                        BWActivityNews *acti = [[BWActivityNews alloc] initWithNewsSysNamePath:theNews.namePath];
+                        [acti setUserDiscription:[NSString stringWithFormat:@"%@ shared a news:", acti.owner.displayName]];
+                        [[BWMyLordActivityWriter sharedLordActiWriter] addNewActivity:acti];
+                        
+                        status = BWNewsWriterStatusUploadingActivity;
+                    }
+                    news = nil;
+                }
+                
+                
+            }
+                break;
+            case BWNewsWriterStatusUploadingActivity:
+            {
+                status = BWNewsWriterStatusFree;
+                if(task == BWNewsWriterTaskSaveNews)
+                {
+                    if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
+                        [self.delegate writingNewsSucceed];
+                        
+                    }
+                    fileName = nil;
+                    news = nil;                    
+                }
+            }
+                break;
+            case BWNewsWriterStatusFree:
+            {
+                [WSQFileUploader sharedLoader].delegate = nil;
+            }
+                break;
+                
+            default:
+                break;
         }
-        
-        
     }
     else
     {

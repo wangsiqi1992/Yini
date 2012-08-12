@@ -30,6 +30,7 @@
 -(id)initWithNewsSysNamePath:(NSString *)namePath
 {
     if ([super init]) {
+        self.type = BWActivityTypeComment;
         self.newsSysNamePath = namePath;
         self.owner = [[BWLord myLord] myLordAsAUser];
         WSQNews *news = [[WSQNews alloc] initWithSysFilePath:[[WSQFileHelper sharedHelper] directoryForNewsSysFile:namePath]];

@@ -853,11 +853,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityComent.m"
-         timestampString = "366465806.99679"
+         timestampString = "366467754.755094"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-initWithNewsSysNamePath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -931,11 +931,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWActivityLoader.m"
-         timestampString = "366103599.408105"
+         timestampString = "366471760.158668"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-activitiesPreparedForProfilePage"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1009,11 +1009,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366460902.820147"
+         timestampString = "366468932.52732"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "324"
-         endingLineNumber = "324"
+         startingLineNumber = "311"
+         endingLineNumber = "311"
          landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1022,11 +1022,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366460902.820147"
+         timestampString = "366468932.52732"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
          landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1048,11 +1048,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366460902.820147"
+         timestampString = "366468932.52732"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "255"
-         endingLineNumber = "255"
+         startingLineNumber = "242"
+         endingLineNumber = "242"
          landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1087,38 +1087,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366361922.584869"
+         timestampString = "366468932.52732"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
-         landmarkName = "-fileUploadFinished:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366460902.820147"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "281"
-         endingLineNumber = "281"
+         startingLineNumber = "268"
+         endingLineNumber = "268"
          landmarkName = "-newsLoaderDidLoadFile:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366361922.584869"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "225"
-         endingLineNumber = "225"
-         landmarkName = "-fileUploadFinished:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1139,11 +1113,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWNewsWriter.m"
-         timestampString = "366460902.820147"
+         timestampString = "366468932.52732"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "316"
-         endingLineNumber = "316"
+         startingLineNumber = "303"
+         endingLineNumber = "303"
          landmarkName = "-newsLoaderDidLoadFile:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1197,32 +1171,6 @@
          startingLineNumber = "73"
          endingLineNumber = "73"
          landmarkName = "-thumbnailImageWithDBPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWActivityLoader.m"
-         timestampString = "366392763.158203"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-activitiesPreparedForProfilePage"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Yini/BWActivityLoader.m"
-         timestampString = "366393093.971337"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-activitiesPreparedForProfilePage"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1317,7 +1265,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Yini/BWUserActivityCommentsCell.m"
@@ -1327,6 +1275,32 @@
          startingLineNumber = "37"
          endingLineNumber = "37"
          landmarkName = "-setActi:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWNewsWriter.m"
+         timestampString = "366469202.579314"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "236"
+         endingLineNumber = "236"
+         landmarkName = "-newsLoaderDidLoadFile:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Yini/BWActivityLoader.m"
+         timestampString = "366469720.868367"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-activitiesPreparedForProfilePage"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

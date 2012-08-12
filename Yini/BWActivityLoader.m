@@ -52,25 +52,40 @@ static NSString *activityInfoPath;
         {
             BWActivityComent *rawComment = (BWActivityComent*)acti;
 
-            for (BWActivity* checkingActi in preparedArray)
+            if ([preparedArray count] > 0)
             {
-                if (checkingActi.type == BWActivityTypeComment)
-                {// if it is a comment
-                    BWActivityComent *comment = (BWActivityComent*)checkingActi;
-                    if (rawComment.newsSysNamePath == comment.newsSysNamePath)
-                    {//check if the namePath for the news is the same
+                BOOL haveTheObject = NO;
+                BWActivity *checkActi;
+                NSEnumerator *emnu = [preparedArray objectEnumerator];
+                while (checkActi = [emnu nextObject])
+                {
+                    if (checkActi.type == BWActivityTypeComment)
+                    {
+                        BWActivityComent *comment = (BWActivityComent*)checkActi;
                         
-                        if ([rawComment.date timeIntervalSinceDate:comment.date] < 0)
-                        {//check which one is newer...
-                            //if the new one is newer then the one already in the array
-                            [preparedArray delete:checkingActi];
-                            [preparedArray addObject:comment];
+                        if ([rawComment.newsSysNamePath isEqualToString:comment.newsSysNamePath])
+                        {//check if the namePath for the news is the same
+                            
+                            if ([rawComment.date timeIntervalSinceDate:comment.date] > 0)
+                            {//check which one is newer...
+                             //if the new one is newer then the one already in the array
+                                [preparedArray removeObject:checkActi];
+                                [preparedArray addObject:rawComment];
+                            }
+                            haveTheObject = YES;
                         }
-                        
                     }
                 }
-               
+                if (!haveTheObject)
+                {
+                    [preparedArray addObject:rawComment];
+                }
             }
+            else
+            {
+                [preparedArray addObject:rawComment];
+            }
+            
             
         }
     }
