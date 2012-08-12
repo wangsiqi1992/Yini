@@ -17,6 +17,7 @@
 
 @implementation BWActivityLoaderViewController
 @synthesize navigationBarPanGestureRecognizer;
+@synthesize user;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
