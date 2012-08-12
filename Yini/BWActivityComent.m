@@ -31,12 +31,13 @@
 {
     if ([super init]) {
         self.newsSysNamePath = namePath;
-        WSQNews *news = [[WSQNews alloc] initWithSysFilePath:namePath];
+        self.owner = [[BWLord myLord] myLordAsAUser];
+        WSQNews *news = [[WSQNews alloc] initWithSysFilePath:[[WSQFileHelper sharedHelper] directoryForNewsSysFile:namePath]];
         if (news.author) {
             NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.relatedUsers];
             [array addObject:news.author];
             self.relatedUsers = array;
-            self.userDiscription = [NSString stringWithFormat:@"commented on %@'s news: %@", news.author, news.newsName];
+            self.userDiscription = [NSString stringWithFormat:@"commented on %@'s news: %@", news.author.displayName, news.newsName];
         }
         else
         {

@@ -16,6 +16,7 @@
 #import "BWNewsWriter.h"
 #import "BWImageStroe.h"
 #import "BWActivityLoaderViewController.h"
+#import "BWMyLordActivityWriter.h"
 
 
 @interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, BWNewsWriterDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>

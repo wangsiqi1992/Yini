@@ -481,7 +481,11 @@
     loader.delegate = self;
     [self configureViewForDetailObject];
     savingNewsName = false;
-    savingComment = false;
+    if (savingComment) {
+        savingComment = false;
+        BWActivityComent *acti = [[BWActivityComent alloc] initWithNewsSysNamePath:detailedObject.namePath];
+        [[BWMyLordActivityWriter sharedLordActiWriter] addNewActivity:acti];
+    }
 }
 
 -(WSQNews*)reImplementNews

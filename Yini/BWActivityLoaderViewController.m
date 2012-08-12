@@ -151,7 +151,7 @@
         {
             return 160;
         }
-        if ([[activities objectAtIndex:indexPath.row] isKindOfClass:[BWActivityNews class]]) {
+        if ([[activities objectAtIndex:indexPath.row] isKindOfClass:[BWActivityComent class]]) {
             return 85;
             
         }
@@ -182,6 +182,14 @@
             
             [cell setNewsActivity:newsActi];
             
+            return cell;
+            
+        }
+        else if ([[activities objectAtIndex:indexPath.row] isKindOfClass:[BWActivityComent class]])
+        {
+            BWActivityComent *acti = (BWActivityComent *)[activities objectAtIndex:indexPath.row];
+            BWUserActivityCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BWUserActivityCommentsCell"];
+            [cell setActi:acti];
             return cell;
             
         }

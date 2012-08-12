@@ -13,6 +13,7 @@
 @synthesize nameLable;
 @synthesize cotentsLabel;
 @synthesize dateDesctiption;
+@synthesize acti;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,6 +29,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setActi:(BWActivityComent *)activity
+{
+    acti = activity;
+    self.nameLable.text = acti.owner.displayName;
+    self.cotentsLabel.text = acti.userDiscription;
+    self.dateDesctiption.text = [BWAgeCalculator describeDate:acti.date];
+    self.profilePicView.image = [[BWImageStroe sharedStore] userProfileViewWithUserDisplayName:acti.owner.displayName];
+    
 }
 
 @end

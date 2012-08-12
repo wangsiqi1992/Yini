@@ -218,12 +218,13 @@ static BWNewsWriter *sharedWriter;
                     break;
             }
         }
-        else if (task == BWNewsWriterTaskSaveNews)
+        else if (task == BWNewsWriterTaskSaveNews && status == BWNewsWriterStatusUploadingActivity)
         {
             status = BWNewsWriterStatusFree;
             if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
                 [self.delegate writingNewsSucceed];
             }
+            
             
         }
         
