@@ -15,6 +15,8 @@
 #import "UIPullToReloadHeaderView.h"
 #import "BWNewsWriter.h"
 #import "BWImageStroe.h"
+#import "BWActivityLoaderViewController.h"
+
 
 @interface BWPhotoVideoViewController : UIViewController<NewsLoaderDelegate, BWNewsWriterDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 {
@@ -23,7 +25,8 @@
     UITextField *activeTextField;
     BWComment *appendingComment;
     NSString *appendingNewsName;
-
+    UITapGestureRecognizer *taoCon;
+    
     BOOL checkForRefresh;
     BOOL savingNewsName;
     BOOL savingComment;

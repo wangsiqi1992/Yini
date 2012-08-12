@@ -59,15 +59,19 @@
     [self registerForKeyboardNotifications];
     newsNameTextField.delegate = self;
     commentTextField.delegate = self;
-    UITapGestureRecognizer *taoCon = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
+    taoCon = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     taoCon.delegate = self;
-    [self.view addGestureRecognizer:taoCon];
+    [taoCon setEnabled:YES];
+        //[self.view addGestureRecognizer:taoCon];
+    [self.commentsTableView setUserInteractionEnabled:YES];
+    
     loader = [NewsLoader sharedLoader];
     
     [self configureViewForDetailObject];
     self.commentsTableView.delegate = self;
     self.commentsTableView.dataSource = self;
     
+    [self.scrollView setCanCancelContentTouches:NO];
     
     //try to implement the pull to refresh...
     pullToReloadHeaderView = [[UIPullToReloadHeaderView alloc] initWithFrame: CGRectMake(0.0f, 0.0f - self.commentsTableView.bounds.size.height,
@@ -147,9 +151,24 @@
             }
             
         }
+        if ([[self.navigationController viewControllers] count] >= 2) {
+            UIButton *homeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            UIImage *imageMenu = [[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-home.png"];
+            [homeButton setImage:imageMenu forState:UIControlStateNormal];
+            homeButton.frame = CGRectMake(0.0, 0.0, imageMenu.size.width, imageMenu.size.height);
+            [homeButton addTarget:self action:@selector(returnToHome) forControlEvents:UIControlEventTouchUpInside];
+            
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:homeButton];
+
+        }
         self.title = dOb.newsName;
 
     }
+}
+
+-(void)returnToHome
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,12 +203,14 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     activeTextField = textField;
-
+    [self.view addGestureRecognizer:taoCon];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     activeTextField = nil;
+    [self.view setGestureRecognizers:nil];
+    
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -278,6 +299,10 @@
     [self.scrollView setScrollEnabled:false];
     [self.commentsTableView setScrollEnabled:TRUE];
 }
+
+
+#pragma mark - gesture
+
 
 
 
@@ -387,7 +412,12 @@
         
         UILabel *ageLable = (UILabel*)[cell viewWithTag:4];
         ageLable.text = [NSString stringWithFormat:@"%@", [c ageDescription]];
+        UITapGestureRecognizer *tapR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedAUser:)];
+        [authorPicView addGestureRecognizer:tapR];
+        tapR.delegate = self;
+        [tableView setCanCancelContentTouches:NO];
         
+        [tapR setEnabled:YES];
         return cell;
     }
     else
@@ -395,6 +425,18 @@
         return nil;
     }
 
+}
+
+-(void)selectedAUser:(UIGestureRecognizer*)gestureRe
+{
+    UITableViewCell *cell = (UITableViewCell*)[gestureRe.view superview];
+    NSArray* cA = detailedObject.commentsArray;
+    BWComment *comment = (BWComment*)[cA objectAtIndex:[self.commentsTableView indexPathForCell:cell].row];
+    BWActivityLoaderViewController *vc = [[self storyboard] instantiateViewControllerWithIdentifier:@"activity VC"];
+    [vc setUser:comment.author];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
 }
 
 #pragma mark - Table view delegate

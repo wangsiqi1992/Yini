@@ -52,7 +52,7 @@ PROJECT_LOGO           =
 # If a relative path is entered, it will be relative to the location 
 # where doxygen was started. If left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = /Users/duliping1996/Developer/Yini/dOxygen
+OUTPUT_DIRECTORY       = ../../Dropbox/Public
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create 
 # 4096 sub-directories (in 2 levels) under the output directory of each output 
@@ -161,7 +161,7 @@ SHORT_NAMES            = NO
 # comments will behave just like regular Qt-style comments 
 # (thus requiring an explicit @brief command for a brief description.)
 
-JAVADOC_AUTOBRIEF      = NO
+JAVADOC_AUTOBRIEF      = YES
 
 # If the QT_AUTOBRIEF tag is set to YES then Doxygen will 
 # interpret the first line (until the first dot) of a Qt-style 
@@ -194,7 +194,7 @@ SEPARATE_MEMBER_PAGES  = NO
 # The TAB_SIZE tag can be used to set the number of spaces in a tab. 
 # Doxygen uses this value to replace tabs by spaces in code fragments.
 
-TAB_SIZE               = 8
+TAB_SIZE               = 16
 
 # This tag can be used to specify a number of aliases that acts 
 # as commands in the documentation. An alias has the form "name=value". 
@@ -317,7 +317,7 @@ INLINE_GROUPED_CLASSES = NO
 # structs, classes, and unions are shown on a separate page (for HTML and Man 
 # pages) or section (for LaTeX and RTF).
 
-INLINE_SIMPLE_STRUCTS  = NO
+INLINE_SIMPLE_STRUCTS  = YES
 
 # When TYPEDEF_HIDES_STRUCT is enabled, a typedef of a struct, union, or enum 
 # is documented as struct, union, or enum with the name of the typedef. So 
@@ -451,7 +451,7 @@ CASE_SENSE_NAMES       = NO
 # will show members with their full class and namespace scopes in the 
 # documentation. If set to YES the scope will be hidden.
 
-HIDE_SCOPE_NAMES       = YES
+HIDE_SCOPE_NAMES       = NO
 
 # If the SHOW_INCLUDE_FILES tag is set to YES (the default) then Doxygen 
 # will put a list of the files that are included by a file in the documentation 
@@ -730,7 +730,51 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is 
 # run.
 
-EXCLUDE                = 
+EXCLUDE                = DropboxSDK.framework/Headers/Base64Transcoder.h \
+                         DropboxSDK.framework/Headers/DBAccountInfo.h \
+                         DropboxSDK.framework/Headers/DBCuDeltaEntry.h \
+                         DropboxSDK.framework/Headers/DBDefines.h \
+                         DropboxSDK.framework/Headers/DBDeltaEntry.h \
+                         DropboxSDK.framework/Headers/DBError.h \
+                         DropboxSDK.framework/Headers/DBJSON.h \
+                         DropboxSDK.framework/Headers/DBJsonBase.h \
+                         DropboxSDK.framework/Headers/DBJsonParser.h \
+                         DropboxSDK.framework/Headers/DBJsonWriter.h \
+                         DropboxSDK.framework/Headers/DBLog.h \
+                         DropboxSDK.framework/Headers/DBMetadata.h \
+                         DropboxSDK.framework/Headers/DBQuota.h \
+                         DropboxSDK.framework/Headers/DBRequest.h \
+                         DropboxSDK.framework/Headers/DBRestClient.h \
+                         DropboxSDK.framework/Headers/DBRestClient+Photos.h \
+                         DropboxSDK.framework/Headers/DBSession.h \
+                         DropboxSDK.framework/Headers/DBSession+iOS.h \
+                         DropboxSDK.framework/Headers/DropboxSDK-Prefix.pch \
+                         DropboxSDK.framework/Headers/DropboxSDK.h \
+                         DropboxSDK.framework/Headers/JSON.h \
+                         DropboxSDK.framework/Headers/MPDebug.h \
+                         DropboxSDK.framework/Headers/MPOAuth.h \
+                         DropboxSDK.framework/Headers/MPOAuthAPI.h \
+                         DropboxSDK.framework/Headers/MPOAuthAPIRequestLoader.h \
+                         DropboxSDK.framework/Headers/MPOAuthAuthenticationMethod.h \
+                         DropboxSDK.framework/Headers/MPOAuthAuthenticationMethodOAuth.h \
+                         DropboxSDK.framework/Headers/MPOAuthConnection.h \
+                         DropboxSDK.framework/Headers/MPOAuthCredentialConcreteStore.h \
+                         DropboxSDK.framework/Headers/MPOAuthCredentialConcreteStore+KeychainAdditions.h \
+                         DropboxSDK.framework/Headers/MPOAuthCredentialStore.h \
+                         DropboxSDK.framework/Headers/MPOAuthParameterFactory.h \
+                         DropboxSDK.framework/Headers/MPOAuthSignatureParameter.h \
+                         DropboxSDK.framework/Headers/MPOAuthURLRequest.h \
+                         DropboxSDK.framework/Headers/MPOAuthURLResponse.h \
+                         DropboxSDK.framework/Headers/MPURLRequestParameter.h \
+                         DropboxSDK.framework/Headers/NSDictionary+Dropbox.h \
+                         DropboxSDK.framework/Headers/NSObject+DBJSON.h \
+                         DropboxSDK.framework/Headers/NSString+DBJSON.h \
+                         DropboxSDK.framework/Headers/NSString+Dropbox.h \
+                         DropboxSDK.framework/Headers/NSString+URLEscapingAdditions.h \
+                         DropboxSDK.framework/Headers/NSURL+MPURLParameterAdditions.h \
+                         DropboxSDK.framework/Headers/NSURLResponse+Encoding.h \
+                         DropboxSDK.framework/Headers/UIAlertView+Dropbox.h \
+                         DropboxSDK.framework/Headers/Base64Transcoder.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or 
 # directories that are symbolic links (a Unix file system feature) are excluded 
@@ -758,7 +802,12 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see 
 # the \include command).
 
-EXAMPLE_PATH           = 
+EXAMPLE_PATH           = socioville/Classes \
+                         socioville/DropboxSDK \
+                         socioville/Libraries \
+                         socioville/Model \
+                         socioville/Resources \
+                         socioville/Resources
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the 
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp 
@@ -876,7 +925,7 @@ VERBATIM_HEADERS       = YES
 # of all compounds will be generated. Enable this if the project 
 # contains a lot of classes, structs, unions or interfaces.
 
-ALPHABETICAL_INDEX     = YES
+ALPHABETICAL_INDEX     = NO
 
 # If the alphabetical index is enabled (see ALPHABETICAL_INDEX) then 
 # the COLS_IN_ALPHA_INDEX tag can be used to specify the number of columns 
@@ -957,7 +1006,7 @@ HTML_EXTRA_FILES       =
 # 180 is cyan, 240 is blue, 300 purple, and 360 is red again. 
 # The allowed range is 0 to 359.
 
-HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_HUE    = 216
 
 # The HTML_COLORSTYLE_SAT tag controls the purity (or saturation) of 
 # the colors in the HTML output. For a value of 0 the output will use 
@@ -1179,7 +1228,7 @@ ENUM_VALUES_PER_LINE   = 4
 # used to set the initial width (in pixels) of the frame in which the tree 
 # is shown.
 
-TREEVIEW_WIDTH         = 250
+TREEVIEW_WIDTH         = 249
 
 # When the EXT_LINKS_IN_WINDOW option is set to YES doxygen will open 
 # links to external symbols imported via tag files in a separate window.

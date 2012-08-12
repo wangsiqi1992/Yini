@@ -60,7 +60,7 @@
         }
         
         // Check if we have a revealButton already.
-        if (![self.navigationItem leftBarButtonItem]) {
+        if (![self.navigationItem leftBarButtonItem] && self == [[nav viewControllers] objectAtIndex:0]) {
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerSelectedOption:) name:@"MenuSelectedOption" object:nil];
             // If not, allocate one and add it.
             UIImage *imageMenu = [[BWAppDelegate instance].colorSwitcher getImageWithName:@"button-menu.png"];
@@ -70,6 +70,16 @@
             [menuButton addTarget:controller action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
             
             self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+        }
+        else if([[self.navigationController viewControllers] count] >= 2)
+        {
+            UIButton *homeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            UIImage *imageMenu = [[BWAppDelegate instance].colorSwitcher getImageWithName:@"menu-home.png"];
+            [homeButton setImage:imageMenu forState:UIControlStateNormal];
+            homeButton.frame = CGRectMake(0.0, 0.0, imageMenu.size.width, imageMenu.size.height);
+            [homeButton addTarget:self action:@selector(returnToHome) forControlEvents:UIControlEventTouchUpInside];
+            
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:homeButton];
         }
     }
 
@@ -105,6 +115,10 @@
     
 }
 
+-(void)returnToHome
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 #pragma mark - table view related...
 
