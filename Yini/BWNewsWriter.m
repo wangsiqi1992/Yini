@@ -196,6 +196,7 @@ static BWNewsWriter *sharedWriter;
             case BWNewsWriterStatusUploadingActivity:
             {
                 status = BWNewsWriterStatusFree;
+                [[WSQFileHelper sharedHelper] refresh];
                 if(task == BWNewsWriterTaskSaveNews)
                 {
                     if ([self.delegate respondsToSelector:@selector(writingNewsSucceed)]) {
@@ -209,6 +210,7 @@ static BWNewsWriter *sharedWriter;
                 break;
             case BWNewsWriterStatusFree:
             {
+                [[WSQFileHelper sharedHelper] refresh];
                 [WSQFileUploader sharedLoader].delegate = nil;
             }
                 break;
