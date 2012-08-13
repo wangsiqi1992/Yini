@@ -431,143 +431,142 @@ static NSString *dbRootPath = nil;
     NSLog(@"cursor recieved! %@", cursor);
     [self saveCursor];
 
-    if (shouldReset) {
-        [self implementFromScratch];
+//    if (shouldReset) {
+//        [self implementFromScratch];
+//    }
+//    else {}
+    
+    if (hasMore) {
+        [[self restClient] loadDelta:cursor];
+    }
+    
+    if ([entries count] == 0) {
+        
+        [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
+        if ([self.delegate respondsToSelector:@selector(noChange)]) {
+            
+            [[self delegate] noChange];
+        }             return;
     }
     else {
-        if (hasMore) {
-            [[self restClient] loadDelta:cursor];
-        }
-
-        if ([entries count] == 0) {
+        BOOL changeMade = NO;
+        NSMutableArray *changedNamePath = [[NSMutableArray alloc]init];
+        
+        for (DBDeltaEntry *d in entries)
+        {
+            NSRange r = [d.lowercasePath rangeOfString:[dbRootPath lowercaseString]];
+            NSArray *pathCompounent = [d.lowercasePath componentsSeparatedByString:@"/"];
             
-            [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
-            if ([self.delegate respondsToSelector:@selector(noChange)]) {
-                
-                [[self delegate] noChange];
-            }             return;
-        }
-        else {
-            BOOL changeMade = NO;
-            NSMutableArray *changedNamePath = [[NSMutableArray alloc]init];
             
-            for (DBDeltaEntry *d in entries)
-            {
-                NSRange r = [d.lowercasePath rangeOfString:[dbRootPath lowercaseString]];
-                NSArray *pathCompounent = [d.lowercasePath componentsSeparatedByString:@"/"];
-                
-                
-                
+            
                 //if relevent to our program?!
-                if (r.location == NSNotFound) {
+            if (r.location == NSNotFound) {
                     //this change not made in our folder
                     //break;
-                }
-                else
-                {
-                    changeMade = TRUE;
-                    if (d.metadata) {
-                        [changedNamePath addObject:[self pathNameFromDBPath:d.metadata.path]];
-                    }
-                    //change made in our folder
-                    //check path
-                    //reload news or system file?!
-
-                    if (![pathCompounent containsObject:@"yini system file"])
-                    {
-                        //if change in media folder
-                        
-                        if (d.metadata) {
-                            
-                            
-                            [self putIntoNewsNames:d.metadata];//should it just put names into the newsnames list?!?!!!!
-                            //if new news
-
-                        }
-                        else {
-                            //if delete news
-                            NSString *name = [self pathNameFromDBPath:d.lowercasePath];
-                            //may not work for album, i.e. folder of news, only name is passed not directory after root folder
-                            name = [self realNameFromLowerCase:name];
-                            [self deleteNewsMediaFileWithName:name];
-                        }
-                        
-                        [[self delegate] loadedFile];
-                        [self saveNewsNames];
-                        
-                    }
-                    else 
-                    {
-                        //if change made in system file folder
-
-
-
-                        if (d.metadata.isDirectory)
-                        {
-                            //break;
-                        }
-                        else
-                        {
-                            if (d.metadata)
-                            {
-                                NSString *localPath = [[NSString alloc]init];
-                                NSString *pathName = [self pathNameFromDBPath:d.metadata.path];
-                                if ([pathName rangeOfString:@"user activities"].location != NSNotFound) {
-                                }
-                                localPath = [self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName];
-                                
-                                if (![manager fileExistsAtPath:localPath])
-                                {
-                                    [manager createDirectoryAtPath:[[localPath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
-                                     }
-                                     [[self restClient] loadFile:d.metadata.path intoPath:localPath];
-                                     
-                                     
-                                     NSString *sysMP = [self sysMetadataPathForNews:pathName];
-                                     [manager createDirectoryAtPath:[[self sysMetadataPathForNews:[pathName stringByDeletingLastPathComponent] ] stringByDeletingPathExtension]withIntermediateDirectories:YES attributes:nil error:nil];
-                                     [manager createFileAtPath:sysMP contents:nil attributes:nil];
-                                     [NSKeyedArchiver archiveRootObject:d.metadata toFile:sysMP];
-                                     
-                                     }
-                                     
-                                     else
-                                     {
-                                         NSString *pathName = [[NSString alloc]init];
-                                         pathName = [self pathNameFromDBPath:[self realNameFromLowerCase:d.lowercasePath]];
-                                         NSString *name = [self realNameFromLowerCase:pathName];
-                                         [self deleteNewsSysFileWithName:name];
-                                     }
-                        }
-                        
-                        
-                        
-                        
-                        
-                    }
-                    
-                    //there is some change!!!
-                }
-            }
-            
-            if (changeMade)
-            {
-                if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
-                    
-                    [[self delegate] loadedNewsList];
-                    
-                }
-                [[BWNotificationCenter sharedCenter] filesChangedWhenLoadingTheDelta:changedNamePath];
-
             }
             else
             {
-                [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
-                if ([self.delegate respondsToSelector:@selector(noChange)]) {
-                    [[self delegate] noChange];
-                }             }
-        }
+                changeMade = TRUE;
+                if (d.metadata && !d.metadata.isDirectory) {
+                    NSLog(d.metadata.path);
 
+                    [changedNamePath addObject:[self pathNameFromDBPath:d.metadata.path]];
+                }
+                    //change made in our folder
+                    //check path
+                    //reload news or system file?!
+                
+                if (![pathCompounent containsObject:@"yini system file"])
+                {
+                        //if change in media folder
+                    
+                    if (d.metadata && !d.metadata.isDirectory) {
+                        
+                        
+                        [self putIntoNewsNames:d.metadata];//should it just put names into the newsnames list?!?!!!!
+                                                           //if new news
+                        
+                    }
+                    else if(!d.metadata) {
+                            //if delete news
+                        NSString *name = [self pathNameFromDBPath:d.lowercasePath];
+                            //may not work for album, i.e. folder of news, only name is passed not directory after root folder
+                        name = [self realNameFromLowerCase:name];
+                        [self deleteNewsMediaFileWithName:name];
+                    }
+                    
+                    [[self delegate] loadedFile];
+                    [self saveNewsNames];
+                    
+                }
+                else
+                {
+                        //if change made in system file folder
+                    
+                    
+                    
+                    if (d.metadata.isDirectory)
+                    {
+                            //break;
+                    }
+                    else
+                    {
+                        if (d.metadata)
+                        {
+                            NSString *localPath = [[NSString alloc]init];
+                            NSString *pathName = [self pathNameFromDBPath:d.metadata.path];
+                            if ([pathName rangeOfString:@"user activities"].location != NSNotFound) {
+                            }
+                            localPath = [self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName];
+                            
+                            if (![manager fileExistsAtPath:localPath])
+                            {
+                                [manager createDirectoryAtPath:[[localPath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
+                            }
+                            [[self restClient] loadFile:d.metadata.path intoPath:localPath];
+                            
+                            
+                            NSString *sysMP = [self sysMetadataPathForNews:pathName];
+                            [manager createDirectoryAtPath:[[self sysMetadataPathForNews:[pathName stringByDeletingLastPathComponent] ] stringByDeletingPathExtension]withIntermediateDirectories:YES attributes:nil error:nil];
+                            [manager createFileAtPath:sysMP contents:nil attributes:nil];
+                            [NSKeyedArchiver archiveRootObject:d.metadata toFile:sysMP];
+                            
+                        }
+                        
+                        else if(!d.metadata)
+                        {
+                            NSString *pathName = [[NSString alloc]init];
+                            pathName = [self pathNameFromDBPath:[self realNameFromLowerCase:d.lowercasePath]];
+                            NSString *name = [self realNameFromLowerCase:pathName];
+                            [self deleteNewsSysFileWithName:name];
+                        }
+                    }
+                }
+                
+                    //there is some change!!!
+            }
+        }
+        
+        if (changeMade)
+        {
+            if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
+                
+                [[self delegate] loadedNewsList];
+                
+            }
+            [[BWNotificationCenter sharedCenter] filesChangedWhenLoadingTheDelta:changedNamePath];
+            [changedNamePath removeAllObjects];
+            
+        }
+        else
+        {
+            [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
+            if ([self.delegate respondsToSelector:@selector(noChange)]) {
+                [[self delegate] noChange];
+            }             }
     }
+    
+    
     
     //[[self delegate] changeInFileWithName:];
 }
@@ -633,7 +632,9 @@ static NSString *dbRootPath = nil;
 -(void)implementFromScratch
 {
     [self makeDirectories];
-    [[self restClient] loadMetadata:[@"/" stringByAppendingString:dbRootPath]];
+//    [[self restClient] loadMetadata:[@"/" stringByAppendingString:dbRootPath]];
+
+    [[self restClient] loadDelta:[self cursor]];
 
 }
 

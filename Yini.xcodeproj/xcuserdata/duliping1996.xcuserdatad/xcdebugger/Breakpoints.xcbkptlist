@@ -281,7 +281,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileHelper.m"
-         timestampString = "366295073.980759"
+         timestampString = "366538086.210765"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "437"
@@ -333,11 +333,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileHelper.m"
-         timestampString = "366295073.980759"
+         timestampString = "366547511.665238"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "658"
-         endingLineNumber = "658"
+         startingLineNumber = "659"
+         endingLineNumber = "659"
          landmarkName = "-putIntoNewsNames:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -807,32 +807,6 @@
          startingLineNumber = "93"
          endingLineNumber = "93"
          landmarkName = "-addNewActivity:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "socioville/WSQFileHelper.m"
-         timestampString = "366295073.980759"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "501"
-         endingLineNumber = "501"
-         landmarkName = "-restClient:loadedDeltaEntries:reset:cursor:hasMore:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "socioville/WSQFileHelper.m"
-         timestampString = "366295073.980759"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "519"
-         endingLineNumber = "519"
-         landmarkName = "-restClient:loadedDeltaEntries:reset:cursor:hasMore:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1340,6 +1314,32 @@
          startingLineNumber = "290"
          endingLineNumber = "290"
          landmarkName = "-uploadFinished"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/WSQFileHelper.m"
+         timestampString = "366539833.053402"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "469"
+         endingLineNumber = "469"
+         landmarkName = "-restClient:loadedDeltaEntries:reset:cursor:hasMore:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "socioville/WSQFileHelper.m"
+         timestampString = "366547251.347244"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "473"
+         endingLineNumber = "473"
+         landmarkName = "-restClient:loadedDeltaEntries:reset:cursor:hasMore:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
