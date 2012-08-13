@@ -454,13 +454,19 @@ static NSString *dbRootPath = nil;
         
         for (DBDeltaEntry *d in entries)
         {
-            NSRange r = [d.lowercasePath rangeOfString:[dbRootPath lowercaseString]];
+                //NSRange r = [d.lowercasePath rangeOfString:[dbRootPath lowercaseString]];
             NSArray *pathCompounent = [d.lowercasePath componentsSeparatedByString:@"/"];
+            NSString* rootFromPath = [d.lowercasePath substringFromIndex:1];
+            
+            if ([rootFromPath length] > [dbRootPath length]) {
+                rootFromPath = [rootFromPath substringToIndex:[dbRootPath length]];
+
+            }
             
             
             
                 //if relevent to our program?!
-            if (r.location == NSNotFound) {
+            if (![rootFromPath isEqualToString:[dbRootPath lowercaseString]]) {
                     //this change not made in our folder
                     //break;
             }
