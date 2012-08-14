@@ -9,6 +9,7 @@
 #import "ProgressBanner.h"
 
 @implementation ProgressBanner
+@synthesize  statusLable, littleWheel, progressBar;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -27,6 +28,10 @@
         [self.statusLable setBackgroundColor:[UIColor clearColor]];
         [self.statusLable setTextAlignment:NSTextAlignmentCenter];
         [self.littleWheel setHidesWhenStopped:YES];
+        
+        self.progressBar = [[ADVPopoverProgressBar alloc] initWithFrame:CGRectMake(0, self.littleWheel.frame.size.height, frame.size.width, frame.size.height - self.littleWheel.frame.size.height) andProgressBarColor:ADVProgressBarGreen];
+        [self.progressBar setProgress:0];
+        [self addSubview:self.progressBar];
     }
     return self;
 }

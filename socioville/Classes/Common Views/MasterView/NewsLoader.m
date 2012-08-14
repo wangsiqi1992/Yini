@@ -52,7 +52,6 @@ static NewsLoader* _sharedLoader = nil;
     {
         //init here
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
 
 
         
@@ -270,5 +269,15 @@ static NewsLoader* _sharedLoader = nil;
 
 
 
+
+
+
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+        //[super dealloc];
+}
 
 @end

@@ -12,6 +12,9 @@
 #import "NewsLoader.h"
 #import <DropboxSDK/DropboxSDK.h>
 #import "BWNotificationCenter.h"
+#import "BWAppDelegate.h"
+
+
 
 @interface BWSystemViewController : UIViewController
 - (IBAction)clearCatchButton:(id)sender;

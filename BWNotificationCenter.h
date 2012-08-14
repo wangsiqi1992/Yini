@@ -98,7 +98,7 @@
 	@param progress progress
     @param description  status message
  */
--(void)loading:(BOOL)yes withProgress:(float)progress uiDescription:(NSString*)description;
+-(void)loading:(BOOL)yes withProgress:(CGFloat)progress uiDescription:(NSString*)description;
 
 -(void)uploadFinished;
 

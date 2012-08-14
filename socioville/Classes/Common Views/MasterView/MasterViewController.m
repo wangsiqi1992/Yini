@@ -54,7 +54,6 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFinished) name:[BWNotificationCenter uploadFinishedNotificationName] object:nil];
     
@@ -133,7 +132,7 @@
                     
                     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
                 }
-                if (![BWLord myLord].displayName || (![[NSFileManager defaultManager] fileExistsAtPath:[BWLord myLord].profilePicLocalPath] && !gotAProfilePic)) {
+                if (![BWLord myLord].displayName) {
                     
                     BWMyLordInfoViewController *lvc = (BWMyLordInfoViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"BWMyLordInfoViewController"];
                     lvc.delegate = self;

@@ -126,9 +126,10 @@ static NSString *dbRootPath = nil;
         //init here
         localCursor = nil;
         newsNames = nil;
+        loadingFileNumber = 0;
+        loadedNumber = 0;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter clearCatchNotificationName] object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selfDestory) name:[BWNotificationCenter logOutNotificationName] object:nil];
         
         NSArray *a = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *dp = [a objectAtIndex:0];
@@ -363,7 +364,11 @@ static NSString *dbRootPath = nil;
     [[self restClient] loadFile:[self dbPathFromNamePath:nPath] intoPath:localPath];
 }
 
-
+-(void)loadStructureMetadataForDBPath:(NSString *)path
+{
+   
+    [[self restClient] loadMetadata:@"/"];
+}
 
 
 
@@ -374,53 +379,66 @@ static NSString *dbRootPath = nil;
 -(void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata
 {
     if (metadata.isDirectory) {
-        //        NSMutableArray *list;
-        NSLog(@"Folder '%@' contains:", metadata.path);
-        
-        //        list = [[NSMutableArray alloc]init];
-        
-        for (DBMetadata *data in metadata.contents)
-        {
-            NSString *pathName = [self pathNameFromDBPath:data.path];
-            
-            if ([data.path rangeOfString:@"yini system file"].location != NSNotFound)
-            {
-                //if sys folder
-                if (data.isDirectory) {
-                    [[self restClient] loadMetadata:data.path];
-                }
-                else
-                {
-                    [[self restClient] loadFile:data.path intoPath:[self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName]];
-                    [manager createDirectoryAtPath:[[self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
-                    
-                    [manager createDirectoryAtPath:[[[self sysMetadataPathForNews:pathName] stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
-                [manager createFileAtPath:[self sysMetadataPathForNews:pathName] contents:nil attributes:nil];
-                    [NSKeyedArchiver archiveRootObject:data toFile:[self sysMetadataPathForNews:[self pathNameFromDBPath:data.path]]];
+        NSMutableArray *structureArray = [[NSMutableArray alloc] init];
 
-                }
-            }
-            else
-            {
-                //if media folder
-                if (data.isDirectory) {
-                    [[self restClient] loadMetadata:data.path];
-                }
-                else
-                {
-                    [self putIntoNewsNames:data];
-                }
+        for (DBMetadata* data in metadata.contents) {
+            if (data.isDirectory) {
+                [structureArray addObject:data.path];
             }
         }
-     
-            
-            //write news names into a plist in systemFile!
-            [self saveNewsNames];//change on the list reported once only
-        if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
-            
-            [[self delegate] loadedNewsList];
+        if ([self.delegate respondsToSelector:@selector(loadedFolderStructure:)]) {
+            [self.delegate loadedFolderStructure:structureArray];
         }
     }
+    
+//        if (metadata.isDirectory) {
+//        //        NSMutableArray *list;
+//        NSLog(@"Folder '%@' contains:", metadata.path);
+//        
+//        //        list = [[NSMutableArray alloc]init];
+//        
+//        for (DBMetadata *data in metadata.contents)
+//        {
+//            NSString *pathName = [self pathNameFromDBPath:data.path];
+//            
+//            if ([data.path rangeOfString:@"yini system file"].location != NSNotFound)
+//            {
+//                //if sys folder
+//                if (data.isDirectory) {
+//                    [[self restClient] loadMetadata:data.path];
+//                }
+//                else
+//                {
+//                    [[self restClient] loadFile:data.path intoPath:[self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName]];
+//                    [manager createDirectoryAtPath:[[self sysFolderAnyFileDirectoryWithOriginalNamePath:pathName] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+//                    
+//                    [manager createDirectoryAtPath:[[[self sysMetadataPathForNews:pathName] stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
+//                [manager createFileAtPath:[self sysMetadataPathForNews:pathName] contents:nil attributes:nil];
+//                    [NSKeyedArchiver archiveRootObject:data toFile:[self sysMetadataPathForNews:[self pathNameFromDBPath:data.path]]];
+//
+//                }
+//            }
+//            else
+//            {
+//                //if media folder
+//                if (data.isDirectory) {
+//                    [[self restClient] loadMetadata:data.path];
+//                }
+//                else
+//                {
+//                    [self putIntoNewsNames:data];
+//                }
+//            }
+//        }
+//     
+//            
+//            //write news names into a plist in systemFile!
+//            [self saveNewsNames];//change on the list reported once only
+//        if ([self.delegate respondsToSelector:@selector(loadedNewsList)]) {
+//            
+//            [[self delegate] loadedNewsList];
+//        }
+//    }
 
 }
 
@@ -446,7 +464,12 @@ static NSString *dbRootPath = nil;
         if ([self.delegate respondsToSelector:@selector(noChange)]) {
             
             [[self delegate] noChange];
-        }             return;
+        }
+        
+        loadedNumber = 0;
+        loadingFileNumber = 0;
+        [[BWNotificationCenter sharedCenter] loading:NO withProgress:0 uiDescription:@"Loading Finished"];
+        return;
     }
     else {
         BOOL changeMade = NO;
@@ -530,6 +553,9 @@ static NSString *dbRootPath = nil;
                                 [manager createDirectoryAtPath:[[localPath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
                             }
                             [[self restClient] loadFile:d.metadata.path intoPath:localPath];
+                            loadingFileNumber = loadingFileNumber + 1;
+                            
+                            [[BWNotificationCenter sharedCenter] loading:YES withProgress:0 uiDescription:[NSString stringWithFormat:@"There are %@ Files", [NSNumber numberWithDouble:loadingFileNumber]]];
                             
                             
                             NSString *sysMP = [self sysMetadataPathForNews:pathName];
@@ -563,13 +589,19 @@ static NSString *dbRootPath = nil;
             [[BWNotificationCenter sharedCenter] filesChangedWhenLoadingTheDelta:changedNamePath];
             [changedNamePath removeAllObjects];
             
+            [[BWNotificationCenter sharedCenter] loading:YES withProgress:0 uiDescription:@"loading data"];
+            
         }
         else
         {
             [[BWNotificationCenter sharedCenter] filesNoChangeWhenLoadingTheDelta];
             if ([self.delegate respondsToSelector:@selector(noChange)]) {
                 [[self delegate] noChange];
-            }             }
+            }
+            loadedNumber = 0;
+            loadingFileNumber = 0;
+            [[BWNotificationCenter sharedCenter] loading:NO withProgress:0 uiDescription:@"Loading Finished"];
+        }
     }
     
     
@@ -582,6 +614,19 @@ static NSString *dbRootPath = nil;
     [[self delegate] loadedFile];//change reported on every file
     NSLog(@"loaded files to %@", destPath);
     [[BWNotificationCenter sharedCenter] loadedFile:[self mediaFilePathNameFromLocalDirectory:destPath]];
+    loadedNumber = loadedNumber +1;
+    if (loadedNumber >= loadingFileNumber) {
+        loadedNumber = 0;
+        loadingFileNumber = 0;
+        [[BWNotificationCenter sharedCenter] loading:NO withProgress:1 uiDescription:@"Loading done!"];
+        
+    }
+    else
+    {
+        CGFloat progress = loadedNumber / loadingFileNumber;
+        [[BWNotificationCenter sharedCenter] loading:YES withProgress:progress uiDescription:@"Loading..."];
+    }
+    
 }
 
 
@@ -771,6 +816,25 @@ static NSString *dbRootPath = nil;
 -(NSString*)dbPathFromNamePath:(NSString*)nPath
 {
     return [dbRootPath stringByAppendingPathComponent:nPath];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+        //[super dealloc];
 }
 
 

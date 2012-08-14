@@ -25,6 +25,7 @@
 
 -(void)loadedNewsList;
 
+-(void)loadedFolderStructure:(NSArray*)structArray;
 
 @end
 
@@ -42,6 +43,8 @@
     NSString *localCursor;///<set and save to a file automatically
     NSMutableDictionary *newsNames;///<used to load news and archieved to file auto.
 //    BOOL loadingMetadata;
+    double loadingFileNumber;
+    double loadedNumber;
     
 }
 
@@ -184,9 +187,13 @@
  @see                   
  @param     nPath       path contain "yini system file",
  */
--(void)loadSysFileForNamePath:(NSString*)nPath;//nPath contain yini system file...
+-(void)loadSysFileForNamePath:(NSString*)nPath;
 
-
+/**
+	getting folder structures...
+	@param path top level folder pass @"/"
+ */
+-(void)loadStructureMetadataForDBPath:(NSString*)path;
 
 
 

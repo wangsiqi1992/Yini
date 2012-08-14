@@ -156,9 +156,9 @@ static BWNotificationCenter* sharedCenter;
     
 }
 
--(void)loading:(BOOL)yes withProgress:(float)progress uiDescription:(NSString*)description
+-(void)loading:(BOOL)yes withProgress:(CGFloat)progress uiDescription:(NSString*)description
 {
-    NSDictionary* dic = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithBool:yes], @"loading", progress, @"progress", description, @"status", nil];
+    NSDictionary* dic = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithBool:yes], @"loading", [NSNumber numberWithFloat:progress], @"progress", description, @"status", nil];
     [center postNotificationName:uiProgressBarShowNotification object:self userInfo:dic];
 }
 

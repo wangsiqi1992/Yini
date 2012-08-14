@@ -86,6 +86,9 @@
     }
     [[BWNotificationCenter sharedCenter] logOut];
     
+    UIViewController *vc = [[self storyboard] instantiateInitialViewController];
+    [[BWAppDelegate instance].window setRootViewController:vc];
+        //[[BWAppDelegate instance].window ]
 
 }
 
