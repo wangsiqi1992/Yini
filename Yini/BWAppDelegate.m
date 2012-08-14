@@ -52,6 +52,13 @@
         [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
     }
     
+    if (![[DBSession sharedSession] isLinked]) {
+        
+    }
+    else
+    {
+        [BWLord myLord];
+    }
     
     
     
@@ -66,6 +73,7 @@
         if ([[DBSession sharedSession] isLinked]) {
             NSLog(@"App linked successfully!");
             // At this point you can start making API calls
+            [BWLord myLord];
         }
         return YES;
     }

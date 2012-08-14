@@ -7,6 +7,9 @@
 //
 
 #import "BWLord.h"
+#import "BWAppDelegate.h"
+
+
 static NSString* myLordInfoSavePath;
 static NSString* myLordProfilePicSavePath;
 static NSString* myLordProfilePicDBRequestPath;
@@ -78,6 +81,18 @@ static BWLord *myLord;
     }
     [BWAppDelegate instance].dbPlayingGround = dbPlayingGround;
     
+    if (dbPlayingGround) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:myLordProfilePicSavePath])
+        {
+                //if my lord profile pic has not been down loaded...
+            [[NSFileManager defaultManager] createDirectoryAtPath:[[myLordProfilePicSavePath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
+            if (myLordProfilePicDBRequestPath)
+            {
+                    //if the root is set...
+                [[self client] loadFile:myLordProfilePicDBRequestPath intoPath:myLordProfilePicSavePath];
+            }
+        }
+    }
 
     
     
@@ -172,17 +187,20 @@ static BWLord *myLord;
     
     myLordProfilePicSavePath = [myLordProfilePicSavePath stringByAppendingPathComponent:[self.displayName stringByAppendingPathExtension:@"jpg"]];
     myLordProfilePicDBRequestPath = [myLordProfilePicDBRequestPath stringByAppendingPathComponent:[self.displayName stringByAppendingPathExtension:@"jpg"]];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:myLordProfilePicSavePath])
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:myLordProfilePicSavePath])
+//    {
+//        //if my lord profile pic has not been down loaded...
+//        [[NSFileManager defaultManager] createDirectoryAtPath:[[myLordProfilePicSavePath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
+//        if (myLordProfilePicDBRequestPath)
+//        {
+//            //if the root is set...
+//            [[self client] loadFile:myLordProfilePicDBRequestPath intoPath:myLordProfilePicSavePath];
+//        }
+//    }
+    if ([self.delegate respondsToSelector:@selector(myLordInfoLoaded)])
     {
-        //if my lord profile pic has not been down loaded...
-        [[NSFileManager defaultManager] createDirectoryAtPath:[[myLordProfilePicSavePath stringByDeletingLastPathComponent] stringByDeletingPathExtension] withIntermediateDirectories:YES attributes:nil error:nil];
-        if (myLordProfilePicDBRequestPath)
-        {
-            //if the root is set...
-            [[self client] loadFile:myLordProfilePicDBRequestPath intoPath:myLordProfilePicSavePath];
-        }
+        [[self delegate] myLordInfoLoaded];
     }
-    [[self delegate] myLordInfoLoaded];
 }
 
 - (void)restClient:(DBRestClient*)client loadAccountInfoFailedWithError:(NSError*)error

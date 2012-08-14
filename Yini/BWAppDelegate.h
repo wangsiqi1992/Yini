@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ColorSwitcher.h"
 #import <DropboxSDK/DropboxSDK.h>
+#import "WSQFilehelper.h"
+
 
 
 @interface BWAppDelegate : UIResponder <UIApplicationDelegate, DBSessionDelegate>
 {
+
 }
 
 @property (strong, nonatomic) UIWindow *window;

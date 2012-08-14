@@ -45,32 +45,35 @@
 //        self.navigationController.navigationBar. = self.navTitle;
         
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotAProfile:) name:[BWNotificationCenter userInfoNotificationName] object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotAProfile:) name:[BWNotificationCenter userInfoNotificationName] object:nil];
     
 }
 
 -(void)configureView
 {
     self.lord = [BWLord myLord];
-    if (self.lord.displayName) {
-        [self.littleWheel stopAnimating];
-        NSString *greeting = [NSString stringWithFormat:@"Hi, %@", self.lord.displayName];
-        self.statusTextLable.text = greeting;
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[self.lord profilePicLocalPath]]) {
-            self.profilPic.image = [UIImage imageWithContentsOfFile:[self.lord profilePicLocalPath]];
+    if (self.lord) {
+        if (self.lord.displayName) {
+            [self.littleWheel stopAnimating];
+            NSString *greeting = [NSString stringWithFormat:@"Hi, %@", self.lord.displayName];
+            self.statusTextLable.text = greeting;
+            if ([[NSFileManager defaultManager] fileExistsAtPath:[self.lord profilePicLocalPath]]) {
+                self.profilPic.image = [UIImage imageWithContentsOfFile:[self.lord profilePicLocalPath]];
+            }
+            else
+            {
+                self.profilPic.image = [UIImage imageNamed:@"user_1.png"];
+                self.lord.delegate = self;
+            }
         }
         else
         {
-            self.profilPic.image = [UIImage imageNamed:@"user_1.png"];
             self.lord.delegate = self;
+            [self.littleWheel startAnimating];
+            self.profilPic.image = [UIImage imageNamed:@"user_1.png"];
         }
     }
-    else
-    {
-        self.lord.delegate = self;
-        [self.littleWheel startAnimating];
-        self.profilPic.image = [UIImage imageNamed:@"user_1.png"];
-    }
+    
 }
 
 - (void)didReceiveMemoryWarning

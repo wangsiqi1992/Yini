@@ -7,6 +7,7 @@
 //
 
 #import "BWUser.h"
+#import "BWAppDelegate.h"
 
 static NSString* userInfoDirectory;
 
@@ -68,14 +69,15 @@ static NSString* userInfoDirectory;
     NSString* requestPath = [NSString stringWithFormat:@"yini system file/user info/%@.jpg", self.displayName];
     requestPath = [pg stringByAppendingPathComponent:requestPath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:np]) {
-        return np;
 
     }
-    else
-    {
-        [[self restClient] loadFile:requestPath intoPath:np];
-        return np;
-    }
+    return np;
+
+//    else
+//    {
+//        [[self restClient] loadFile:requestPath intoPath:np];
+//        return np;
+//    }
 }
 
 

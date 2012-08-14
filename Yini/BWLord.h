@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "BWUser.h"
-#import "BWAppDelegate.h"
 #import "BWNotificationCenter.h"
 
 @interface BWLord : BWUser<DBRestClientDelegate>
