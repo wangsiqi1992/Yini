@@ -119,6 +119,13 @@ static NSString *dbRootPath = nil;
     
 }
 
+/**
+	init function
+    
+        make directories
+        
+	@returns sharedHelper
+ */
 -(id)init
 {
     self = [super init];

@@ -598,8 +598,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "174"
          endingLineNumber = "174"
-         landmarkName = "@implementation WSQFileHelper"
-         landmarkType = "3">
+         landmarkName = "-init"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -663,7 +663,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "255"
          endingLineNumber = "255"
-         landmarkName = "-mediaFilePathNameFromLocalDirectory:"
+         landmarkName = "-pathNameFromDBPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -871,7 +871,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "228"
          endingLineNumber = "228"
-         landmarkName = "-sysMetadataPathForNews:"
+         landmarkName = "-directoryForNewsMediaFile:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1174,7 +1174,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BWPhotoVideoViewController.m"
@@ -1382,7 +1382,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "socioville/WSQFileHelper.m"
@@ -1391,7 +1391,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "331"
          endingLineNumber = "331"
-         landmarkName = "-selfDestory"
+         landmarkName = "-refresh"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
