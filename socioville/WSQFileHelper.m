@@ -504,7 +504,7 @@ static NSString *dbRootPath = nil;
             {
                 changeMade = TRUE;
                 if (d.metadata && !d.metadata.isDirectory) {
-                    NSLog(d.metadata.path);
+                        //NSLog(d.metadata.path);
 
                     [changedNamePath addObject:[self pathNameFromDBPath:d.metadata.path]];
                 }
@@ -708,8 +708,11 @@ static NSString *dbRootPath = nil;
     NSString *pathName = [self pathNameFromDBPath:metadata.path];
     
 //    NSString *savePath = [self directoryForNewsSysFile:name];
-    if (![[self newsNames] objectForKey:pathName]) {
+    if (![[self newsNames] objectForKey:pathName])
+    {
+        NSLog(@"Got 1\n@");
         [[self newsNames] setObject:metadata.lastModifiedDate forKey:pathName];
+        NSLog(@"Got 2");
     }
     
     [self saveNewsNames];
