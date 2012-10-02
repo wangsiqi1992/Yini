@@ -10,10 +10,10 @@
 		1702C84A15CBC01B007BADE8 /* BWSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1702C84915CBC01B007BADE8 /* BWSystemViewController.m */; };
 		1702C84E15CC6EFF007BADE8 /* BWPlayingGroundSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1702C84D15CC6EFF007BADE8 /* BWPlayingGroundSettingViewController.m */; };
 		1715696915B9579B00B2B969 /* BWMyLordInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */; };
-		1715696C15B986E700B2B969 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1715696B15B986E700B2B969 /* DropboxSDK.framework */; };
 		1715696F15BA148800B2B969 /* BWComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1715696E15BA148800B2B969 /* BWComment.m */; };
 		1715697215BAC6B600B2B969 /* random~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1715697115BAC6B600B2B969 /* random~ipad.png */; };
 		1715697415BAEF9300B2B969 /* refresh-browser.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1715697315BAEF9300B2B969 /* refresh-browser.jpeg */; };
+		172B0C421619B6F6007D5E7A /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B0C411619B6F6007D5E7A /* DropboxSDK.framework */; };
 		177A4F3115D27F98001BF130 /* BWAgeCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A4F3015D27F98001BF130 /* BWAgeCalculator.m */; };
 		177A4F3515D2874F001BF130 /* BWCommentsWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A4F3415D2874E001BF130 /* BWCommentsWriter.m */; };
 		17890B6F15B45B3300F7E997 /* BWPhotoVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17890B6E15B45B3300F7E997 /* BWPhotoVideoViewController.m */; };
@@ -278,11 +278,11 @@
 		1702C84D15CC6EFF007BADE8 /* BWPlayingGroundSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWPlayingGroundSettingViewController.m; path = ../BWPlayingGroundSettingViewController.m; sourceTree = "<group>"; };
 		1715696715B9579B00B2B969 /* BWMyLordInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMyLordInfoViewController.h; sourceTree = "<group>"; };
 		1715696815B9579B00B2B969 /* BWMyLordInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMyLordInfoViewController.m; sourceTree = "<group>"; };
-		1715696B15B986E700B2B969 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		1715696D15BA148800B2B969 /* BWComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWComment.h; sourceTree = "<group>"; };
 		1715696E15BA148800B2B969 /* BWComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWComment.m; sourceTree = "<group>"; };
 		1715697115BAC6B600B2B969 /* random~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "random~ipad.png"; sourceTree = SOURCE_ROOT; };
 		1715697315BAEF9300B2B969 /* refresh-browser.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "refresh-browser.jpeg"; sourceTree = "<group>"; };
+		172B0C411619B6F6007D5E7A /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		177A4F2F15D27F98001BF130 /* BWAgeCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAgeCalculator.h; sourceTree = "<group>"; };
 		177A4F3015D27F98001BF130 /* BWAgeCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWAgeCalculator.m; sourceTree = "<group>"; };
 		177A4F3315D2874E001BF130 /* BWCommentsWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommentsWriter.h; sourceTree = "<group>"; };
@@ -627,7 +627,7 @@
 				17FBC1A915AF054800450199 /* UIKit.framework in Frameworks */,
 				17FBC1AD15AF054800450199 /* CoreGraphics.framework in Frameworks */,
 				17FBC1AF15AF054800450199 /* CoreData.framework in Frameworks */,
-				1715696C15B986E700B2B969 /* DropboxSDK.framework in Frameworks */,
+				172B0C421619B6F6007D5E7A /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,7 +747,7 @@
 		17FBC1A715AF054800450199 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1715696B15B986E700B2B969 /* DropboxSDK.framework */,
+				172B0C411619B6F6007D5E7A /* DropboxSDK.framework */,
 				17FBC40115B0037100450199 /* CoreFoundation.framework */,
 				17FBC3FF15B0035D00450199 /* CoreImage.framework */,
 				17FBC3FC15B0034000450199 /* MediaPlayer.framework */,
@@ -1698,7 +1698,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1717,7 +1717,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
