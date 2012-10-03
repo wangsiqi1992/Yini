@@ -248,12 +248,17 @@ static NSString *dbRootPath = nil;
         rootRange = [path rangeOfString:[dbRootPath lowercaseString]];
     }
     
+    if (rootRange.location == NSNotFound) {
+        rootRange = [[path lowercaseString] rangeOfString:[dbRootPath lowercaseString]];
+    }
+    
     if (rootRange.location != NSNotFound) {
         NSString *pathName = [path substringFromIndex:rootRange.location + rootRange.length + 1];
         return pathName;
     }
     else
     {
+        NSLog(@"ERROR!!!!!!!has not found root string from the path passed.. %@", path);
         return nil;
     }
 
@@ -347,7 +352,7 @@ static NSString *dbRootPath = nil;
 
 -(void)loadThumbnailForDBPath:(NSString *)DBPath
 {
-    NSRange r = [DBPath rangeOfString:dbRootPath];
+    NSRange r = [[DBPath lowercaseString] rangeOfString:[dbRootPath lowercaseString]];
     NSString *namePath = [DBPath substringFromIndex:r.location+r.length+1];
     NSString *tPath = [self thumbnailPathForNewsNamePath:namePath];
     [manager createDirectoryAtPath:tPath withIntermediateDirectories:YES attributes:nil error:nil];

@@ -34,7 +34,8 @@
 {
     //no super init here, file contain everything...
     self = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    
+    DBMetadata *d = [NSKeyedUnarchiver unarchiveObjectWithFile:[[WSQFileHelper sharedHelper] mediaMetadataPathForNews:self.namePath]];
+    self.dbpath = d.path;
     return self;
 }
 
@@ -42,7 +43,7 @@
 {
     [super encodeWithCoder:aCoder];
     
-    [aCoder encodeObject:self.dbpath forKey:@"dbpath"];
+//    [aCoder encodeObject:self.dbpath forKey:@"dbpath"];
 //    [aCoder encodeObject:self.mediaPath forKey:@"mediaPath"];
 
     
@@ -51,9 +52,11 @@
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.dbpath = [aDecoder decodeObjectForKey:@"dbpath"];
-
+    if (self)
+    {
+//        self.dbpath = [aDecoder decodeObjectForKey:@"dbpath"];
+        DBMetadata *d = [NSKeyedUnarchiver unarchiveObjectWithFile:[[WSQFileHelper sharedHelper] mediaMetadataPathForNews:self.namePath]];
+        self.dbpath = d.path;
 
     }
     return self;

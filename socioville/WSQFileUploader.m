@@ -69,7 +69,9 @@ static NSString *dbSysPath;
 
 -(void)selfDestory
 {
-    dbMediaPath = nil;
+    if (dbMediaPath != nil) {
+        dbMediaPath = nil;
+    }
 }
 
 -(void)setDBRootPath

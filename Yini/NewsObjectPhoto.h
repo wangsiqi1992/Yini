@@ -14,6 +14,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WSQNews.h"
+#import "BWAppDelegate.h"
 
 @interface NewsObjectPhoto : WSQNews<NSCoding>
 {
@@ -22,6 +23,9 @@
 }
 
 
+/**
+	@warning    not archieved!!!!
+ */
 @property (nonatomic, strong) NSString *dbpath;
 
 

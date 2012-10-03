@@ -186,10 +186,13 @@
 
 -(void)selfDestory
 {
-    datasource = nil;
-    loader = nil;
-    
-    
+    if (datasource != nil) {
+        datasource = nil;
+    }
+
+    if (loader != nil) {
+        loader = nil;
+    }
 }
 
 #pragma mark - Table View

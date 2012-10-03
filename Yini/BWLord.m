@@ -133,9 +133,15 @@ static BWLord *myLord;
 
 -(void)selfDestory
 {
-    myLord = nil;
-    self.dbPlayingGround = nil;
-    self.displayName = nil;
+    if (myLord != nil) {
+        myLord = nil;
+    }
+    if (self.dbPlayingGround != nil) {
+        self.dbPlayingGround = nil;
+    }
+    if (self.displayName != nil) {
+        self.displayName = nil;
+    }
     
 }
 

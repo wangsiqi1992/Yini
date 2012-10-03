@@ -94,13 +94,13 @@
  */
 -(NSString*)directoryForNewsMediaFile:(NSString *)name;
 
-/** Get the original db MEDIA metadata path, used for init a WSQNews.
+/** Get the original db SYS metadata path, used for init a WSQNews.
  @param     name    can be both media or sys name path
  @return    string  full local path, ending plist
  */
 -(NSString*)sysMetadataPathForNews:(NSString*)name;
 
-/** Get the Original db SYS metadata path, userd for uploading rev
+/** Get the Original db MEDIA metadata path, used for uploading rev
  @param     name    Can be both plist file("yini system file/....plist") or media file("...jpg")
  @return    string  full local path, ending plist("<DP>/News/metadata/yini system file")
  */

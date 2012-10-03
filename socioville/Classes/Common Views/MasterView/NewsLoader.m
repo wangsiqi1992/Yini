@@ -131,9 +131,18 @@ static NewsLoader* _sharedLoader = nil;
 
 -(void)selfDestory
 {
-    list = nil;
-    manager = nil;
-    uploader = nil;
+    if (list != nil) {
+        list = nil;
+
+    }
+    if (manager != nil) {
+        manager = nil;
+
+    }
+    if (uploader != nil) {
+        uploader = nil;
+
+    }
     
     
 }
