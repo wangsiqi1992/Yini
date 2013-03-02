@@ -31,6 +31,7 @@
     BOOL checkForRefresh;
     BOOL savingNewsName;
     BOOL savingComment;
+    BOOL shouldStartCommenting;
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheelForNewsNameTextField;
@@ -45,4 +46,5 @@
 @property(nonatomic, readonly) UIPullToReloadHeaderView *pullToReloadHeaderView;
 
 -(void)initWithDetailedObject:(id)dOb;
+-(void)startComments;
 @end

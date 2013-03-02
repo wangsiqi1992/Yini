@@ -261,6 +261,16 @@
             [pvc initWithDetailedObject:n];
         }
     }
+    else if ([[segue identifier] isEqualToString:@"comment"])
+    {
+        if([segue destinationViewController])
+        {
+            BWPhotoVideoViewController *pvc = (BWPhotoVideoViewController*) [segue destinationViewController];
+            WSQNews *n = [datasource objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+            [pvc initWithDetailedObject:n];
+            [pvc startComments];
+        }
+    }
 }
 
 
@@ -310,7 +320,10 @@
     gotAProfilePic = TRUE;
 }
 
-
+-(void)commentButtonDidPressed
+{
+    //todo!
+}
 
 
 

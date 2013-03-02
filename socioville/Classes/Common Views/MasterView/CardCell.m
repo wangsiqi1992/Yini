@@ -11,7 +11,7 @@
 
 @implementation CardCell
 
-@synthesize playImageView, commentButton, likeButton, label, userPic, majorImage, littleWheel;
+@synthesize playImageView, commentButton, label, userPic, majorImage, littleWheel;//likeButton, 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -31,8 +31,8 @@
     UIImage* commentBg = [[BWAppDelegate instance].colorSwitcher getImageWithName:@"fb_comment.png"];
     [commentButton setImage:commentBg forState:UIControlStateNormal];
     
-    UIImage* likeBG = [[BWAppDelegate instance].colorSwitcher getImageWithName:@"fb_like.png"];
-    [likeButton setImage:likeBG forState:UIControlStateNormal];
+//    UIImage* likeBG = [[BWAppDelegate instance].colorSwitcher getImageWithName:@"fb_like.png"];
+//    [likeButton setImage:likeBG forState:UIControlStateNormal];
     
     [playImageView setImage:[[BWAppDelegate instance].colorSwitcher getImageWithName:@"play-big.png"]];
     // Configure the view for the selected state    
@@ -82,7 +82,6 @@
     return self;
     
 }
-
 
 
 

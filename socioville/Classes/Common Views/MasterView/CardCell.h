@@ -11,15 +11,16 @@
 #import "NewsLoader.h"
 #import "BWImageStroe.h"
 
-
-
 @interface CardCell : UITableViewCell
+{
+    
+}
 
 @property (nonatomic, weak) IBOutlet UIImageView* playImageView;
 
 @property (nonatomic, weak) IBOutlet UIButton* commentButton;
 
-@property (nonatomic, weak) IBOutlet UIButton* likeButton;
+//@property (nonatomic, weak) IBOutlet UIButton* likeButton;
 
 @property (nonatomic, weak) IBOutlet UILabel *label;
 
@@ -32,5 +33,7 @@
 //-(void)setLabelText:(NSString *)label withUserPic: (UIImage*)pic andMajorImage: (UIImage*)mPic;
 
 -(id)initWithNews:(id)news;
+
+
 
 @end

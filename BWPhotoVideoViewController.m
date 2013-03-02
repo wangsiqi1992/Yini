@@ -83,6 +83,8 @@
 //    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enterFullScreenMode)];
 //    [pgr setNumberOfTapsRequired:2];
 //    [self.mainImageView addGestureRecognizer:pgr];
+
+    
 }
 
 
@@ -172,6 +174,10 @@
         }
 
     }
+    if (shouldStartCommenting) {
+        [self.commentTextField becomeFirstResponder];
+        
+    }
 }
 
 -(void)returnToHome
@@ -204,6 +210,12 @@
 
 }
 
+-(void)startComments
+{
+    shouldStartCommenting = TRUE;
+    [self configureViewForDetailObject];
+}
+
 
 
 
@@ -218,6 +230,7 @@
 {
     activeTextField = nil;
     [self.view setGestureRecognizers:nil];
+    shouldStartCommenting = FALSE;
     
 }
 
