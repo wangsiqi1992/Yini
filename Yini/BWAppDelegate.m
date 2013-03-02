@@ -24,6 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.colorSwitcher = [[ColorSwitcher alloc] init];
+    [self.colorSwitcher configureAppWithHue:0.8992 andSaturation:2];
+    
     
     [self customizeGlobalTheme];
     
