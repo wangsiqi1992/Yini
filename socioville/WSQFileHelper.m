@@ -332,6 +332,7 @@ static NSString *dbRootPath = nil;
 -(void)refresh
 {
     [[self restClient] loadDelta:[self cursor]];
+//    [[self restClient] loadMetadata:@""];
 
 
 
