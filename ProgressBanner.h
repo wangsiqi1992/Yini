@@ -12,9 +12,7 @@
 
 @interface ProgressBanner : UIView
 
-@property (nonatomic, strong) UILabel* statusLable;
 @property (nonatomic, strong) UIActivityIndicatorView* littleWheel;
-@property (nonatomic, strong) ADVPopoverProgressBar *progressBar;
 
 
 @end
