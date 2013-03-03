@@ -31,15 +31,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addNewPhoto:)];
+    //UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addNewPhoto:)];
     
-    [photoImageView addGestureRecognizer:gr];
+    //[photoImageView addGestureRecognizer:gr];
     
     selectedImage = nil;
     newsName = nil;
 
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldResignFirstResp)];
-    [self.navigationController.view addGestureRecognizer:tgr];
+    [self.photoImageView addGestureRecognizer:tgr];
     fistTime = YES;
     
 }
@@ -107,11 +107,11 @@
 
 
 
-- (void)addNewPhoto:(UITapGestureRecognizer*)sender
-{
-    [self startPicker];
-    
-}
+//- (void)addNewPhoto:(UITapGestureRecognizer*)sender
+//{
+//    [self startPicker];
+//    
+//}
 
 -(void)startPicker
 {
@@ -161,4 +161,7 @@
 
 
 
+- (IBAction)pick:(id)sender {
+    [self startPicker];
+}
 @end

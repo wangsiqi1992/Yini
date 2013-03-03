@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *littleWheel;
+- (IBAction)pick:(id)sender;
 
 @end
