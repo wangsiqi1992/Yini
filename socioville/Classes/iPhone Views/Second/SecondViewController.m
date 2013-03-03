@@ -30,7 +30,7 @@
 {
 	[super viewWillAppear:animated];
 	
-	self.title = NSLocalizedString(@"Cards View", @"Cards View");
+	self.title = NSLocalizedString(@"Home", @"Home");
 	
     UINavigationController *nav = self.navigationController;
     UIViewController *controller = nav.parentViewController; // MainViewController : ZUUIRevealController

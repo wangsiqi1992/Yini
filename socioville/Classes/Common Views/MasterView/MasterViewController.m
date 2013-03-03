@@ -95,7 +95,7 @@
             }
             
             [self startLoading];
-            self.title = NSLocalizedString(@"Cards View", @"Cards View");
+            self.title = NSLocalizedString(@"Home", @"Home");
             
             UINavigationController *nav = self.navigationController;
             MainViewController *controller = (MainViewController*)nav.parentViewController; // MainViewController : ZUUIRevealController
