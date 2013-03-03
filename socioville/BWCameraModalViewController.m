@@ -40,7 +40,18 @@
 
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldResignFirstResp)];
     [self.navigationController.view addGestureRecognizer:tgr];
+    fistTime = YES;
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (fistTime) {
+        [self startPicker];
+        fistTime = NO;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,12 +109,18 @@
 
 - (void)addNewPhoto:(UITapGestureRecognizer*)sender
 {
+    [self startPicker];
+    
+}
+
+-(void)startPicker
+{
     UIImagePickerController *pc = [[UIImagePickerController alloc]init];
     [pc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     pc.delegate = self;
     [self presentModalViewController:pc animated:YES];
-    
 }
+
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {

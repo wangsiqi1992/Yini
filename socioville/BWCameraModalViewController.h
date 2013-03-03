@@ -13,6 +13,7 @@
 {
     UIImage *selectedImage;
     NSString *newsName;
+    BOOL    fistTime;
 
 }
 - (IBAction)doneButton:(id)sender;
