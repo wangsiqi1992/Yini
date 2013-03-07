@@ -332,11 +332,6 @@ static NSString *dbRootPath = nil;
 -(void)refresh
 {
     [[self restClient] loadDelta:[self cursor]];
-//    [[self restClient] loadMetadata:@""];
-
-
-
-    
 }
 
 -(void)selfDestory
@@ -710,7 +705,6 @@ static NSString *dbRootPath = nil;
  */
 -(BOOL)putIntoNewsNames:(DBMetadata *)metadata
 {
-    
     NSString *pathName = [self pathNameFromDBPath:metadata.path];
     
 //    NSString *savePath = [self directoryForNewsSysFile:name];
@@ -802,7 +796,6 @@ static NSString *dbRootPath = nil;
 
 -(NSMutableDictionary*)newsNames
 {
-    
     if (!newsNames) {
         newsNames = [NSKeyedUnarchiver unarchiveObjectWithFile:[self newsListPath]];
     }
